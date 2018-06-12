@@ -3,11 +3,13 @@ import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadCredentials, saveCredentials} from './local-storage';
 import currentUserReducer from './reducers/user-reducer';
+import ticketmasterReducer from './reducers/ticketmaster-reducer';
 import {setCredentials} from './actions/user-actions';
 
 const store = createStore(combineReducers({
     form: formReducer,
     currentUser: currentUserReducer,
+    ticketmaster: ticketmasterReducer
 }), applyMiddleware(thunk));
 
 // Hydrate the credentials from localStorage if they exist
