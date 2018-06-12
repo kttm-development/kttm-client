@@ -10,7 +10,7 @@ const store = createStore(combineReducers({
     form: formReducer,
     currentUser: currentUserReducer,
     ticketmaster: ticketmasterReducer
-}), applyMiddleware(thunk));
+}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk));
 
 // Hydrate the credentials from localStorage if they exist
 const credentials = loadCredentials();
