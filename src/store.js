@@ -2,7 +2,7 @@ import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadCredentials, saveCredentials} from './local-storage';
-import currentUserReducer from './reducer';
+import currentUserReducer from './reducers/user-reducer';
 import {setCredentials} from './actions/user-actions';
 
 const store = createStore(combineReducers({

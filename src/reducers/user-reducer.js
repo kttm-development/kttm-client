@@ -2,7 +2,7 @@ import {
     FETCH_CURRENT_USER_SUCCESS,
     SET_CREDENTIALS,
     SET_LOGGED_IN
-} from './actions/user-actions';
+} from '../actions/user-actions';
 
 const initialState = {
     loggedIn: false
