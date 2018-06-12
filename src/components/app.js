@@ -1,43 +1,59 @@
 import React from 'react';
-import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
-import RegistrationForm from './registration-form';
-import {fetchCurrentUser, setLoggedIn} from '../actions';
+import RegistrationPage from './registration-page';
+import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
-    componentDidMount() {
-        if (this.props.hasCredentials) {
-            // Check that the credentials are right by accessing the endpoint
-            this.props.dispatch(fetchCurrentUser()).then(() =>
-                this.props.dispatch(setLoggedIn(true))
-            );
+    componentDidUpdate(prevProps) {
+        if (!prevProps.loggedIn && this.props.loggedIn) {
+            // When we are logged in, refresh the auth token periodically
+            this.startPeriodicRefresh();
+        } else if (prevProps.loggedIn && !this.props.loggedIn) {
+            // Stop refreshing when we log out
+            this.stopPeriodicRefresh();
         }
     }
+
+    componentWillUnmount() {
+        this.stopPeriodicRefresh();
+    }
+
+    startPeriodicRefresh() {
+        this.refreshInterval = setInterval(
+            () => this.props.dispatch(refreshAuthToken()),
+            60 * 60 * 1000 // One hour
+        );
+    }
+
+    stopPeriodicRefresh() {
+        if (!this.refreshInterval) {
+            return;
+        }
+
+        clearInterval(this.refreshInterval);
+    }
+
     render() {
         return (
             <div className="app">
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationForm} />
+                <Route exact path="/register" component={RegistrationPage} />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    hasCredentials: (
-        state.currentUser.username !== undefined &&
-        state.currentUser.password !== undefined
-    )
+    hasAuthToken: state.auth.authToken !== null,
+    loggedIn: state.auth.currentUser !== null
 });
 
-export default compose(
-    withRouter,
-    connect(mapStateToProps)
-)(App);
+// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
+export default withRouter(connect(mapStateToProps)(App));

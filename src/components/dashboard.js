@@ -1,28 +1,35 @@
 import React from 'react';
-import {compose} from 'redux';
 import {connect} from 'react-redux';
-import {loginRequired} from './login-required';
+import requiresLogin from './requires-login';
+import {fetchProtectedData} from '../actions/protected-data';
 
-export function Dashboard(props) {
-    return (
-        <div className="dashboard">
-            <div className="dashboard-username">
-                Username: {props.username}
+export class Dashboard extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(fetchProtectedData());
+    }
+
+    render() {
+        return (
+            <div className="dashboard">
+                <div className="dashboard-username">
+                    Username: {this.props.username}
+                </div>
+                <div className="dashboard-name">Name: {this.props.name}</div>
+                <div className="dashboard-protected-data">
+                    Protected data: {this.props.protectedData}
+                </div>
             </div>
-            <div className="dashboard-name">
-                Name: {props.name}
-            </div>
-        </div>
-    );
+        );
+    }
 }
 
-const mapStateToProps = state => ({
-    username: state.currentUser.username,
-    name: `${state.currentUser.firstName} ${state.currentUser.lastName}`
-});
+const mapStateToProps = state => {
+    const {currentUser} = state.auth;
+    return {
+        username: state.auth.currentUser.username,
+        name: `${currentUser.firstName} ${currentUser.lastName}`,
+        protectedData: state.protectedData.data
+    };
+};
 
-export default compose(
-    loginRequired(state => state.currentUser.loggedIn, '/'),
-    connect(mapStateToProps)
-)(Dashboard);
-
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));

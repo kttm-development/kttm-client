@@ -1,20 +1,15 @@
-export const loadCredentials = () => {
-    const username = sessionStorage.getItem('username');
-    const password = sessionStorage.getItem('password');
-
-    if (username && password) {
-        return {username, password};
-    }
-
-    return null;
+export const loadAuthToken = () => {
+    return localStorage.getItem('authToken');
 };
 
-export const saveCredentials = (username, password) => {
-    sessionStorage.setItem('username', username);
-    sessionStorage.setItem('password', password);
+export const saveAuthToken = authToken => {
+    try {
+        localStorage.setItem('authToken', authToken);
+    } catch (e) {}
 };
 
-export const clearCredentials = () => {
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('password');
+export const clearAuthToken = () => {
+    try {
+        localStorage.removeItem('authToken');
+    } catch (e) {}
 };
