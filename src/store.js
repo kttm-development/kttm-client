@@ -3,7 +3,7 @@ import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadCredentials, saveCredentials} from './local-storage';
 import currentUserReducer from './reducer';
-import {setCredentials} from './actions';
+import {setCredentials} from './actions/user-actions';
 
 const store = createStore(combineReducers({
     form: formReducer,

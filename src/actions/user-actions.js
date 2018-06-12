@@ -1,4 +1,4 @@
-import {API_BASE_URL} from './config';
+import {API_BASE_URL} from '../config';
 import {SubmissionError} from 'redux-form';
 
 export const SET_CREDENTIALS = 'SET_CREDENTIALS';

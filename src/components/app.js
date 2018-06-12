@@ -7,7 +7,7 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationForm from './registration-form';
-import {fetchCurrentUser, setLoggedIn} from '../actions';
+import {fetchCurrentUser, setLoggedIn} from '../actions/user-actions';
 
 export class App extends React.Component {
     componentDidMount() {

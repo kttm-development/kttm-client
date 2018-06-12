@@ -3,7 +3,7 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {Redirect} from 'react-router-dom';
-import {registerUser, setCredentials, setLoggedIn, setUser} from '../actions';
+import {registerUser, setCredentials, setLoggedIn, setUser} from '../actions/user-actions';
 import Input from './input';
 import {required, nonEmpty, matches} from '../validators'
 
