@@ -13,7 +13,7 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer,
         ticketmaster: ticketmasterReducer
-    }),
+    }), window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION(),
     applyMiddleware(thunk)
 );
 
