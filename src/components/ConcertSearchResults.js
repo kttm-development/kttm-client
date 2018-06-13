@@ -32,7 +32,7 @@ class ConcertSearchResults extends React.Component {
         //     <div className="section-container">
         //       <h1 className="page-title">Concerts</h1>
         //       {posts.map(element => (
-        //         <PostItem {...element} key={String(element.id)} />
+        //         <ConcertSearchItem {...element} key={String(element.id)} />
         //       ))}
         //     </div>
         //   );

@@ -1,21 +1,33 @@
 import React from 'react';
 
-export default function PostItem({
+export default function ConcertSearchItem({
   image,
-  title,
+  name,
+  venue,
+  date,
+  time,
+  website,
   description,
 }) {
   return (
-    <div className="posts-container row">
-      <div className="instrument-details">
+    <div className="concerts-container row">
+      <div className="concert-details">
         <div className="pic-info col-4">
-          <img src={image} alt="instrument for sale" className="post-image" />
+          <img src={image} alt="concert" className="concert-image" />
         </div>
-        <div className="instrument-about col-8">
-          <label className="info-label">Title:</label>
-          <label className="instrument-label">{title}</label>
+        <div className="concert-about col-8">
+          <label className="info-label">Name:</label>
+          <label className="concert-label">{name}</label>
+          <label className="info-label">Venue:</label>
+          <label className="concert-label">{venue}</label>
+          <label className="info-label">Date:</label>
+          <label className="concert-label">{date}</label>
+          <label className="info-label">Time:</label>
+          <label className="concert-label">{time}</label>
+          <label className="info-label">Website:</label>
+          <label className="concert-label">{website}</label>
           <label className="info-label">Description:</label>
-          <label className="instrument-label">{description}</label>
+          <label className="concert-label">{description}</label>
         </div>
       </div>
     </div>
