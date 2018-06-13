@@ -12,14 +12,13 @@ export const ticketmasterInfoSuccess = concerts => ({
     concerts
 });
 
-export const ticketmasterInfo = (location, genre) => dispatch => {
+export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
     dispatch(sendingTicketmasterInfo)
-    return fetch(`${API_BASE_URL}/ticketmaster`, {
+    return fetch(`${API_BASE_URL}/ticketmaster/location/genre`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-        },
-        body: JSON.stringify({location, genre})
+        }
     }).then(res => {
         if (!res.ok) {
             if (res.headers.has('content-type') &&
