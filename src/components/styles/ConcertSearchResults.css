@@ -1,10 +1,10 @@
-.concert-search {
+.search-results {
     display: block;
     border: 2px solid black;
     border-radius: 8px;
     padding: 20px;
-    width: 75%;
-    height: 500px;
+    width: 85%;
+    height: 175px;
     margin: auto;
     margin-top: 50px;
 }

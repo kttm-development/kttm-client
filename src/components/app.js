@@ -6,7 +6,7 @@ import './styles/App.css'
 import HeaderBar from './HeaderBar';
 import Footer from './Footer'
 import LandingPage from './LandingPage';
-import ConcertSearchPage from './ConcertSearchForm';
+import ConcertSearchPage from './ConcertSearchPage';
 import Dashboard from './Dashboard';
 import RegistrationPage from './RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
