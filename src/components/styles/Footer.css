@@ -23,6 +23,10 @@
     padding: 35px 20px;
 }
 
+.footer-item:hover {
+    text-decoration: underline;
+}
+
 .footer-logo {
     font-family: 'Ruda', sans-serif;
     color: white;
