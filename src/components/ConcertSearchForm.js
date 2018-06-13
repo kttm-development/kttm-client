@@ -38,9 +38,6 @@ export class ConcertSearchForm extends React.Component {
     _handleSubmit = (values, bag) => {
         console.log(values)
         this.props.dispatch(fetchTicketmasterConcerts(values))
-            .then(() => {
-                this.props.redirect();
-            })
             .catch(err => {
                 bag.setSubmitting(false);
                 this.setState({ error: true });
@@ -67,8 +64,6 @@ export class ConcertSearchForm extends React.Component {
                             .required('Zipcode is required'),
                         radius: Yup.string()
                             .required("Radius is required"),
-                            // genre: Yup.string()
-                            //     .required("Genre is required"),
                     })}
                     initialValues={{
                         zipcode: '',
@@ -80,6 +75,7 @@ export class ConcertSearchForm extends React.Component {
                         handleSubmit,
                         isSubmitting,
                         handleChange,
+                        setFieldValue,
                         errors,
                         touched,
                         handleBlur,
@@ -91,7 +87,7 @@ export class ConcertSearchForm extends React.Component {
                                     {FORMS.map(el => (
                                         <Input
                                             {...el}
-                                              key={el.name}
+                                            key={el.name}
                                             handleChange={handleChange}
                                             handleBlur={handleBlur}
                                             className="single-input"
@@ -102,6 +98,8 @@ export class ConcertSearchForm extends React.Component {
                                     {SELECT.map(el => (
                                         <Select
                                             {...el}
+                                            handleChange={setFieldValue}
+                                            handleBlur={handleBlur}
                                             className="dropdown"
                                             error={errors[el.name]}
                                             touched={touched[el.name]}
