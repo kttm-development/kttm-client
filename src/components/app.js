@@ -7,7 +7,7 @@ import HeaderBar from './HeaderBar';
 import Footer from './Footer'
 import LandingPage from './LandingPage';
 import ConcertSearchPage from './ConcertSearchPage';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard';
 import RegistrationPage from './RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
 
