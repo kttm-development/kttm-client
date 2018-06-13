@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 

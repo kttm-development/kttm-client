@@ -2,7 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
-import LoginForm from './login-form';
+import LoginForm from './LoginForm';
+
+// just temporary to see static components
+
+import HeaderBar from './HeaderBar'
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
@@ -12,9 +16,10 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Welcome to Foo App</h2>
+            <HeaderBar />
+            {/* <h2>Welcome to Foo App</h2>
             <LoginForm />
-            <Link to="/register">Register</Link>
+            <Link to="/register">Register</Link> */}
         </div>
     );
 }
