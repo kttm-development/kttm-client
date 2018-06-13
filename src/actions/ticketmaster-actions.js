@@ -1,5 +1,4 @@
 import {API_BASE_URL} from '../config';
-import {SubmissionError} from 'redux-form';
 
 export const SENDING_TICKETMASTER_INFO = 'SENDING_TICKETMASTER_INFO';
 export const sendingTicketmasterInfo = user => ({

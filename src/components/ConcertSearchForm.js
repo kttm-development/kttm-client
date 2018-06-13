@@ -7,6 +7,7 @@ import { fetchTicketmasterConcerts } from '../actions/ticketmaster-actions';
 import Input from '../commons/Input';
 import Select from '../commons/Select'
 import './styles/ConcertSearchForm.css';
+import { fetchGenres } from '../actions/genre-actions';
 
 const FORMS = [
     {
@@ -26,6 +27,10 @@ const SELECT = [
 ]
 
 export class ConcertSearchForm extends React.Component {
+    componentDidMount(){
+        this.props.dispatch(fetchGenres())
+    }
+    
     state = {
         error: false,
     };
