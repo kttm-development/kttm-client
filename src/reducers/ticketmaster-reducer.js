@@ -1,6 +1,7 @@
 import {
     SENDING_TICKETMASTER_INFO,
-    TICKETMASTER_INFO_SUCCESS
+    TICKETMASTER_INFO_SUCCESS,
+    TICKETMASTER_INFO_ERROR
 } from '../actions/ticketmaster-actions';
 
 const initialState = {
@@ -33,13 +34,21 @@ const initialState = {
 export default function reducer(state=initialState, action) {
     if (action.type === SENDING_TICKETMASTER_INFO) {
         return Object.assign({}, state, {
-            loading: true
+            loading: true,
+            error: null
         });
     }
     else if (action.type === TICKETMASTER_INFO_SUCCESS) {
         return Object.assign({}, state, {
             concerts: action.concerts,
-            loading: false
+            loading: false,
+            error:null
+        });
+    }
+    else if (action.type === TICKETMASTER_INFO_ERROR) {
+        return Object.assign({}, state, {
+            loading: false,
+            error: action.error
         });
     }
     

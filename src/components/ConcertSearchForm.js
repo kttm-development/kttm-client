@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
-import { ticketmasterInfo } from '../actions/ticketmaster-actions';
+import { fetchTicketmasterConcerts } from '../actions/ticketmaster-actions';
 import Input from '../commons/Input';
 import Select from '../commons/Select'
 import './styles/ConcertSearchForm.css';
@@ -31,7 +31,8 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = (values, bag) => {
-        ticketmasterInfo.createPosts(values)
+        console.log(values)
+        this.props.dispatch(fetchTicketmasterConcerts(values))
             .then(() => {
                 this.props.redirect();
             })
@@ -55,14 +56,14 @@ export class ConcertSearchForm extends React.Component {
             <div className="form-container">
                 <Formik
                     validationSchema={Yup.object().shape({
-                        zipcode: Yup.number()
+                        zipcode: Yup.string()
                             .min(5)
                             .max(5)
                             .required('Zipcode is required'),
-                        radius: Yup.number()
+                        radius: Yup.string()
                             .required("Radius is required"),
-                        genre: Yup.string()
-                            .required("Genre is required"),
+                            // genre: Yup.string()
+                            //     .required("Genre is required"),
                     })}
                     initialValues={{
                         zipcode: '',
@@ -85,7 +86,7 @@ export class ConcertSearchForm extends React.Component {
                                     {FORMS.map(el => (
                                         <Input
                                             {...el}
-                                            //   key={el.name}
+                                              key={el.name}
                                             handleChange={handleChange}
                                             handleBlur={handleBlur}
                                             className="single-input"
