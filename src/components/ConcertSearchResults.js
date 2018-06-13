@@ -1,16 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
-
 import './styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
-import { fetchTicketmasterConcerts } from '../actions/ticketmaster-actions';
 
 class ConcertSearchResults extends React.Component {
-    // componentDidMount() {
-    //     this.props.dispatch(fetchConcerts());
-    // }
-
     render() {
 
         if (this.props.loading===true) {
@@ -43,11 +37,7 @@ class ConcertSearchResults extends React.Component {
               ))}
             </div>
           );
-        // return (
-        //     <div className="col-8">
-        //         <span className="search-results">Placeholder for search results</span>
-        //     </div>
-        // );
+        
     }
 }
 

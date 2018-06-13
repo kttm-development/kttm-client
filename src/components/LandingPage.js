@@ -6,7 +6,7 @@ import LoginForm from './LoginForm';
 
 // just temporary to see static components
 
-import HeaderBar from './HeaderBar'
+// import HeaderBar from './HeaderBar'
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard

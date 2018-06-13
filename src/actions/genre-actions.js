@@ -1,5 +1,4 @@
 import {API_BASE_URL} from '../config';
-import {SubmissionError} from 'redux-form';
 
 export const FETCH_GENRE_SUCCESS = 'FETCH_GENRE_SUCCESS';
 export const fetchGenreSuccess = genres => ({
@@ -23,6 +22,7 @@ export const fetchGenres = () => dispatch => {
         return res.json();
     })
     .then(genres => {
+        console.log(genres)
         dispatch(fetchGenreSuccess(genres));
     })
     .catch(err => dispatch(fetchGenreError(err.message)));
