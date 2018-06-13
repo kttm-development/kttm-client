@@ -1,0 +1,46 @@
+.content {
+    min-height: calc(100vh - 70px);
+}
+
+.footer, .footer-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer {
+    border-top: 2px solid black;
+    background-color: #42A4F8;
+    height: 150px;
+}
+
+.footer-items, .footer-item {
+    font-family: 'Ruda', sans-serif;
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    font-family: 'Ruda', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: 700;
+    padding-top: 40px;
+}
+
+.authors {
+    font-family: 'Ruda', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+.authors-left, .authors-right {
+    display: block;
+    padding: 0px 20px;
+}

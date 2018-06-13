@@ -16,7 +16,6 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <HeaderBar />
             {/* <h2>Welcome to Foo App</h2>
             <LoginForm />
             <Link to="/register">Register</Link> */}
