@@ -7,9 +7,10 @@ export default function ConcertSearchItem({
   date,
   time,
   website,
-  description,
+  // description
 }) {
   return (
+    <span className="search-results">
     <div className="concerts-container row">
       <div className="concert-details">
         <div className="pic-info col-4">
@@ -26,10 +27,11 @@ export default function ConcertSearchItem({
           <label className="concert-label">{time}</label>
           <label className="info-label">Website:</label>
           <label className="concert-label">{website}</label>
-          <label className="info-label">Description:</label>
-          <label className="concert-label">{description}</label>
+          {/* <label className="info-label">Description:</label>
+          <label className="concert-label">{description}</label> */}
         </div>
       </div>
     </div>
+    </span>
   );
 }

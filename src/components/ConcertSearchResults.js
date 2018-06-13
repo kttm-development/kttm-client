@@ -4,7 +4,7 @@ import { RiseLoader } from 'react-spinners';
 
 import './styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
-// import { fetchConcerts } from '../actions/ticketmaster-actions';
+import { fetchTicketmasterConcerts } from '../actions/ticketmaster-actions';
 
 class ConcertSearchResults extends React.Component {
     // componentDidMount() {
@@ -12,40 +12,49 @@ class ConcertSearchResults extends React.Component {
     // }
 
     render() {
-        // const { loading, error, concerts } = this.props.postsState;
-        // if (loading) {
-        //     return (
-        //       <div className="loading-wrapper">
-        //         <RiseLoader />
-        //       </div>
-        //     );
-        //   }
+
+        if (this.props.loading===true) {
+            return (
+              <div className="loading-wrapper">
+                <RiseLoader />
+              </div>
+            );
+          }
       
-        //   if (error) {
-        //     return (
-        //       <div>
-        //         <h1>something wrong: {error.message}</h1>
-        //       </div>
-        //     );
-        //   }
-        //   return (
-        //     <div className="section-container">
-        //       <h1 className="page-title">Concerts</h1>
-        //       {posts.map(element => (
-        //         <ConcertSearchItem {...element} key={String(element.id)} />
-        //       ))}
-        //     </div>
-        //   );
-        return (
-            <div className="col-8">
-                <span className="search-results">Placeholder for search results</span>
+          if (this.props.error) {
+            return (
+              <div>
+                <h1>Something Went Wrong: {this.props.error}</h1>
+              </div>
+            );
+          }
+
+          if(!this.props.concerts){
+              return(
+              <div className="col-8">
+                <span className="search-results">Search For Concerts Near You</span>
+              </div>)
+          }
+          return (
+            <div className="section-container">
+              <h1 className="page-title">Concerts</h1>
+              {this.props.concerts.map(obj => (
+                <ConcertSearchItem {...obj} key={String(obj .id)} />
+              ))}
             </div>
-        );
+          );
+        // return (
+        //     <div className="col-8">
+        //         <span className="search-results">Placeholder for search results</span>
+        //     </div>
+        // );
     }
 }
 
 const mapStateToProps = state => ({
-    concertsState: state.concert,
+    concerts: state.ticketmaster.concerts,
+    loading: state.ticketmaster.concerts,
+    error: state.ticketmaster.error
   });
   
   export default connect(mapStateToProps)(ConcertSearchResults);
