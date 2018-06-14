@@ -17,7 +17,6 @@ const initialState = {
             venue: 'your moms',
             date: '6/14/2018',
             time: '11:00pm Eastern',
-            website: 'ticketmaster.com'
         },
         {
             name:'test2',
@@ -26,7 +25,6 @@ const initialState = {
             venue: 'the hideaway',
             date: '8/24/2018',
             time: '8:00pm Eastern',
-            website: 'ticketmaster.com'
         },
     ]
 };

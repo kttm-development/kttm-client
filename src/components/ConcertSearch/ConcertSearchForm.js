@@ -13,13 +13,13 @@ import { fetchLocations } from '../../actions/location-actions';
 
 const FORMS = [
     {
-        name: 'zipcode',
-        placeholder: 'Your Zipcode',
+        name: 'location',
+        placeholder: 'Your Location',
     },
-    {
-        name: 'radius',
-        placeholder: 'Radius',
-    },
+    // {
+    //     name: 'radius',
+    //     placeholder: 'Radius',
+    // },
 ];
 
 const SELECT = [
@@ -39,8 +39,8 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = (values, bag) => {
-        console.log(values)
-        this.props.dispatch(fetchTicketmasterConcerts(values))
+        console.log(values.location, values.genre)
+        this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre))
             .catch(err => {
                 bag.setSubmitting(false);
                 this.setState({ error: true });
@@ -61,17 +61,17 @@ export class ConcertSearchForm extends React.Component {
             <div className="form-container">
                 <Formik
                     validationSchema={Yup.object().shape({
-                        zipcode: Yup.string()
-                            .min(5)
-                            .max(5)
-                            .required('Zipcode is required'),
-                        radius: Yup.string()
-                            .required("Radius is required"),
+                        location: Yup.string()
+                            // .min(5)
+                            // .max(5)
+                            .required('Location is required'),
+                        // radius: Yup.string()
+                        //     .required("Radius is required"),
                     })}
                     initialValues={{
-                        zipcode: '',
-                        radius: '',
-                        genre: 'test1',
+                        location: '',
+                        // radius: '',
+                        genre: 'Alternative',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({

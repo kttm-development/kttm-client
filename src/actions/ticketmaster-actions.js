@@ -19,8 +19,8 @@ export const ticketmasterInfoError = error => ({
 
 export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
     dispatch(sendingTicketmasterInfo)
-    return fetch(`${API_BASE_URL}/ticketmaster/location/genre`, {
-        method: 'POST',
+    return fetch(`${API_BASE_URL}/concerts/${location}/${genre}`, {
+        method: 'GET',
         headers: {
             'content-type': 'application/json',
         }
