@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GenreAdder({
+export default function GenreAdder( {
  genre
 }) {
   return (

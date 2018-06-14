@@ -59,8 +59,8 @@ export class ConcertSearchForm extends React.Component {
                 <Formik
                     validationSchema={Yup.object().shape({
                         location: Yup.string()
-                            .min(5)
-                            .max(5)
+                            // .min(5)
+                            // .max(5)
                             .required('Location is required'),
                         // radius: Yup.string()
                         //     .required("Radius is required"),
@@ -68,7 +68,7 @@ export class ConcertSearchForm extends React.Component {
                     initialValues={{
                         location: '',
                         // radius: '',
-                        genre: 'test1',
+                        genre: 'Alternative',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({

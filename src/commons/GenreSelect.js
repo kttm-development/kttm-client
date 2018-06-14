@@ -12,9 +12,9 @@ export function GenreSelect(props,{
   return (
     <React.Fragment>
       <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
-        {props.genres.map(obj => (
-                <GenreAdder {...obj} />
-              ))}
+        {props.genres.map((obj) => (
+                <GenreAdder {...obj}/>
+        ))}
       </select>
       {!!error && touched && <div className="error-messages">{error}</div>}
     </React.Fragment>
