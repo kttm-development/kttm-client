@@ -3,11 +3,11 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
-import { fetchTicketmasterConcerts } from '../actions/ticketmaster-actions';
-import Input from '../commons/Input';
-import Select from '../commons/Select'
-import './styles/ConcertSearchForm.css';
-import { fetchGenres } from '../actions/genre-actions';
+import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
+import SearchInput from '../../commons/SearchInput';
+import GenreSelect from '../../commons/GenreSelect'
+import '../styles/ConcertSearchForm.css';
+import { fetchGenres } from '../../actions/genre-actions';
 
 const FORMS = [
     {
@@ -68,12 +68,11 @@ export class ConcertSearchForm extends React.Component {
                     initialValues={{
                         zipcode: '',
                         radius: '',
-                        genre: '',
+                        genre: 'test1',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({
                         handleSubmit,
-                        isSubmitting,
                         handleChange,
                         setFieldValue,
                         errors,
@@ -85,7 +84,7 @@ export class ConcertSearchForm extends React.Component {
                                 <h1 className='post-form-title'>Find Concerts</h1>
                                 <form onSubmit={handleSubmit}>
                                     {FORMS.map(el => (
-                                        <Input
+                                        <SearchInput
                                             {...el}
                                             key={el.name}
                                             handleChange={handleChange}
@@ -96,10 +95,10 @@ export class ConcertSearchForm extends React.Component {
                                         />
                                     ))}
                                     {SELECT.map(el => (
-                                        <Select
+                                        <GenreSelect
                                             {...el}
+                                            key={el.name}
                                             handleChange={setFieldValue}
-                                            handleBlur={handleBlur}
                                             className="dropdown"
                                             error={errors[el.name]}
                                             touched={touched[el.name]}

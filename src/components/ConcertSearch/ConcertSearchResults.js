@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
-import './styles/ConcertSearchResults.css';
+
+import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
 
 class ConcertSearchResults extends React.Component {

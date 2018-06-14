@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ConcertSearchForm from './ConcertSearchForm';
-import ConcertSearchResults from './ConcertSearchResults';
-import './styles/ConcertSearchPage.css'
+import ConcertSearchForm from '../ConcertSearch/ConcertSearchForm';
+import ConcertSearchResults from '../ConcertSearch/ConcertSearchResults';
+import '../styles/ConcertSearchPage.css'
 export class ConcertSearchPage extends React.Component {
     render() {
         return (
