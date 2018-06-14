@@ -1,30 +1,33 @@
 import React from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
-import SearchInput from '../../commons/SearchInput';
+// import SearchInput from '../../commons/SearchInput';
 import GenreSelect from '../../commons/GenreSelect'
 import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
 import LocationSelect from '../../commons/LocationSelect';
 import { fetchLocations } from '../../actions/location-actions';
 
-const FORMS = [
-    {
-        name: 'location',
-        placeholder: 'Your Location',
-    },
-    // {
-    //     name: 'radius',
-    //     placeholder: 'Radius',
-    // },
-];
+// const FORMS = [
+//     {
+//         name: 'location',
+//         placeholder: 'Your Location',
+//     },
+//     // {
+//     //     name: 'radius',
+//     //     placeholder: 'Radius',
+//     // },
+// ];
 
 const SELECT = [
     {
         name: 'genre',
+    },
+    {
+        name: 'location',
     }
 ]
 
@@ -60,18 +63,18 @@ export class ConcertSearchForm extends React.Component {
         return (
             <div className="form-container">
                 <Formik
-                    validationSchema={Yup.object().shape({
-                        location: Yup.string()
-                            // .min(5)
-                            // .max(5)
-                            .required('Location is required'),
-                        // radius: Yup.string()
-                        //     .required("Radius is required"),
-                    })}
+                    // validationSchema={Yup.object().shape({
+                    //     location: Yup.string()
+                    //         // .min(5)
+                    //         // .max(5)
+                    //         .required('Location is required'),
+                    //     // radius: Yup.string()
+                    //     //     .required("Radius is required"),
+                    // })}
                     initialValues={{
                         location: '',
                         // radius: '',
-                        genre: 'Alternative',
+                        genre: '',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({
@@ -86,7 +89,7 @@ export class ConcertSearchForm extends React.Component {
                             <div className="input-container">
                                 <h1 className='post-form-title'>Find Concerts</h1>
                                 <form onSubmit={handleSubmit}>
-                                    {FORMS.map(el => (
+                                    {/* {FORMS.map(el => (
                                         <SearchInput
                                             {...el}
                                             key={el.name}
@@ -96,7 +99,7 @@ export class ConcertSearchForm extends React.Component {
                                             error={errors[el.name]}
                                             touched={touched[el.name]}
                                         />
-                                    ))}
+                                    ))} */}
                                     {SELECT.map(el => (
                                         <GenreSelect
                                             {...el}
