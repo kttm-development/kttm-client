@@ -36,8 +36,8 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = (values, bag) => {
-        console.log(values)
-        this.props.dispatch(fetchTicketmasterConcerts(values))
+        console.log(values.location, values.genre)
+        this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre))
             .catch(err => {
                 bag.setSubmitting(false);
                 this.setState({ error: true });
