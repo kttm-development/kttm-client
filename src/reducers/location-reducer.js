@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     error: null,
-    locations: null
+    locations: []
 };
 
 export default function reducer(state = initialState, action) {

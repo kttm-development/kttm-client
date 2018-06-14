@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LocationAdder from './LocationAdder';
 
-export default function LocationSelect (props,{
+function LocationSelect (props,{
     handleChange,
     error,
     touched,
@@ -12,7 +12,7 @@ export default function LocationSelect (props,{
     return (
         <React.Fragment>
             <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
-                {props.location.map(obj => (
+                {props.locations.map((obj) => (
                     <LocationAdder {...obj} />
                 ))}
             </select>
@@ -25,4 +25,4 @@ const mapStateToProps = state => ({
     locations: state.location.locations,
 });
 
-connect(mapStateToProps)(LocationSelect);
+export default connect(mapStateToProps)(LocationSelect);
