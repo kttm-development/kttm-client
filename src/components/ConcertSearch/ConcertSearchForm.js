@@ -8,6 +8,8 @@ import SearchInput from '../../commons/SearchInput';
 import GenreSelect from '../../commons/GenreSelect'
 import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
+import LocationSelect from '../../commons/LocationSelect';
+import { fetchLocations } from '../../actions/location-actions';
 
 const FORMS = [
     {
@@ -29,6 +31,7 @@ const SELECT = [
 export class ConcertSearchForm extends React.Component {
     componentDidMount(){
         this.props.dispatch(fetchGenres())
+        this.props.dispatch(fetchLocations())
     }
     
     state = {
@@ -96,6 +99,16 @@ export class ConcertSearchForm extends React.Component {
                                     ))}
                                     {SELECT.map(el => (
                                         <GenreSelect
+                                            {...el}
+                                            key={el.name}
+                                            handleChange={setFieldValue}
+                                            className="dropdown"
+                                            error={errors[el.name]}
+                                            touched={touched[el.name]}
+                                        />
+                                    ))}
+                                    {SELECT.map(el => (
+                                        <LocationSelect
                                             {...el}
                                             key={el.name}
                                             handleChange={setFieldValue}
