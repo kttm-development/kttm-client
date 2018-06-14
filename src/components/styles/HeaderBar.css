@@ -1,0 +1,33 @@
+.header-bar, .header-bar ul, .nav-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-bar {
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    background-color: #42A4F8;
+}
+
+.nav-items li, .nav-item {
+    font-family: 'Ruda', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    padding: 10px 20px;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    font-family: 'Ruda', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    padding: 20px;
+}

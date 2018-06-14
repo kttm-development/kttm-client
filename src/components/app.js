@@ -1,12 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
 
-import HeaderBar from './header-bar';
-import LandingPage from './landing-page';
-import Dashboard from './dashboard';
-import RegistrationPage from './registration-page';
-import {refreshAuthToken} from '../actions/auth';
+import './styles/App.css'
+import HeaderBar from '../commons/HeaderBar';
+import Footer from '../commons/Footer'
+import LoginPage from './Pages/LoginPage';
+import ConcertSearchPage from './Pages/ConcertSearchPage';
+import DashboardPage from './Pages/DashboardPage';
+import RegistrationPage from './Pages/RegistrationPage';
+import { refreshAuthToken } from '../actions/auth';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -42,9 +45,13 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <HeaderBar />
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
+                <div className="content">
+                    <Route exact path="/" component={LoginPage} />
+                    <Route exact path="/concerts" component={ConcertSearchPage} />
+                    <Route exact path="/dashboard" component={DashboardPage} />
+                    <Route exact path="/register" component={RegistrationPage} />
+                </div>
+                <Footer />
             </div>
         );
     }

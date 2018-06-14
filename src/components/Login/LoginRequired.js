@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
-export const loginRequired = (getLoggedIn, redirectTo) => Component => {
+export const LoginRequired = (getLoggedIn, redirectTo) => Component => {
     const Inner = props => {
         if (!props.loggedIn) {
             return <Redirect to={redirectTo} />;

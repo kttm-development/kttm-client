@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
 
-export class Dashboard extends React.Component {
+import requiresLogin from '../../commons/RequiresLogin';
+import {fetchProtectedData} from '../../actions/protected-data';
+
+export class DashboardPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
@@ -32,4 +33,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(connect(mapStateToProps)(DashboardPage));
