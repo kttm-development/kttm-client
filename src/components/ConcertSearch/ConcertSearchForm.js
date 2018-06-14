@@ -11,13 +11,6 @@ import { fetchGenres } from '../../actions/genre-actions';
 import LocationSelect from '../../commons/LocationSelect';
 import { fetchLocations } from '../../actions/location-actions';
 
-// const FORMS = [
-//     {
-//         name: 'location',
-//         placeholder: 'Your Location',
-//     },
-// ];
-
 const SELECT_GENRE = [
     {
         name: 'genre',
@@ -41,7 +34,6 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = (values, bag) => {
-        console.log('values', values)
         this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre))
             .catch(err => {
                 bag.setSubmitting(false);
