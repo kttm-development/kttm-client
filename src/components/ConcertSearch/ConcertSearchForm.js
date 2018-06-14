@@ -11,24 +11,16 @@ import { fetchGenres } from '../../actions/genre-actions';
 import LocationSelect from '../../commons/LocationSelect';
 import { fetchLocations } from '../../actions/location-actions';
 
-// const FORMS = [
-//     {
-//         name: 'location',
-//         placeholder: 'Your Location',
-//     },
-//     // {
-//     //     name: 'radius',
-//     //     placeholder: 'Radius',
-//     // },
-// ];
-
-const SELECT = [
+const SELECT_GENRE = [
     {
         name: 'genre',
     },
-    {
-        name: 'location',
-    }
+]
+
+const SELECT_LOCATION = [
+  {
+    name: 'location',
+}  
 ]
 
 export class ConcertSearchForm extends React.Component {
@@ -42,7 +34,6 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = (values, bag) => {
-        console.log(values.location, values.genre)
         this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre))
             .catch(err => {
                 bag.setSubmitting(false);
@@ -63,18 +54,9 @@ export class ConcertSearchForm extends React.Component {
         return (
             <div className="form-container">
                 <Formik
-                    // validationSchema={Yup.object().shape({
-                    //     location: Yup.string()
-                    //         // .min(5)
-                    //         // .max(5)
-                    //         .required('Location is required'),
-                    //     // radius: Yup.string()
-                    //     //     .required("Radius is required"),
-                    // })}
                     initialValues={{
                         location: '',
-                        // radius: '',
-                        genre: '',
+                        genre: 'Alternative',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({
@@ -89,19 +71,9 @@ export class ConcertSearchForm extends React.Component {
                             <div className="input-container">
                                 <h1 className='post-form-title'>Find Concerts</h1>
                                 <form onSubmit={handleSubmit}>
-                                    {/* {FORMS.map(el => (
-                                        <SearchInput
-                                            {...el}
-                                            key={el.name}
-                                            handleChange={handleChange}
-                                            handleBlur={handleBlur}
-                                            className="single-input"
-                                            error={errors[el.name]}
-                                            touched={touched[el.name]}
-                                        />
-                                    ))} */}
-                                    {SELECT.map(el => (
+                                    {SELECT_GENRE.map(el => (
                                         <GenreSelect
+                                            genres={this.props.genres}
                                             {...el}
                                             key={el.name}
                                             handleChange={setFieldValue}
@@ -110,8 +82,9 @@ export class ConcertSearchForm extends React.Component {
                                             touched={touched[el.name]}
                                         />
                                     ))}
-                                    {SELECT.map(el => (
+                                    {SELECT_LOCATION.map(el => (
                                         <LocationSelect
+                                            locations={this.props.locations}
                                             {...el}
                                             key={el.name}
                                             handleChange={setFieldValue}
@@ -130,4 +103,11 @@ export class ConcertSearchForm extends React.Component {
     }
 }
 
-export default connect()(ConcertSearchForm);
+const mapStateToProps = state => ({
+    genres: state.genre.genres,
+    locations: state.location.locations
+  });
+  
+  export default connect(mapStateToProps)(ConcertSearchForm);
+
+// export default connect()(ConcertSearchForm);
