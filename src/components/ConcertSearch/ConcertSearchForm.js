@@ -11,13 +11,13 @@ import { fetchGenres } from '../../actions/genre-actions';
 
 const FORMS = [
     {
-        name: 'zipcode',
-        placeholder: 'Your Zipcode',
+        name: 'location',
+        placeholder: 'Your Location',
     },
-    {
-        name: 'radius',
-        placeholder: 'Radius',
-    },
+    // {
+    //     name: 'radius',
+    //     placeholder: 'Radius',
+    // },
 ];
 
 const SELECT = [
@@ -58,16 +58,16 @@ export class ConcertSearchForm extends React.Component {
             <div className="form-container">
                 <Formik
                     validationSchema={Yup.object().shape({
-                        zipcode: Yup.string()
+                        location: Yup.string()
                             .min(5)
                             .max(5)
-                            .required('Zipcode is required'),
-                        radius: Yup.string()
-                            .required("Radius is required"),
+                            .required('Location is required'),
+                        // radius: Yup.string()
+                        //     .required("Radius is required"),
                     })}
                     initialValues={{
-                        zipcode: '',
-                        radius: '',
+                        location: '',
+                        // radius: '',
                         genre: 'test1',
                     }}
                     onSubmit={this._handleSubmit}
