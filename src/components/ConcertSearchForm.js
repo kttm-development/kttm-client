@@ -68,12 +68,11 @@ export class ConcertSearchForm extends React.Component {
                     initialValues={{
                         zipcode: '',
                         radius: '',
-                        genre: '',
+                        genre: 'test1',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({
                         handleSubmit,
-                        isSubmitting,
                         handleChange,
                         setFieldValue,
                         errors,
@@ -98,8 +97,8 @@ export class ConcertSearchForm extends React.Component {
                                     {SELECT.map(el => (
                                         <Select
                                             {...el}
+                                            key={el.name}
                                             handleChange={setFieldValue}
-                                            handleBlur={handleBlur}
                                             className="dropdown"
                                             error={errors[el.name]}
                                             touched={touched[el.name]}
