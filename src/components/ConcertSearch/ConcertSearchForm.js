@@ -4,8 +4,8 @@ import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
-import Input from '../../commons/SearchInput';
-import Select from '../../commons/Select'
+import SearchInput from '../../commons/SearchInput';
+import GenreSelect from '../../commons/GenreSelect'
 import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
 
@@ -84,7 +84,7 @@ export class ConcertSearchForm extends React.Component {
                                 <h1 className='post-form-title'>Find Concerts</h1>
                                 <form onSubmit={handleSubmit}>
                                     {FORMS.map(el => (
-                                        <Input
+                                        <SearchInput
                                             {...el}
                                             key={el.name}
                                             handleChange={handleChange}
@@ -95,7 +95,7 @@ export class ConcertSearchForm extends React.Component {
                                         />
                                     ))}
                                     {SELECT.map(el => (
-                                        <Select
+                                        <GenreSelect
                                             {...el}
                                             key={el.name}
                                             handleChange={setFieldValue}
