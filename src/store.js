@@ -4,9 +4,12 @@ import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import genreReducer from './reducers/genre-reducer'
+import locationReducer from './reducers/location-reducer';
 import protectedDataReducer from './reducers/protected-data';
 import ticketmasterReducer from './reducers/ticketmaster-reducer';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 
 const store = createStore(
     combineReducers({
@@ -14,8 +17,10 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer,
         ticketmaster: ticketmasterReducer,
-        genre: genreReducer
-    }), window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION(),
+        genre: genreReducer,
+        location: locationReducer
+    }),
+    composeWithDevTools(),
     applyMiddleware(thunk)
 );
 
