@@ -3,15 +3,19 @@ import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
+import genreReducer from './reducers/genre-reducer'
 import protectedDataReducer from './reducers/protected-data';
+import ticketmasterReducer from './reducers/ticketmaster-reducer';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
-        protectedData: protectedDataReducer
-    }),
+        protectedData: protectedDataReducer,
+        ticketmaster: ticketmasterReducer,
+        genre: genreReducer
+    }), window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION(),
     applyMiddleware(thunk)
 );
 

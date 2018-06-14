@@ -1,12 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
 
-import HeaderBar from './header-bar';
-import LandingPage from './landing-page';
+import './styles/App.css'
+import HeaderBar from './HeaderBar';
+import Footer from './Footer'
+import LandingPage from './LandingPage';
+import ConcertSearchPage from './ConcertSearchPage';
 import Dashboard from './dashboard';
-import RegistrationPage from './registration-page';
-import {refreshAuthToken} from '../actions/auth';
+import RegistrationPage from './RegistrationPage';
+import { refreshAuthToken } from '../actions/auth';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -42,9 +45,13 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <HeaderBar />
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
+                <div className="content">
+                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/concerts" component={ConcertSearchPage} />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/register" component={RegistrationPage} />
+                </div>
+                <Footer />
             </div>
         );
     }
