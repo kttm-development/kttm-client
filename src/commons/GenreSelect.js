@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GenreAdder from './GenreAdder';
 
-export function GenreSelect(props,{
+export function GenreSelect({
+  genres,
   handleChange,
   error,
   touched,
@@ -12,7 +13,7 @@ export function GenreSelect(props,{
   return (
     <React.Fragment>
       <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
-        {props.genres.map((obj) => (
+        {genres.map((obj) => (
                 <GenreAdder {...obj}/>
         ))}
       </select>
