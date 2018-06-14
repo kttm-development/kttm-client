@@ -3,11 +3,11 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
-import { fetchTicketmasterConcerts } from '../actions/ticketmaster-actions';
-import Input from '../commons/Input';
-import Select from '../commons/Select'
-import './styles/ConcertSearchForm.css';
-import { fetchGenres } from '../actions/genre-actions';
+import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
+import Input from '../../commons/SearchInput';
+import Select from '../../commons/Select'
+import '../styles/ConcertSearchForm.css';
+import { fetchGenres } from '../../actions/genre-actions';
 
 const FORMS = [
     {

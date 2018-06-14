@@ -2,13 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
-import LoginForm from './LoginForm';
+import LoginForm from '../Login/LoginForm';
 
-// just temporary to see static components
-
-// import HeaderBar from './HeaderBar'
-
-export function LandingPage(props) {
+export function LoginPage(props) {
     // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
         return <Redirect to="/dashboard" />;
@@ -27,4 +23,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(LandingPage);
+export default connect(mapStateToProps)(LoginPage);
