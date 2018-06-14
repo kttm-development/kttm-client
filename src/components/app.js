@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
 import './styles/App.css'
+import OnboardingPage from './Pages/OnboardingPage'
 import HeaderBar from '../commons/HeaderBar';
 import Footer from '../commons/Footer'
 import LoginPage from './Pages/LoginPage';
@@ -46,10 +47,10 @@ export class App extends React.Component {
             <div className="app">
                 <HeaderBar />
                 <div className="content">
-                    <Route exact path="/" component={LoginPage} />
-                    <Route exact path="/" component={LoginPage} />
+                    <Route exact path="/" component={OnboardingPage} />
                     <Route exact path="/concerts" component={ConcertSearchPage} />
                     <Route exact path="/dashboard" component={DashboardPage} />
+                    <Route exact path="/login" component={LoginPage} />
                     <Route exact path="/register" component={RegistrationPage} />
                 </div>
                 <Footer />
