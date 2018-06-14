@@ -10,7 +10,6 @@ export function GenreSelect({
   name,
   ...rest
 }) {
-  console.log(props.genres)
   return (
     <React.Fragment>
       <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
