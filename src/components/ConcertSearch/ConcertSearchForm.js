@@ -1,10 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
-// import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
-// import SearchInput from '../../commons/SearchInput';
 import GenreSelect from '../../commons/GenreSelect'
 import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
@@ -65,7 +63,6 @@ export class ConcertSearchForm extends React.Component {
                         setFieldValue,
                         errors,
                         touched,
-                        handleBlur,
                         isValid,
                     }) => (
                             <div className="input-container">
@@ -81,7 +78,7 @@ export class ConcertSearchForm extends React.Component {
                                             className="dropdown"
                                             error={errors[el.name]}
                                             touched={touched[el.name]}
-                                        />
+                                        /> 
                                     ))}
                                     {SELECT_LOCATION.map(el => (
                                         <LocationSelect
@@ -108,8 +105,6 @@ export class ConcertSearchForm extends React.Component {
 const mapStateToProps = state => ({
     genres: state.genre.genres,
     locations: state.location.locations
-});
-
-export default connect(mapStateToProps)(ConcertSearchForm);
-
-// export default connect()(ConcertSearchForm);
+  });
+  
+  export default connect(mapStateToProps)(ConcertSearchForm);
