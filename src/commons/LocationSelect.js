@@ -13,8 +13,8 @@ function LocationSelect ({
     return (
         <React.Fragment>
             <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
-                {locations.map((obj) => (
-                    <LocationAdder {...obj} />
+                {locations.map((obj, index) => (
+                    <LocationAdder key={index} {...obj} />
                 ))}
             </select>
             {!!error && touched && <div className="error-messages">{error}</div>}
