@@ -36,5 +36,5 @@ export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
         return dispatch(ticketmasterInfoSuccess(concerts));
         }
     })
-    .catch(err => dispatch(ticketmasterInfoError(err)));
+    .catch(err => dispatch(ticketmasterInfoError(err.message)));
 };
