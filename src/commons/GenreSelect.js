@@ -7,6 +7,7 @@ export default function GenreSelect({
   error,
   touched,
   name,
+  dispatch,
   ...rest
 }) {
   return (

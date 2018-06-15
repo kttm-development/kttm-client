@@ -1,0 +1,34 @@
+.concert-about-page {
+    height: 80vh;
+}
+
+.concert-title {
+    text-align: center;
+}
+
+.concert-about {
+    width: 80vw;
+    /* height: 60%; */
+    padding: 40px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.concert-image {
+    border: 1px solid black;
+    padding: 10px;
+    height: 40vh;
+}
+
+.buttons-container {
+    margin-top: 5%;
+}
+
+.tickets-button, .hotels-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 200px;
+    padding: 20px;
+    font-size: 20px;
+}

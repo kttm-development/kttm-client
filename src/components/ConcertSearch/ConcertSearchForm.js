@@ -16,17 +16,17 @@ const SELECT_GENRE = [
 ]
 
 const SELECT_LOCATION = [
-  {
-    name: 'location',
-}  
+    {
+        name: 'location',
+    }
 ]
 
 export class ConcertSearchForm extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.dispatch(fetchGenres())
         this.props.dispatch(fetchLocations())
     }
-    
+
     state = {
         error: false,
     };
@@ -82,6 +82,7 @@ export class ConcertSearchForm extends React.Component {
                                     ))}
                                     {SELECT_LOCATION.map(el => (
                                         <LocationSelect
+                                            dispatch={this.props.dispatch}
                                             locations={this.props.locations}
                                             {...el}
                                             key={el.name}
