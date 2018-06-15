@@ -9,6 +9,7 @@
     border-top: 2px solid black;
     background-color: #42A4F8;
     height: 150px;
+    width: 100%;
 }
 
 .footer-items, .footer-item {
