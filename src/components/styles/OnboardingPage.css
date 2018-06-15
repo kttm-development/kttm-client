@@ -12,7 +12,7 @@
     bottom: 0;
     background: 
         linear-gradient(
-        rgba(31, 78, 116, .9), 
+        rgba(74, 158, 218, .9), 
         rgba(58, 63, 68, 0.6)
         ),
         url(../../images/concert-bg4.jpg);
@@ -26,7 +26,7 @@
 }
 
 .welcome-section {
-    padding-top: 30vh;
+    padding-top: 20vh;
     /* z-index: 1; */
 }
 
@@ -37,7 +37,7 @@
 }
 
 .title {
-    font-size: 75px;
+    font-size: 60px;
     font-weight: 700;
 }
 
@@ -117,22 +117,6 @@
     border-top: 2px solid black;
 }
 
-.text-container {
-    display: flex;
-    flex-direction: row;
-    width: 75vw;
-    margin: auto;
-    padding-top: 20vh;
-}
-
-.about-left, .about-right {
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 40px;
-    text-align: justify;
-}
-
 .features-button {
     display: block;
     width: 200px;
@@ -147,8 +131,27 @@
 }
 
 .features-button:hover {
-    background-color: #42A4F8;
+    background-color: #d7c938;
     color: white;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: row;
+    width: 75vw;
+    margin: auto;
+    padding-top: 5vh;
+}
+
+.about-left, .about-right {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.about-text {
+    padding: 40px;
 }
 
 /* ===FEATURES SECTION=== */
@@ -178,6 +181,7 @@
     display: block;
     width: 200px;
     padding: 20px;
+    margin-top: 10vh;
     font-size: 30px;
     font-weight: 900;
     text-align: center;
@@ -188,6 +192,28 @@
 }
 
 .scroll-top-button:hover {
-    background-color: #42A4F8;
+    background-color: #54da48;
     color: white;
+}
+
+.features-container {
+    padding-top: 5vh;
+}
+
+.feature-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.feature-bottom {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10vh;
+}
+
+.feature-image, .feature-text {
+    border: 2px solid white;
+    padding: 20px;
+    margin-left: 4vw;
+    margin-right: 4vw;
 }

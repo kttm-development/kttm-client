@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
-import SearchInput from '../../commons/SearchInput';
+// import SearchInput from '../../commons/SearchInput';
 import GenreSelect from '../../commons/GenreSelect'
 import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
