@@ -1,8 +1,10 @@
 import {
     SENDING_TICKETMASTER_INFO,
     TICKETMASTER_INFO_SUCCESS,
-    TICKETMASTER_INFO_ERROR
+    TICKETMASTER_INFO_ERROR,
 } from '../actions/ticketmaster-actions';
+
+import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
 
 const initialState = {
     loading: false,
@@ -11,7 +13,7 @@ const initialState = {
     empty: true
 };
 
-export default function reducer(state=initialState, action) {
+export default function reducer(state = initialState, action) {
     if (action.type === SENDING_TICKETMASTER_INFO) {
         return Object.assign({}, state, {
             loading: true,
@@ -36,6 +38,10 @@ export default function reducer(state=initialState, action) {
             empty: true
         });
     }
-    
+    else if (action.type === SHOW_CONCERTS_SUCCESS) {
+        return Object.assign({}, state, {
+            showConcerts: true,
+        });
+    }
     return state;
 }

@@ -2,3 +2,8 @@
     box-sizing: border-box;
     font-family: 'Quattrocento Sans', sans-serif;
 }
+
+.content {
+    min-height: calc(100vh - 70px);
+    overflow: hidden;
+}

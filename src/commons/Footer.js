@@ -9,9 +9,10 @@ export default class Footer extends React.Component {
             <div className="footer">
                 <Link className="footer-logo" to="/">KTTM</Link>
                 <ul className="footer-items">
+                    <li><Link className="nav-item" to="/">Onboarding</Link></li>
                     <li><Link className="footer-item" to="/concerts">Concerts</Link></li>
                     <li><Link className="footer-item" to="/account">Account</Link></li>
-                    <li><Link className="footer-item" to="/">Login</Link></li>
+                    <li><Link className="footer-item" to="/login">Login</Link></li>
                     <li><Link className="footer-item" to="/register">Signup</Link></li>
                 </ul>
                 <div className="authors">
