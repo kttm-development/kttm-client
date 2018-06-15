@@ -8,6 +8,7 @@ export function GenreSelect({
   error,
   touched,
   name,
+  dispatch,
   ...rest
 }) {
   return (

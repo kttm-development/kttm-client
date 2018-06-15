@@ -18,17 +18,17 @@ const SELECT_GENRE = [
 ]
 
 const SELECT_LOCATION = [
-  {
-    name: 'location',
-}  
+    {
+        name: 'location',
+    }
 ]
 
 export class ConcertSearchForm extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.dispatch(fetchGenres())
         this.props.dispatch(fetchLocations())
     }
-    
+
     state = {
         error: false,
     };
@@ -73,6 +73,7 @@ export class ConcertSearchForm extends React.Component {
                                 <form onSubmit={handleSubmit}>
                                     {SELECT_GENRE.map(el => (
                                         <GenreSelect
+                                            dispatch={this.props.dispatch}
                                             genres={this.props.genres}
                                             {...el}
                                             key={el.name}
@@ -84,6 +85,7 @@ export class ConcertSearchForm extends React.Component {
                                     ))}
                                     {SELECT_LOCATION.map(el => (
                                         <LocationSelect
+                                            dispatch={this.props.dispatch}
                                             locations={this.props.locations}
                                             {...el}
                                             key={el.name}
@@ -106,8 +108,8 @@ export class ConcertSearchForm extends React.Component {
 const mapStateToProps = state => ({
     genres: state.genre.genres,
     locations: state.location.locations
-  });
-  
-  export default connect(mapStateToProps)(ConcertSearchForm);
+});
+
+export default connect(mapStateToProps)(ConcertSearchForm);
 
 // export default connect()(ConcertSearchForm);

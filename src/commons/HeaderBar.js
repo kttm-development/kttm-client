@@ -24,6 +24,7 @@ export class HeaderBar extends React.Component {
             <div className="header-bar">
                 <Link className="logo" to="/">KTTM</Link>
                 <ul className="nav-items">
+                    <li><Link className="nav-item" to="/concert-about">Concert About</Link></li>
                     <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
                     <li><Link className="nav-item" to="/account">Account</Link></li>
                     <li><Link className="nav-item" to="/login">Login</Link></li>
