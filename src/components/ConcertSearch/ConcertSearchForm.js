@@ -78,7 +78,7 @@ export class ConcertSearchForm extends React.Component {
                                             className="dropdown"
                                             error={errors[el.name]}
                                             touched={touched[el.name]}
-                                        />
+                                        /> 
                                     ))}
                                     {SELECT_LOCATION.map(el => (
                                         <LocationSelect
