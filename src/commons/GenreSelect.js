@@ -13,7 +13,7 @@ export default function GenreSelect({
     <React.Fragment>
       <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
         {genres.map((obj, index) => (
-          <GenreAdder key={index}{...obj} />
+          <GenreAdder key={index} {...obj} />
         ))}
       </select>
       {!!error && touched && <div className="error-messages">{error}</div>}
