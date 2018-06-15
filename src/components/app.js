@@ -8,6 +8,7 @@ import HeaderBar from '../commons/HeaderBar';
 import Footer from '../commons/Footer'
 import LoginPage from './Pages/LoginPage';
 import ConcertSearchPage from './Pages/ConcertSearchPage';
+import ConcertAboutPage from './Pages/ConcertAboutPage'
 import DashboardPage from './Pages/DashboardPage';
 import RegistrationPage from './Pages/RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
@@ -48,6 +49,7 @@ export class App extends React.Component {
                 <HeaderBar />
                 <div className="content">
                     <Route exact path="/" component={OnboardingPage} />
+                    <Route exact path="/concert-about" component={ConcertAboutPage} />
                     <Route exact path="/concerts" component={ConcertSearchPage} />
                     <Route exact path="/dashboard" component={DashboardPage} />
                     <Route exact path="/login" component={LoginPage} />
