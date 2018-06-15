@@ -8,6 +8,7 @@ function LocationSelect ({
     error,
     touched,
     name,
+    dispatch,
     ...rest
 }) {
     return (
