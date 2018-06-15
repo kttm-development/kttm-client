@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import GenreAdder from './GenreAdder';
 
-export default function GenreSelect({
+export function GenreSelect({
+  genres,
   handleChange,
   error,
   touched,
@@ -10,12 +13,17 @@ export default function GenreSelect({
   return (
     <React.Fragment>
       <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
-        <option value="test1" key="1">Test 1</option>
-        <option value="test2" key="2">Test 2</option>
-        <option value="test3" key="3">Test 3</option>
-        <option value="test4" key="4">Test 4</option>
+        {genres.map((obj) => (
+                <GenreAdder {...obj}/>
+        ))}
       </select>
       {!!error && touched && <div className="error-messages">{error}</div>}
     </React.Fragment>
   );
 }
+
+const mapStateToProps = state => ({
+  genres: state.genre.genres
+});
+
+export default connect(mapStateToProps)(GenreSelect);

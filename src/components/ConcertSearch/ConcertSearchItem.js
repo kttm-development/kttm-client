@@ -5,8 +5,7 @@ export default function ConcertSearchItem({
   name,
   venue,
   date,
-  time,
-  website,
+  time
   // description
 }) {
   return (
@@ -25,8 +24,6 @@ export default function ConcertSearchItem({
           <label className="concert-label">{date}</label>
           <label className="info-label">Time:</label>
           <label className="concert-label">{time}</label>
-          <label className="info-label">Website:</label>
-          <label className="concert-label">{website}</label>
           {/* <label className="info-label">Description:</label>
           <label className="concert-label">{description}</label> */}
         </div>

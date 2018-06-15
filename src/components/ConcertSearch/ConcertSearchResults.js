@@ -6,6 +6,9 @@ import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
 
 class ConcertSearchResults extends React.Component {
+  componentDidMount(){
+    console.log(this.props.concerts)
+  }
     render() {
 
         if (this.props.loading===true) {
