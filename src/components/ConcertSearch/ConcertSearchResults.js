@@ -5,9 +5,11 @@ import { RiseLoader } from 'react-spinners';
 import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
 
-class ConcertSearchResults extends React.Component {
+
+// Named export for tests
+ export class ConcertSearchResults extends React.Component {
   componentDidMount(){
-    console.log(this.props.concerts)
+    // console.log(this.props.concerts)
   }
     render() {
 
@@ -58,4 +60,5 @@ const mapStateToProps = state => ({
     empty: state.ticketmaster.empty
   });
   
+  // Default export
   export default connect(mapStateToProps)(ConcertSearchResults);
