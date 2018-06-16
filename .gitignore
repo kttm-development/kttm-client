@@ -16,3 +16,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# dotenv environment variables file
+.env
+.env.development.local
+.env.production.local
+
+# package-lock.json
+package-lock.json
