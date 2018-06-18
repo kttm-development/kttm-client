@@ -53,7 +53,7 @@ export class ConcertSearchForm extends React.Component {
             <div className="form-container">
                 <Formik
                     initialValues={{
-                        location: '',
+                        location: 'Abilene - Sweetwater',
                         genre: 'Alternative',
                     }}
                     onSubmit={this._handleSubmit}
@@ -92,7 +92,7 @@ export class ConcertSearchForm extends React.Component {
                                             touched={touched[el.name]}
                                         />
                                     ))}
-                                    <button className="submit" disabled={!isValid}>Search</button>
+                                    <button className="submit">Search</button>
                                 </form>
                             </div>
                         )}
