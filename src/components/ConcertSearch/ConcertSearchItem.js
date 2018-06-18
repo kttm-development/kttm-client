@@ -1,4 +1,5 @@
 import React from 'react';
+import {API_BASE_URL} from '../../config';
 
 export default function ConcertSearchItem({
   image,
@@ -27,6 +28,7 @@ export default function ConcertSearchItem({
           {/* <label className="info-label">Description:</label>
           <label className="concert-label">{description}</label> */}
         </div>
+          <a href={`http://localhost:3000/concert-about`} target="_blank"><button className="hotels-button">More Details</button></a>
       </div>
     </div>
     </span>
