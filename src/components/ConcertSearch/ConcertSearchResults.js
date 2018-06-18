@@ -6,9 +6,9 @@ import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
 
 class ConcertSearchResults extends React.Component {
-  componentDidMount(){
-    console.log(this.props.concerts)
-  }
+  // componentDidMount(){
+  //   console.log(this.props.concerts)
+  // }
     render() {
 
         if (this.props.loading===true) {
@@ -52,10 +52,11 @@ class ConcertSearchResults extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    concerts: state.ticketmaster.concerts,
-    loading: state.ticketmaster.concerts,
-    error: state.ticketmaster.error,
-    empty: state.ticketmaster.empty
-  });
-  
-  export default connect(mapStateToProps)(ConcertSearchResults);
+	concerts: state.ticketmaster.concerts,
+	loading: state.ticketmaster.concerts,
+	error: state.ticketmaster.error,
+	empty: state.ticketmaster.empty,
+	favorite: state.favorite.favorite
+});
+
+export default connect(mapStateToProps)(ConcertSearchResults);
