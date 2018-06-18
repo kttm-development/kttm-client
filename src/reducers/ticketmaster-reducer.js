@@ -23,7 +23,8 @@ const initialState = {
         time: '',
         venue:'',
         attraction: '',
-        url:'http://www.ticketmaster.com'
+        url:'http://www.ticketmaster.com',
+        description: null
     }
 };
 

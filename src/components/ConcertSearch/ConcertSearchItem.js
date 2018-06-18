@@ -15,7 +15,8 @@ export function ConcertSearchItem({
   venue,
   url,
   attraction,
-  dispatch
+  dispatch,
+  description
 }) {
   return (
     <span className="search-results">
@@ -50,7 +51,8 @@ export function ConcertSearchItem({
                   time,
                   venue,
                   url,
-                  attraction
+                  attraction,
+                  description
                   }
                   console.log('current Obj', currentConcertObj)
                 dispatch(storeCurrentConcert(currentConcertObj))
