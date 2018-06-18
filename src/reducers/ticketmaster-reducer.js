@@ -5,6 +5,7 @@ import {
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
+import concertImg from '../images/concert-bg3.jpg'
 
 const initialState = {
     loading: false,
@@ -16,11 +17,12 @@ const initialState = {
         state:'',
         date:'',
         id:'',
-        name:'',
-        image:'',
+        name:'Please hit the "expand" button on a concert from the "Concert" tab above',
+        image:concertImg,
         time: '',
         venue:'',
-        url:''
+        description: '',
+        url:'http://www.ticketmaster.com'
     }
 };
 

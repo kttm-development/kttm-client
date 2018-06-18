@@ -35,24 +35,28 @@ export class ConcertAboutPage extends React.Component {
 
         return (
             <div className="concert-about-page">
-                <h1 className="concert-title">[Concert Title]</h1>
+                <h1 className="concert-title">{this.props.name}</h1>
                 <div className="concert-about row">
                     <div className="row">
                         <div className="concert-info-left col-4">
                             <h3>Concert details</h3>
-                            <span>Placeholder text</span>
+                            <p>Date: {this.props.date}</p>
+                            <p>Time: {this.props.time}</p>
+                            <p>Venue: {this.props.venue}</p>
+                            <p>City: {this.props.city}</p>
+                            <p>State: {this.props.state}</p>
                         </div>
                         <div className="concert-info-right col-4">
-                            <h3>Concert details</h3>
-                            <span>Placeholder text</span>
+                            <h3>Concert description</h3>
+                            <span>{this.props.description}</span>
                         </div>
                         <div className="concert-image col-4">
-                            <h1>Placeholder for concert image</h1>
+                            <img src={this.props.image} alt='concert' width='75%'></img>
                         </div>
                     </div>
                     <div className="buttons-container row">
                         <div className="col-6">
-                            <button className="tickets-button">Buy Tickets</button>
+                            <a href={this.props.url} target="_blank"><button className="tickets-button">Buy Tickets</button></a>
                         </div>
                         <div className="col-6">
                             <a href={airBNBLink} target="_blank"><button className="hotels-button">Find Hotels</button></a>
@@ -66,14 +70,19 @@ export class ConcertAboutPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    concerts: state.ticketmaster.concerts,
     loading: state.ticketmaster.concerts,
     error: state.ticketmaster.error,
-    empty: state.ticketmaster.empty,
     city: state.ticketmaster.currentConcert.city,
     state: state.ticketmaster.currentConcert.state,
     date: state.ticketmaster.currentConcert.date,
-    currentConcert: state.ticketmaster.currentConcert
+    currentConcert: state.ticketmaster.currentConcert,
+    description:  state.ticketmaster.currentConcert.description,
+    name: state.ticketmaster.currentConcert.name,
+    time:  state.ticketmaster.currentConcert.time,
+    venue:  state.ticketmaster.currentConcert.venue,
+    url:  state.ticketmaster.currentConcert.url,
+    image:  state.ticketmaster.currentConcert.image
+
 });
 
 export default connect(mapStateToProps)(ConcertAboutPage);
