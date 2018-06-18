@@ -5,9 +5,14 @@ import { RiseLoader } from 'react-spinners';
 import '../styles/ConcertAbout.css'
 export class ConcertAboutPage extends React.Component {
     componentDidMount() {
-        console.log(this.props.concerts)
+        // console.log(this.props.currentConcert)
     }
     render() {
+
+        let airBNBCity= this.props.city.replace(' ', '-')
+
+        let airBNBLink=`https://www.airbnb.com/s/${airBNBCity}--${this.props.state}--United-States/homes?refinement_paths%5B%5D=%2Fhomes&checkin=${this.props.date}`
+
 
         if (this.props.loading === true) {
             return (
@@ -50,7 +55,7 @@ export class ConcertAboutPage extends React.Component {
                             <button className="tickets-button">Buy Tickets</button>
                         </div>
                         <div className="col-6">
-                            <button className="hotels-button">Find Hotels</button>
+                            <a href={airBNBLink} target="_blank"><button className="hotels-button">Find Hotels</button></a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +69,11 @@ const mapStateToProps = state => ({
     concerts: state.ticketmaster.concerts,
     loading: state.ticketmaster.concerts,
     error: state.ticketmaster.error,
-    empty: state.ticketmaster.empty
+    empty: state.ticketmaster.empty,
+    city: state.ticketmaster.currentConcert.city,
+    state: state.ticketmaster.currentConcert.state,
+    date: state.ticketmaster.currentConcert.date,
+    currentConcert: state.ticketmaster.currentConcert
 });
 
 export default connect(mapStateToProps)(ConcertAboutPage);
