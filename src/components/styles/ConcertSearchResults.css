@@ -4,7 +4,6 @@
     border-radius: 8px;
     padding: 20px;
     width: 85%;
-    /* height: 175px; */
     margin: auto;
     margin-top: 50px;
 }
@@ -24,6 +23,11 @@
 }
 
 .info-label {
-    font-weight: 700;
-    margin: 5px;
+    font-family: 'Ruda', sans-serif;
+    font-weight: 900;
+    /* margin: 5px; */
+}
+
+.concert-label {
+    margin: 5px 0px 20px 0px;
 }
