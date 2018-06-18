@@ -49,13 +49,15 @@ class ConcertSearchResults extends React.Component {
         }
         
     }
+
 }
 
 const mapStateToProps = state => ({
-    concerts: state.ticketmaster.concerts,
-    loading: state.ticketmaster.concerts,
-    error: state.ticketmaster.error,
-    empty: state.ticketmaster.empty
-  });
-  
-  export default connect(mapStateToProps)(ConcertSearchResults);
+	concerts: state.ticketmaster.concerts,
+	loading: state.ticketmaster.concerts,
+	error: state.ticketmaster.error,
+	empty: state.ticketmaster.empty,
+	favorite: state.favorite.favorite
+});
+
+export default connect(mapStateToProps)(ConcertSearchResults);
