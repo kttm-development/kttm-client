@@ -4,15 +4,10 @@ import { RiseLoader } from 'react-spinners';
 
 import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
-import { favorite } from '../../actions/favorite-actions'
 
 class ConcertSearchResults extends React.Component {
 	componentDidMount() {
 		console.log(this.props.concerts)
-	}
-
-	favorite() {
-		this.props.dispatch(favorite);
 	}
 
 	render() {
@@ -47,7 +42,7 @@ class ConcertSearchResults extends React.Component {
 				<div className="section-container">
 					<h1 className="page-title">Concerts</h1>
 					{this.props.concerts.map(obj => (
-						<ConcertSearchItem favorite={this.favorite} {...obj} key={String(obj.id)} />
+						<ConcertSearchItem dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
 					))}
 				</div>
 			);

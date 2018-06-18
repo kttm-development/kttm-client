@@ -11,7 +11,7 @@ export default function reducer(state=initialState, action) {
     if (action.type === FAVORITE_CONCERT_SUCCESS) {
         return Object.assign({}, state, {
             error: null,
-            favorites: [  ],
+            favorites: [ ...state.favorites, action.newFavorite ],
         });
     }
     return state;
