@@ -1,0 +1,19 @@
+.account-details {
+    width: 80vw;
+    /* padding: 40px; */
+    margin: auto;
+}
+
+.add-contact, .change-password, .contacts, .favorites {
+    width: 100%;
+    margin: auto;
+    /* border: 1px solid black; */
+}
+
+.contacts, .favorites {
+    border: 1px solid black;
+    text-align: center;
+    height: 50vh;
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
