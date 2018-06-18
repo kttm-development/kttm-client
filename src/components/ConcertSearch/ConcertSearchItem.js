@@ -5,7 +5,8 @@ export default function ConcertSearchItem({
   name,
   venue,
   date,
-  time
+  time,
+  favorite,
   // description
 }) {
   return (
@@ -14,6 +15,7 @@ export default function ConcertSearchItem({
       <div className="concert-details">
         <div className="pic-info col-4">
           <img src={image} alt="concert" className="concert-search-image" />
+          <button  onClick={favorite}>Favorite</button>
         </div>
         <div className="concert-search-about col-8">
           <label className="info-label">Name:</label>
