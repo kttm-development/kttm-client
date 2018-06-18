@@ -10,7 +10,18 @@ const initialState = {
     loading: false,
     error: null,
     concerts:[],
-    empty: true
+    empty: true,
+    currentConcert: {
+        city:'',
+        state:'',
+        date:'',
+        id:'',
+        name:'',
+        image:'',
+        time: '',
+        venue:'',
+        url:''
+    }
 };
 
 export default function reducer(state = initialState, action) {
@@ -27,7 +38,9 @@ export default function reducer(state = initialState, action) {
             concerts: action.concerts,
             loading: false,
             error:null,
-            empty: false
+            empty: false,
+            //below for testing currentConcert with airbnb before hooking up current Concert
+            // currentConcert: action.concerts[0]
         });
     }
     else if (action.type === TICKETMASTER_INFO_ERROR) {
