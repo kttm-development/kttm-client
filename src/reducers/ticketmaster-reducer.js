@@ -21,7 +21,7 @@ const initialState = {
         image:concertImg,
         time: '',
         venue:'',
-        description: '',
+        attraction: '',
         url:'http://www.ticketmaster.com'
     }
 };
@@ -56,6 +56,14 @@ export default function reducer(state = initialState, action) {
     else if (action.type === SHOW_CONCERTS_SUCCESS) {
         return Object.assign({}, state, {
             showConcerts: true,
+        });
+    }
+    else if (action.type === TICKETMASTER_INFO_SUCCESS) {
+        return Object.assign({}, state, {
+            currentConcert: action.currentConcert,
+            loading: false,
+            error:null,
+            empty: false
         });
     }
     return state;

@@ -1,13 +1,20 @@
 import React from 'react';
 import {API_BASE_URL} from '../../config';
+import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
+import { connect } from 'react-redux';
 
-export default function ConcertSearchItem({
-  image,
-  name,
-  venue,
+export function ConcertSearchItem({
+  city,
+  state,
   date,
-  time
-  // description
+  id,
+  name,
+  image,
+  time,
+  venue,
+  url,
+  attraction,
+  dispatch
 }) {
   return (
     <span className="search-results">
@@ -28,9 +35,32 @@ export default function ConcertSearchItem({
           {/* <label className="info-label">Description:</label>
           <label className="concert-label">{description}</label> */}
         </div>
-          <a href={`http://localhost:3000/concert-about`} target="_blank"><button className="hotels-button">More Details</button></a>
+          <a href={`http://localhost:3000/concert-about`}>
+            <button 
+              className="hotels-button"
+              onClick={()=> {
+                const currentConcertObj={
+                  city,
+                  state,
+                  date,
+                  id,
+                  name,
+                  image,
+                  time,
+                  venue,
+                  url,
+                  attraction
+                  }
+                  console.log(currentConcertObj)
+                dispatch(storeCurrentConcert(currentConcertObj))
+              }}
+            >
+              More Details
+            </button></a>
       </div>
     </div>
     </span>
   );
 }
+
+export default connect()(ConcertSearchItem);

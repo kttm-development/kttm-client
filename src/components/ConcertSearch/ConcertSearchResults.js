@@ -42,7 +42,7 @@ class ConcertSearchResults extends React.Component {
               <h1 className="page-title">Concerts</h1>
                 {console.log(this.props.concerts)}
                 {this.props.concerts.map(obj => (
-                  <ConcertSearchItem {...obj} key={String(obj .id)} />
+                  <ConcertSearchItem dispatch={this.props.dispatch} {...obj} key={String(obj .id)} />
                 ))}
             </div>
           );
