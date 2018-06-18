@@ -25,7 +25,7 @@ export const storeCurrentConcert = (currentConcertObj) => ({
 
 export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
     dispatch(sendingTicketmasterInfo)
-    return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/1`, {
+    return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/0`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -33,13 +33,13 @@ export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
     }).then(res => {
         return res.json();
     })
-    .then(concerts => {
-        console.log(concerts)
-        if(concerts.message){
-           return dispatch(ticketmasterInfoError(concerts.message));
+    .then(results => {
+        console.log(results.concerts)
+        if(results.message){
+           return dispatch(ticketmasterInfoError(results.message));
         }
         else{
-        return dispatch(ticketmasterInfoSuccess(concerts));
+        return dispatch(ticketmasterInfoSuccess(results.concerts));
         }
     })
     .catch(err => dispatch(ticketmasterInfoError(err.message)));
