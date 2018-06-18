@@ -2,6 +2,7 @@ import {
     SENDING_TICKETMASTER_INFO,
     TICKETMASTER_INFO_SUCCESS,
     TICKETMASTER_INFO_ERROR,
+    STORE_CURRENT_CONCERT
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
@@ -58,9 +59,9 @@ export default function reducer(state = initialState, action) {
             showConcerts: true,
         });
     }
-    else if (action.type === TICKETMASTER_INFO_SUCCESS) {
+    else if (action.type === STORE_CURRENT_CONCERT) {
         return Object.assign({}, state, {
-            currentConcert: action.currentConcert,
+            currentConcert: action.currentConcertObj,
             loading: false,
             error:null,
             empty: false

@@ -2,6 +2,7 @@ import React from 'react';
 import {API_BASE_URL} from '../../config';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 export function ConcertSearchItem({
   city,
@@ -35,7 +36,7 @@ export function ConcertSearchItem({
           {/* <label className="info-label">Description:</label>
           <label className="concert-label">{description}</label> */}
         </div>
-          <a href={`http://localhost:3000/concert-about`}>
+          <Link to='/concert-about'>
             <button 
               className="hotels-button"
               onClick={()=> {
@@ -51,12 +52,13 @@ export function ConcertSearchItem({
                   url,
                   attraction
                   }
-                  console.log(currentConcertObj)
+                  console.log('current Obj', currentConcertObj)
                 dispatch(storeCurrentConcert(currentConcertObj))
+
               }}
             >
               More Details
-            </button></a>
+            </button></Link>
       </div>
     </div>
     </span>
