@@ -4,11 +4,30 @@
     border-radius: 8px;
     padding: 20px;
     width: 85%;
-    height: 175px;
     margin: auto;
     margin-top: 50px;
 }
 
-img{
-    width:75%
+.concert-container {
+    /* padding-bottom: 50px; */
+    /* height: 300px; */
+}
+
+.concert-search-image {
+    width: 90%;
+}
+
+.concert-search-about {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-family: 'Ruda', sans-serif;
+    font-weight: 900;
+    /* margin: 5px; */
+}
+
+.concert-label {
+    margin: 5px 0px 20px 0px;
 }

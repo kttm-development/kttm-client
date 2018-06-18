@@ -10,12 +10,12 @@ export default function ConcertSearchItem({
 }) {
   return (
     <span className="search-results">
-    <div className="concerts-container row">
+    <div className="concert-container row">
       <div className="concert-details">
         <div className="pic-info col-4">
-          <img src={image} alt="concert" className="concert-image" />
+          <img src={image} alt="concert" className="concert-search-image" />
         </div>
-        <div className="concert-about col-8">
+        <div className="concert-search-about col-8">
           <label className="info-label">Name:</label>
           <label className="concert-label">{name}</label>
           <label className="info-label">Venue:</label>
