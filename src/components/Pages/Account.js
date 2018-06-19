@@ -60,7 +60,10 @@ export class Account extends React.Component {
                         </div>
                         <div className="col-6">
                             <div className="favorites">
-                                <h3>Placeholder for favorites</h3>
+                                <h3>Favorited Concerts:</h3>
+                                {this.props.favorites.map(obj => (
+                                    <Favorites dispatch={this.props.dispatch} {...obj} key={String(obj .id)} />
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -75,7 +78,8 @@ const mapStateToProps = state => ({
     concerts: state.ticketmaster.concerts,
     loading: state.ticketmaster.concerts,
     error: state.ticketmaster.error,
-    empty: state.ticketmaster.empty
+    empty: state.ticketmaster.empty,
+    favorites: state.favorite.favorites
 });
 
 export default connect(mapStateToProps)(Account);
