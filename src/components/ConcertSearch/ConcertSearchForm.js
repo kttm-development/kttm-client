@@ -67,9 +67,9 @@ export class ConcertSearchForm extends React.Component {
                         touched,
                         isValid,
                     }) => (
-                            <div className="input-container">
+                            <div className="input">
                                 <h1 className='post-form-title'>Find Concerts</h1>
-                                <form onSubmit={handleSubmit}>
+                                <form className="form" onSubmit={handleSubmit}>
                                     {SELECT_GENRE.map(el => (
                                         <GenreSelect
                                             dispatch={this.props.dispatch}
@@ -94,7 +94,7 @@ export class ConcertSearchForm extends React.Component {
                                             touched={touched[el.name]}
                                         />
                                     ))}
-                                    <button className="submit">Search</button>
+                                    <button className="search-button blue push_button">Search</button>
                                 </form>
                             </div>
                         )}
