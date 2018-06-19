@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { connect } from 'react-redux';
 
-import { fetchTicketmasterConcerts } from '../../actions/ticketmaster-actions';
+import { fetchTicketmasterConcerts, setSearchResults, setPageNumber } from '../../actions/ticketmaster-actions';
 import GenreSelect from '../../commons/GenreSelect'
 import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
@@ -32,7 +32,9 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = (values, bag) => {
-        this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre))
+        this.props.dispatch(setSearchResults({location: values.location, genre: values.genre}))
+        this.props.dispatch(setPageNumber(0));
+        this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre, 0))
             .catch(err => {
                 bag.setSubmitting(false);
                 this.setState({ error: true });

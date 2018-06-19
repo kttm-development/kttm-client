@@ -2,7 +2,10 @@ import {
     SENDING_TICKETMASTER_INFO,
     TICKETMASTER_INFO_SUCCESS,
     TICKETMASTER_INFO_ERROR,
-    STORE_CURRENT_CONCERT
+    STORE_CURRENT_CONCERT,
+    SET_PAGE_NUMBER,
+    SET_SEARCH_RESULTS,
+    SET_IS_LAST_PAGE
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
@@ -25,7 +28,10 @@ const initialState = {
         attraction: '',
         url:'http://www.ticketmaster.com',
         description: null
-    }
+    },
+    currentPage: 0,
+    currentSearchResults: null,
+    isLastPage: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -66,6 +72,21 @@ export default function reducer(state = initialState, action) {
             loading: false,
             error:null,
             empty: false
+        });
+    }
+    else if (action.type === SET_PAGE_NUMBER) {
+        return Object.assign({}, state, {
+            currentPage: action.pageNumber,
+        });
+    }
+    else if (action.type === SET_SEARCH_RESULTS) {
+        return Object.assign({}, state, {
+            currentSearchResults: action.searchResults,
+        });
+    }
+    else if (action.type === SET_IS_LAST_PAGE) {
+        return Object.assign({}, state, {
+            isLastPage: action.isLastPage,
         });
     }
     return state;
