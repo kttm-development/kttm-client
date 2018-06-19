@@ -4,11 +4,27 @@ import { RiseLoader } from 'react-spinners';
 
 import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
+import {fetchTicketmasterConcerts, setPageNumber} from '../../actions/ticketmaster-actions';
 
 class ConcertSearchResults extends React.Component {
   // componentDidMount(){
   //   console.log(this.props.concerts)
   // }
+
+  onNextClick(props) {
+    const {location, genre} = props.currentSearchResults;
+    const page = props.currentPage + 1;
+    props.dispatch(fetchTicketmasterConcerts(location, genre, page));
+    props.dispatch(setPageNumber(page));
+  }
+
+  onPrevClick(props) {
+    const {location, genre} = props.currentSearchResults;
+    const page = props.currentPage - 1;
+    props.dispatch(fetchTicketmasterConcerts(location, genre, page));
+    props.dispatch(setPageNumber(page));
+  }
+  
     render() {
 
         if (this.props.loading===true) {
@@ -44,6 +60,8 @@ class ConcertSearchResults extends React.Component {
                 {this.props.concerts.map(obj => (
                   <ConcertSearchItem dispatch={this.props.dispatch} {...obj} key={String(obj .id)} />
                 ))}
+                {this.props.currentPage === 0 ? '' : <button onClick={() => this.onPrevClick(this.props)}>Previous</button>}
+                <button onClick={() => this.onNextClick(this.props)}>Next</button>
             </div>
           );
         }
@@ -56,7 +74,9 @@ const mapStateToProps = state => ({
 	loading: state.ticketmaster.concerts,
 	error: state.ticketmaster.error,
 	empty: state.ticketmaster.empty,
-	favorite: state.favorite.favorite
+  favorite: state.favorite.favorite,
+  currentPage: state.ticketmaster.currentPage,
+  currentSearchResults: state.ticketmaster.currentSearchResults
 });
 
 export default connect(mapStateToProps)(ConcertSearchResults);
