@@ -27,25 +27,13 @@ export function ConcertSearchItem({
         <div className="pic-info col-4">
           <img src={image} alt="concert" className="concert-search-image" />
           <button onClick={() => {
-              const newFavorite = { city, state, date, id, name, image, time, venue, url, attraction }
+              const newFavorite = { city, state, date, id, name, image, time, venue, url, attraction, description }
               console.log(newFavorite)
               dispatch(favorite(newFavorite))
             }
             }>Favorite</button>
-        </div>
-        <div className="concert-search-about col-8">
-          <label className="info-label">Name:</label>
-          <label className="concert-label">{name}</label>
-          <label className="info-label">Venue:</label>
-          <label className="concert-label">{venue}</label>
-          <label className="info-label">Date:</label>
-          <label className="concert-label">{date}</label>
-          <label className="info-label">Time:</label>
-          <label className="concert-label">{time}</label>
-        </div>
-          <Link to='/concert-about'>
+            <Link to='/concert-about'>
             <button 
-              className="hotels-button"
               onClick={()=> {
                 const currentConcertObj={
                   city,
@@ -62,11 +50,19 @@ export function ConcertSearchItem({
                   }
                   console.log('current Obj', currentConcertObj)
                 dispatch(storeCurrentConcert(currentConcertObj))
-
               }}
-            >
-              More Details
-            </button></Link>
+            >More Details</button></Link>
+        </div>
+        <div className="concert-search-about col-8">
+          <label className="info-label">Name:</label>
+          <label className="concert-label">{name}</label>
+          <label className="info-label">Venue:</label>
+          <label className="concert-label">{venue}</label>
+          <label className="info-label">Date:</label>
+          <label className="concert-label">{date}</label>
+          <label className="info-label">Time:</label>
+          <label className="concert-label">{time}</label>
+        </div>
       </div>
       </div>
     </span>
