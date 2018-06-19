@@ -9,6 +9,13 @@ export const favoriteConcertRequest = () => {
   };
 };
 
+export const CLEAR_FAVORITES = 'CLEAR_FAVORITES';
+export const clearFavorites = () => {
+  return {
+    type: CLEAR_FAVORITES
+  };
+};
+
 export const FAVORITE_CONCERT_SUCCESS = 'FAVORITE_CONCERT_SUCCESS';
 export const favoriteConcertSuccess = (newFavorite) => {
   return {
@@ -25,65 +32,65 @@ export const favoriteConcertError = (error) => {
   };
 };
 
-// ===delete favorite actions=== \\
 
-export const DELETE_FAVORITE_CONCERT_REQUEST = 'DELETE_FAVORITE_CONCERT_REQUEST';
-export const deleteFavoriteConcertRequest = () => {
-  return {
-    type: DELETE_FAVORITE_CONCERT_REQUEST
-  };
-};
-
-export const DELETE_FAVORITE_CONCERT_SUCCESS = 'DELETE_FAVORITE_CONCERT_SUCCESS';
-export const deleteFavoriteConcertSuccess = (favorite) => {
-  return {
-    type: DELETE_FAVORITE_CONCERT_SUCCESS,
-    favorite
-  };
-};
-
-export const DELETE_FAVORITE_CONCERT_ERROR = 'DELETE_FAVORITE_CONCERT_ERROR';
-export const deleteFavoriteConcertError = (error) => {
-  return {
-    type: DELETE_FAVORITE_CONCERT_ERROR,
-    error
-  };
-};
 
 // ===async post requests=== \\
 
-export const newFavorite = (id) => dispatch => {
+export const getFavorites = () => (dispatch, getState) => {
   dispatch(favoriteConcertRequest)
-  return fetch(`${API_BASE_URL}/favorites/${id}`, {
-    method: 'POST',
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/favorites`, {
+    method: 'GET',
     headers: {
       'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
     }
   }).then(res => {
     return res.json();
   })
-    .then(favorite => {
-      console.log(favorite)
-      return dispatch(favoriteConcertSuccess(favorite));
+    .then(favorites => {
+      console.log('get favorites', favorites)
+      dispatch(clearFavorites())
+      return dispatch(favoriteConcertSuccess(favorites));
+    })
+    .catch(err => dispatch(favoriteConcertError(err.message)));
+};
+
+export const newFavorite = (newFavoriteObj) => (dispatch, getState) => {
+  dispatch(favoriteConcertRequest)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/favorites`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    },
+    body: JSON.stringify(newFavoriteObj)
+  }).then(res => {
+    return res.json();
+  })
+    .then(favorites => {
+      console.log(favorites)
+      return dispatch(favoriteConcertSuccess(favorites));
     })
     .catch(err => dispatch(favoriteConcertError(err.message)));
 };
 
 // ===async delete requests=== \\
 
-export const deleteFavorite = (id) => dispatch => {
-  dispatch(deleteFavoriteConcertRequest)
+export const deleteFavorite = (id) => (dispatch, getState) => {
+  dispatch(favoriteConcertRequest)
+  const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/favorites/${id}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
     }
-  }).then(res => {
-    return res.json();
   })
-    .then(favorite => {
-      console.log(favorite)
-      return dispatch(deleteFavoriteConcertSuccess(favorite));
+    .then(() => {
+      console.log('got to here')
+      return dispatch(getFavorites());
     })
-    .catch(err => dispatch(deleteFavoriteConcertError(err.message)));
+    .catch(err => dispatch(favoriteConcertError(err.message)));
 };

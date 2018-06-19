@@ -1,8 +1,8 @@
 import React from 'react';
 import { storeCurrentConcert } from '../../actions/ticketmaster-actions'
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
-import { favoriteConcertSuccess } from '../../actions/favorite-actions'
+import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
+import { newFavorite } from '../../actions/favorite-actions'
 
 export function ConcertSearchItem({
   city,
@@ -20,14 +20,15 @@ export function ConcertSearchItem({
 }) {
   return (
     <span className="search-results">
-      <div className="concert-container row">
-        <div className="concert-details">
-          <div className="pic-info col-4">
-            <img src={image} alt="concert" className="concert-search-image" />
-            <button onClick={() => {
-              const newFavorite = { city, state, date, id, name, image, time, venue, url, attraction, description }
-              console.log(newFavorite)
-              dispatch(favoriteConcertSuccess(newFavorite))
+
+    <div className="concert-container row">
+      <div className="concert-details">
+        <div className="pic-info col-4">
+          <img src={image} alt="concert" className="concert-search-image" />
+          <button onClick={() => {
+              const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
+              console.log(newFavoriteObj)
+              dispatch(newFavorite(newFavoriteObj))
             }
             }>Favorite</button>
             <Link to='/concert-about'>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
+import { newFavorite } from '../../actions/favorite-actions'
+
 
 import '../styles/ConcertAbout.css'
 export class ConcertAboutPage extends React.Component {
@@ -67,6 +69,7 @@ export class ConcertAboutPage extends React.Component {
                         </div>
                         <div className="col-4">
                             <a href={airBNBLink} target="_blank" className="button blue push_button">Find Hotels<i class="fas fa-building icon"></i></a>
+
                         </div>
                     </div>
                 </div>
@@ -83,7 +86,6 @@ const mapStateToProps = state => ({
     state: state.ticketmaster.currentConcert.state,
     date: state.ticketmaster.currentConcert.date,
     currentConcert: state.ticketmaster.currentConcert,
-    description: state.ticketmaster.currentConcert.description,
     name: state.ticketmaster.currentConcert.name,
     time: state.ticketmaster.currentConcert.time,
     venue: state.ticketmaster.currentConcert.venue,

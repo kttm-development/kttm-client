@@ -1,5 +1,5 @@
 import {
-    FAVORITE_CONCERT_SUCCESS
+    FAVORITE_CONCERT_SUCCESS, CLEAR_FAVORITES
 } from '../actions/favorite-actions';
 
 const initialState = {
@@ -11,8 +11,15 @@ export default function reducer(state=initialState, action) {
     if (action.type === FAVORITE_CONCERT_SUCCESS) {
         return Object.assign({}, state, {
             error: null,
-            favorites: [ ...state.favorites, action.newFavorite ],
+            favorites: action.newFavorite
         });
     }
+    else if (action.type === CLEAR_FAVORITES) {
+        return Object.assign({}, state, {
+            error: null,
+            favorites: []
+        });
+    }
+    console.log('new state', state)
     return state;
 }
