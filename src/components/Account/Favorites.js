@@ -1,5 +1,4 @@
 import React from 'react';
-import {API_BASE_URL} from '../../config';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'

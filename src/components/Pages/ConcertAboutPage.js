@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
+import { newFavorite } from '../../actions/favorite-actions'
+
 
 import '../styles/ConcertAbout.css'
 export class ConcertAboutPage extends React.Component {
@@ -63,6 +65,12 @@ export class ConcertAboutPage extends React.Component {
                             <a href={this.props.url} target="_blank"><button className="tickets-button">Buy Tickets</button></a>
                         </div>
                         <div className="col-6">
+                            <button className="favorites-button"
+                                onClick={() => {
+                                this.props.dispatch(newFavorite(this.props.currentConcert))
+                            }}>Favorite</button>
+                        </div>
+                        <div className="col-6">
                             <a href={airBNBLink} target="_blank"><button className="hotels-button">Find Hotels</button></a>
                         </div>
                     </div>
@@ -86,7 +94,6 @@ const mapStateToProps = state => ({
     venue:  state.ticketmaster.currentConcert.venue,
     url:  state.ticketmaster.currentConcert.url,
     image:  state.ticketmaster.currentConcert.image,
-    description: state.ticketmaster.currentConcert.description,
     attraction: state.ticketmaster.currentConcert.attraction
 });
 
