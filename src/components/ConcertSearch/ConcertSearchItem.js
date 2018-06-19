@@ -1,5 +1,4 @@
 import React from 'react';
-import { API_BASE_URL } from '../../config';
 import { connect } from 'react-redux';
 
 import { favorite } from '../../actions/favorite-actions'
@@ -24,9 +23,9 @@ export function ConcertSearchItem({
           <div className="pic-info col-4">
             <img src={image} alt="concert" className="concert-search-image" />
             <button onClick={() => {
-              const newFavorite = { city, state, date, id, name, image, time, venue, url, attraction }
+              // const newFavorite = { city, state, date, id, name, image, time, venue, url, attraction }
               console.log(newFavorite)
-              dispatch(favorite(newFavorite))
+              dispatch(favorite(id))
             }
             }>Favorite</button>
           </div>
