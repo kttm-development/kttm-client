@@ -1,10 +1,8 @@
 import React from 'react';
-import {API_BASE_URL} from '../../config';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
-import { favorite } from '../../actions/favorite-actions'
-
+import { favoriteConcertSuccess } from '../../actions/favorite-actions'
 
 export function ConcertSearchItem({
   city,
@@ -29,7 +27,7 @@ export function ConcertSearchItem({
           <button onClick={() => {
               const newFavorite = { city, state, date, id, name, image, time, venue, url, attraction }
               console.log(newFavorite)
-              dispatch(favorite(newFavorite))
+              dispatch(favoriteConcertSuccess(newFavorite))
             }
             }>Favorite</button>
         </div>
