@@ -9,6 +9,13 @@ export const favoriteConcertRequest = () => {
   };
 };
 
+export const CLEAR_FAVORITES = 'CLEAR_FAVORITES';
+export const clearFavorites = () => {
+  return {
+    type: CLEAR_FAVORITES
+  };
+};
+
 export const FAVORITE_CONCERT_SUCCESS = 'FAVORITE_CONCERT_SUCCESS';
 export const favoriteConcertSuccess = (newFavorite) => {
   return {
@@ -43,6 +50,7 @@ export const getFavorites = () => (dispatch, getState) => {
   })
     .then(favorites => {
       console.log('get favorites', favorites)
+      dispatch(clearFavorites())
       return dispatch(favoriteConcertSuccess(favorites));
     })
     .catch(err => dispatch(favoriteConcertError(err.message)));
@@ -79,12 +87,10 @@ export const deleteFavorite = (id) => (dispatch, getState) => {
       'content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
     }
-  }).then(res => {
-    return res.json();
   })
-    .then(favorites => {
-      console.log(favorites)
-      return dispatch(favoriteConcertSuccess(favorites));
+    .then(() => {
+      console.log('got to here')
+      return dispatch(getFavorites());
     })
     .catch(err => dispatch(favoriteConcertError(err.message)));
 };

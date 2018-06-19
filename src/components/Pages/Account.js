@@ -14,6 +14,7 @@ export class Account extends React.Component {
         console.log(this.props.concerts)
         this.props.dispatch(getFavorites())
     }
+
     render() {
 
         if (this.props.loading === true) {
