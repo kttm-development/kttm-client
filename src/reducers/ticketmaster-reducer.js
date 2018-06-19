@@ -3,7 +3,8 @@ import {
     TICKETMASTER_INFO_SUCCESS,
     TICKETMASTER_INFO_ERROR,
     STORE_CURRENT_CONCERT,
-    SET_PAGE_NUMBER
+    SET_PAGE_NUMBER,
+    SET_SEARCH_RESULTS
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
@@ -27,7 +28,8 @@ const initialState = {
         url:'http://www.ticketmaster.com',
         description: null
     },
-    currentPage: 0
+    currentPage: 0,
+    currentSearchResults: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -73,6 +75,11 @@ export default function reducer(state = initialState, action) {
     else if (action.type === SET_PAGE_NUMBER) {
         return Object.assign({}, state, {
             currentPage: action.pageNumber,
+        });
+    }
+    else if (action.type === SET_SEARCH_RESULTS) {
+        return Object.assign({}, state, {
+            currentSearchResults: action.searchResults,
         });
     }
     return state;
