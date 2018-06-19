@@ -1,6 +1,6 @@
 import React from 'react';
-import {API_BASE_URL} from '../../config';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
+import {deleteFavorite} from '../../actions/favorite-actions'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 
@@ -25,6 +25,10 @@ export function Favorites({
       <div className="concert-details">
         <div className="pic-info col-4">
           <img src={image} alt="concert" className="concert-search-image" />
+          <button onClick={() => {
+              dispatch(deleteFavorite(id))
+            }
+            }>Un-Favorite</button>
             <Link to='/concert-about'>
             <button 
               onClick={()=> {

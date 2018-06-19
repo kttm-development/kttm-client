@@ -58,7 +58,7 @@ class ConcertSearchResults extends React.Component {
               <h1 className="page-title">Concerts</h1>
                 {console.log(this.props.concerts)}
                 {this.props.concerts.map(obj => (
-                  <ConcertSearchItem dispatch={this.props.dispatch} {...obj} key={String(obj .id)} />
+                  <ConcertSearchItem {...obj} dispatch={this.props.dispatch} key={String(obj.id)} />
                 ))}
                 {this.props.currentPage === 0 ? '' : <a href='#top'><button onClick={() => this.onPrevClick(this.props)}>Previous</button></a>}
                 Page {this.props.currentPage + 1}

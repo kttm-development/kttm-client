@@ -5,7 +5,7 @@ import { RiseLoader } from 'react-spinners';
 import '../styles/Account.css';
 import ChangePassword from '../Account/ChangePassword';
 import AddContact from '../Account/AddContact';
-import Contacts from '../Account/Contacts';
+// import Contacts from '../Account/Contacts';
 import Favorites from '../Account/Favorites';
 import {getFavorites} from '../../actions/favorite-actions'
 
@@ -14,6 +14,7 @@ export class Account extends React.Component {
         console.log(this.props.concerts)
         this.props.dispatch(getFavorites())
     }
+
     render() {
 
         if (this.props.loading === true) {
