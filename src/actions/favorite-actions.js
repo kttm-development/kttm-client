@@ -48,7 +48,7 @@ export const getFavorites = () => (dispatch, getState) => {
     .catch(err => dispatch(favoriteConcertError(err.message)));
 };
 
-export const newFavorite = (id, newFavoriteObj) => (dispatch, getState) => {
+export const newFavorite = (newFavoriteObj) => (dispatch, getState) => {
   dispatch(favoriteConcertRequest)
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/favorites`, {

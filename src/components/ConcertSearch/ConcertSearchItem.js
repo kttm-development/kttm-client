@@ -26,8 +26,8 @@ export function ConcertSearchItem({
           <img src={image} alt="concert" className="concert-search-image" />
           <button onClick={() => {
               const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
-              console.log(newFavorite)
-              dispatch(newFavorite(id, newFavoriteObj))
+              console.log(newFavoriteObj)
+              dispatch(newFavorite(newFavoriteObj))
             }
             }>Favorite</button>
             <Link to='/concert-about'>
