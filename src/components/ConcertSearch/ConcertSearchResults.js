@@ -37,7 +37,7 @@ class ConcertSearchResults extends React.Component {
       
           if (this.props.error) {
             return (
-              <div>
+              <div className="results-info col-8">
                 <h2>OOPS!</h2>
                 <h3>Something Went Wrong:</h3>
                 <h3><em> {this.props.error}</em></h3>
@@ -46,10 +46,10 @@ class ConcertSearchResults extends React.Component {
             );
           }
 
-          if(this.props.empty===true){
+          if (this.props.empty===true) {
               return(
               <div className="col-8">
-                <h3 className="search-results">Search for concerts near you to display shows...</h3>
+                <h3 className="results-info">Search for concerts near you to display shows...</h3>
               </div>)
           }
           else {

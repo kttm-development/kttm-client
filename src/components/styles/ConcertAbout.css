@@ -1,5 +1,6 @@
 .concert-about-page {
-    height: 80vh;
+    /* height: 80vh; */
+    /* background-color: #7FC4FD; */
 }
 
 .concert-title {
@@ -8,27 +9,73 @@
 
 .concert-about {
     width: 80vw;
-    /* height: 60%; */
+    background-color: #F1F9FF;
+    border: 1px solid #3a3f44;
+    border-radius: 8px;
     padding: 40px;
-    border: 1px solid black;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 .concert-image {
-    border: 1px solid black;
-    padding: 10px;
-    height: 40vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    width: 200px;
+    height: 200px;
+    margin: auto;
 }
 
 .buttons-container {
     margin-top: 5%;
 }
 
-.tickets-button, .hotels-button {
+.icon {
+    margin-left: 10%;
+}
+
+.button {
+    width: 60%;
+    margin: auto;
+}
+
+/* .tickets-button, .hotels-button, .favorite-button {
     display: flex;
     justify-content: center;
     margin: auto;
     width: 200px;
     padding: 20px;
     font-size: 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #3a3f44;
+    border-radius: 8px;
 }
+
+.favorite-button {
+    background-color: #f9f26a;
+}
+
+.favorite-button:hover {
+    background-color: #f8ef42;
+}
+
+.tickets-button {
+    background-color: #7ef977;
+}
+
+.tickets-button:hover {
+    background-color: #4bf842;
+}
+
+.hotels-button {
+    background-color: #6fbbf9;
+}
+
+.hotels-button:hover {
+    background-color: #42a6f8;
+}
+
+.tickets-button:hover, .hotels-button:hover, .favorite-button:hover {
+    cursor: pointer;
+} */

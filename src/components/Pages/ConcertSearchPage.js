@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ConcertSearchForm from '../ConcertSearch/ConcertSearchForm';
 import ConcertSearchResults from '../ConcertSearch/ConcertSearchResults';
 import '../styles/ConcertSearchPage.css'
+
 export class ConcertSearchPage extends React.Component {
     render() {
         return (

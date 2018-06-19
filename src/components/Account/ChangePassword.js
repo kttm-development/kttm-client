@@ -77,9 +77,7 @@ export class SignupForm extends React.Component {
                                                 {errors.confirmPassword}
                                             </div>
                                         )}
-                                    <button className="submit blue push_button" disabled={!isValid}>
-                                        Submit
-                </button>
+                                    <button className="submit-button blue push_button" disabled={!isValid}>Submit</button>
                                 </form>
                             </div>
                         )}

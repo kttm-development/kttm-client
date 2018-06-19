@@ -1,9 +1,12 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 import Input from '../../commons/LoginInput';
-import {login} from '../../actions/auth';
-import {required, nonEmpty} from '../../validators';
+import { login } from '../../actions/auth';
+import { required, nonEmpty } from '../../validators';
+
+import '../styles/loginSignup.css'
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -26,25 +29,28 @@ export class LoginForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 {error}
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username" className="fields-and-labels">Username</label>
                 <Field
+                    className="fields-and-labels"
                     component={Input}
                     type="text"
                     name="username"
                     id="username"
                     validate={[required, nonEmpty]}
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password" className="fields-and-labels">Password</label>
                 <Field
+                    className="fields-and-labels"
                     component={Input}
                     type="password"
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button className="login-form-button blue push_button" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                <span>Need an account?  <Link to="/register" className="register-link">Register</Link></span>
             </form>
         );
     }
