@@ -88,8 +88,6 @@ const mapStateToProps = state => ({
     image:  state.ticketmaster.currentConcert.image,
     description: state.ticketmaster.currentConcert.description,
     attraction: state.ticketmaster.currentConcert.attraction
-
-
 });
 
 export default connect(mapStateToProps)(ConcertAboutPage);
