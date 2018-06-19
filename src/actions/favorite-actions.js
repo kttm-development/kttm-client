@@ -1,3 +1,5 @@
+import {API_BASE_URL} from '../config';
+
 // ===post favorite actions=== \\
 
 export const FAVORITE_CONCERT_REQUEST = 'FAVORITE_CONCERT_REQUEST';
@@ -70,7 +72,7 @@ export const newFavorite = (id) => dispatch => {
 // ===async delete requests=== \\
 
 export const deleteFavorite = (id) => dispatch => {
-  dispatch(DeleteFavoriteConcertRequest)
+  dispatch(deleteFavoriteConcertRequest)
   return fetch(`${API_BASE_URL}/favorites/${id}`, {
     method: 'DELETE',
     headers: {
