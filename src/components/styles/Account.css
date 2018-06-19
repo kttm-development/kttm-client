@@ -16,4 +16,5 @@
     height: 50vh;
     margin-top: 75px;
     margin-bottom: 75px;
+    overflow: auto;
 }
