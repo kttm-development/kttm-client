@@ -1,14 +1,14 @@
 // ===post favorite actions=== \\
 
 export const FAVORITE_CONCERT_REQUEST = 'FAVORITE_CONCERT_REQUEST';
-export const favoriteRequest = () => {
+export const favoriteConcertRequest = () => {
   return {
     type: FAVORITE_CONCERT_REQUEST
   };
 };
 
 export const FAVORITE_CONCERT_SUCCESS = 'FAVORITE_CONCERT_SUCCESS';
-export const favoriteSuccess = (newFavorite) => {
+export const favoriteConcertSuccess = (newFavorite) => {
   return {
     type: FAVORITE_CONCERT_SUCCESS,
     newFavorite
@@ -16,7 +16,7 @@ export const favoriteSuccess = (newFavorite) => {
 };
 
 export const FAVORITE_CONCERT_ERROR = 'FAVORITE_CONCERT_ERROR';
-export const favoriteError = (error) => {
+export const favoriteConcertError = (error) => {
   return {
     type: FAVORITE_CONCERT_ERROR,
     error
@@ -26,14 +26,14 @@ export const favoriteError = (error) => {
 // ===delete favorite actions=== \\
 
 export const DELETE_FAVORITE_CONCERT_REQUEST = 'DELETE_FAVORITE_CONCERT_REQUEST';
-export const deleteFavoriteRequest = () => {
+export const deleteFavoriteConcertRequest = () => {
   return {
     type: DELETE_FAVORITE_CONCERT_REQUEST
   };
 };
 
 export const DELETE_FAVORITE_CONCERT_SUCCESS = 'DELETE_FAVORITE_CONCERT_SUCCESS';
-export const deleteFavoriteSuccess = (favorite) => {
+export const deleteFavoriteConcertSuccess = (favorite) => {
   return {
     type: DELETE_FAVORITE_CONCERT_SUCCESS,
     favorite
@@ -41,7 +41,7 @@ export const deleteFavoriteSuccess = (favorite) => {
 };
 
 export const DELETE_FAVORITE_CONCERT_ERROR = 'DELETE_FAVORITE_CONCERT_ERROR';
-export const deleteFavoriteError = (error) => {
+export const deleteFavoriteConcertError = (error) => {
   return {
     type: DELETE_FAVORITE_CONCERT_ERROR,
     error
@@ -51,7 +51,7 @@ export const deleteFavoriteError = (error) => {
 // ===async post requests=== \\
 
 export const newFavorite = (id) => dispatch => {
-  dispatch(favoriteRequest)
+  dispatch(favoriteConcertRequest)
   return fetch(`${API_BASE_URL}/favorites/${id}`, {
     method: 'POST',
     headers: {
@@ -62,15 +62,15 @@ export const newFavorite = (id) => dispatch => {
   })
     .then(favorite => {
       console.log(favorite)
-      return dispatch(favoriteSuccess(favorite));
+      return dispatch(favoriteConcertSuccess(favorite));
     })
-    .catch(err => dispatch(favoriteError(err.message)));
+    .catch(err => dispatch(favoriteConcertError(err.message)));
 };
 
 // ===async delete requests=== \\
 
 export const deleteFavorite = (id) => dispatch => {
-  dispatch(DeleteFavoriteRequest)
+  dispatch(DeleteFavoriteConcertRequest)
   return fetch(`${API_BASE_URL}/favorites/${id}`, {
     method: 'DELETE',
     headers: {
@@ -81,7 +81,7 @@ export const deleteFavorite = (id) => dispatch => {
   })
     .then(favorite => {
       console.log(favorite)
-      return dispatch(deleteFavoriteSuccess(favorite));
+      return dispatch(deleteFavoriteConcertSuccess(favorite));
     })
-    .catch(err => dispatch(deleteFavoriteError(err.message)));
+    .catch(err => dispatch(deleteFavoriteConcertError(err.message)));
 };
