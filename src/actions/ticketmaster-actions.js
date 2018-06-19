@@ -29,6 +29,12 @@ export const setPageNumber = (pageNumber) => ({
     pageNumber
 });
 
+export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
+export const setSearchResults = (searchResults) => ({
+    type: SET_SEARCH_RESULTS,
+    searchResults
+});
+
 export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => {
     dispatch(sendingTicketmasterInfo)
     return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/${page}`, {
@@ -45,7 +51,6 @@ export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => 
            return dispatch(ticketmasterInfoError(results.message));
         }
         else{
-        dispatch(setPageNumber(0));
         return dispatch(ticketmasterInfoSuccess(results.concerts));
         }
     })
