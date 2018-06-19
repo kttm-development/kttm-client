@@ -23,9 +23,15 @@ export const storeCurrentConcert = (currentConcertObj) => ({
     currentConcertObj
 });
 
-export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
+export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER';
+export const setPageNumber = (pageNumber) => ({
+    type: SET_PAGE_NUMBER,
+    pageNumber
+});
+
+export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => {
     dispatch(sendingTicketmasterInfo)
-    return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/0`, {
+    return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/${page}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -39,6 +45,7 @@ export const fetchTicketmasterConcerts = (location, genre) => dispatch => {
            return dispatch(ticketmasterInfoError(results.message));
         }
         else{
+        dispatch(setPageNumber(0));
         return dispatch(ticketmasterInfoSuccess(results.concerts));
         }
     })
