@@ -35,6 +35,12 @@ export const setSearchResults = (searchResults) => ({
     searchResults
 });
 
+export const SET_IS_LAST_PAGE = 'SET_IS_LAST_PAGE';
+export const setIsLastPage = (isLastPage) => ({
+    type: SET_IS_LAST_PAGE,
+    isLastPage
+});
+
 export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => {
     dispatch(sendingTicketmasterInfo)
     return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/${page}`, {
@@ -46,11 +52,12 @@ export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => 
         return res.json();
     })
     .then(results => {
-        console.log(results.concerts)
+        console.log(results.concerts);
         if(results.message){
            return dispatch(ticketmasterInfoError(results.message));
         }
         else{
+        dispatch(setIsLastPage(results.isLastPage));
         return dispatch(ticketmasterInfoSuccess(results.concerts));
         }
     })

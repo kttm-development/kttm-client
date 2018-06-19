@@ -60,8 +60,9 @@ class ConcertSearchResults extends React.Component {
                 {this.props.concerts.map(obj => (
                   <ConcertSearchItem dispatch={this.props.dispatch} {...obj} key={String(obj .id)} />
                 ))}
-                {this.props.currentPage === 0 ? '' : <button onClick={() => this.onPrevClick(this.props)}>Previous</button>}
-                <button onClick={() => this.onNextClick(this.props)}>Next</button>
+                {this.props.currentPage === 0 ? '' : <a href='#top'><button onClick={() => this.onPrevClick(this.props)}>Previous</button></a>}
+                Page {this.props.currentPage + 1}
+                {this.props.isLastPage ? '' : <a href='#top'><button onClick={() => this.onNextClick(this.props)}>Next</button></a>}
             </div>
           );
         }
@@ -76,7 +77,8 @@ const mapStateToProps = state => ({
 	empty: state.ticketmaster.empty,
   favorite: state.favorite.favorite,
   currentPage: state.ticketmaster.currentPage,
-  currentSearchResults: state.ticketmaster.currentSearchResults
+  currentSearchResults: state.ticketmaster.currentSearchResults,
+  isLastPage: state.ticketmaster.isLastPage
 });
 
 export default connect(mapStateToProps)(ConcertSearchResults);

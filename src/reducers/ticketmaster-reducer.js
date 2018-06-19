@@ -4,7 +4,8 @@ import {
     TICKETMASTER_INFO_ERROR,
     STORE_CURRENT_CONCERT,
     SET_PAGE_NUMBER,
-    SET_SEARCH_RESULTS
+    SET_SEARCH_RESULTS,
+    SET_IS_LAST_PAGE
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
@@ -29,7 +30,8 @@ const initialState = {
         description: null
     },
     currentPage: 0,
-    currentSearchResults: null
+    currentSearchResults: null,
+    isLastPage: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -80,6 +82,11 @@ export default function reducer(state = initialState, action) {
     else if (action.type === SET_SEARCH_RESULTS) {
         return Object.assign({}, state, {
             currentSearchResults: action.searchResults,
+        });
+    }
+    else if (action.type === SET_IS_LAST_PAGE) {
+        return Object.assign({}, state, {
+            isLastPage: action.isLastPage,
         });
     }
     return state;
