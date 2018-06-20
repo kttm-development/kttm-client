@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
@@ -15,21 +15,34 @@ export class HeaderBar extends React.Component {
     render() {
         // Only render the log out button if we are logged in
         let logOutButton;
+        let accountButton;
+        let loginButton;
+        let registerButton;
         if (this.props.loggedIn) {
             logOutButton = (
                 <button onClick={() => this.logOut()}>Log out</button>
+            );
+            accountButton = (
+                <li><Link className="nav-item" to="/account">Account</Link></li>
+            );
+        } else {
+            loginButton = (
+                <li><Link className="nav-item" to="/login">Login</Link></li>
+            );
+            registerButton = (
+                <li><Link className="nav-item" to="/register">Signup</Link></li>
             );
         }
         return (
             <div className="header-bar">
                 <Link className="logo" to="/">KTTM</Link>
                 <ul className="nav-items">
-                    <li><Link className="nav-item" to="/concert-about">Concert About</Link></li>
                     <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
-                    <li><Link className="nav-item" to="/account">Account</Link></li>
-                    <li><Link className="nav-item" to="/login">Login</Link></li>
-                    <li><Link className="nav-item" to="/register">Signup</Link></li>
+                    {accountButton}
+                    {loginButton}
+                    {registerButton}
                 </ul>
+                {!this.props.loggedIn ? <Redirect to='/'/> : ''}
                 {logOutButton}
             </div>
         );

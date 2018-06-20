@@ -9,6 +9,8 @@ import {
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
+import {CLEAR_AUTH} from '../actions/auth';
+
 import concertImg from '../images/concert-bg3.jpg'
 
 const initialState = {
@@ -88,6 +90,9 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             isLastPage: action.isLastPage,
         });
+    }
+    else if (action.type === CLEAR_AUTH) {
+        return Object.assign({}, state, initialState);
     }
     return state;
 }

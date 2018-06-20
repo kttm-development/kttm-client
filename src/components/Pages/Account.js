@@ -11,30 +11,10 @@ import {getFavorites} from '../../actions/favorite-actions'
 
 export class Account extends React.Component {
     componentDidMount() {
-        console.log(this.props.concerts)
         this.props.dispatch(getFavorites())
     }
 
     render() {
-
-        if (this.props.loading === true) {
-            return (
-                <div className="loading-wrapper">
-                    <RiseLoader />
-                </div>
-            );
-        }
-
-        if (this.props.error) {
-            return (
-                <div>
-                    <h2>OOPS!</h2>
-                    <h3>Something Went Wrong:</h3>
-                    <h3><em> {this.props.error}</em></h3>
-                    <h4><strong>Please try searching again</strong></h4>
-                </div>
-            );
-        }
         if (this.props.loggedIn) {
             return (
                 <div className="account-page">
@@ -89,9 +69,6 @@ export class Account extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    concerts: state.ticketmaster.concerts,
-    loading: state.ticketmaster.concerts,
-    error: state.ticketmaster.error,
     empty: state.ticketmaster.empty,
     favorites: state.favorite.favorites,
     loggedIn: state.auth.currentUser !== null
