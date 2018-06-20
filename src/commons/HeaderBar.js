@@ -23,9 +23,6 @@ export class HeaderBar extends React.Component {
             logOutButton = (
                 <a href="/"><button onClick={() => this.logOut()}>Log out</button></a>
             );
-            concertsButton = (
-                <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
-            );
             accountButton = (
                 <li><Link className="nav-item" to="/account">Account</Link></li>
             );
@@ -41,7 +38,7 @@ export class HeaderBar extends React.Component {
             <div className="header-bar">
                 <Link className="logo" to="/">KTTM</Link>
                 <ul className="nav-items">
-                    {concertsButton}
+                    <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
                     {accountButton}
                     {loginButton}
                     {registerButton}
