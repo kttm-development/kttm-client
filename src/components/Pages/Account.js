@@ -5,13 +5,16 @@ import { RiseLoader } from 'react-spinners';
 import '../styles/Account.css';
 import ChangePassword from '../Account/ChangePassword';
 import AddContact from '../Account/AddContact';
-// import Contacts from '../Account/Contacts';
+import Contacts from '../Account/Contacts';
 import Favorites from '../Account/Favorites';
 import {getFavorites} from '../../actions/favorite-actions'
+import { getContacts } from '../../actions/contacts-actions';
 
 export class Account extends React.Component {
     componentDidMount() {
         this.props.dispatch(getFavorites())
+        // this.props.dispatch(getContacts())
+
     }
 
     render() {
@@ -38,7 +41,10 @@ export class Account extends React.Component {
                         <div className="account-bottom-section row">
                             <div className="col-6">
                                 <div className="contacts">
-                                    <h3>Placeholder for contacts</h3>
+                                    <h3>Contacts:</h3>
+                                    {this.props.contacts.map(obj => (
+                                        <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
+                                    ))} 
                                 </div>
                             </div>
                             <div className="col-6">
@@ -71,6 +77,7 @@ export class Account extends React.Component {
 const mapStateToProps = state => ({
     empty: state.ticketmaster.empty,
     favorites: state.favorite.favorites,
+    contacts: state.contact.contacts,
     loggedIn: state.auth.currentUser !== null
 });
 
