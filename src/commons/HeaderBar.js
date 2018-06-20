@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
@@ -17,6 +17,8 @@ export class HeaderBar extends React.Component {
         let logOutButton;
         let concertsButton;
         let accountButton;
+        let loginButton;
+        let registerButton;
         if (this.props.loggedIn) {
             logOutButton = (
                 <a href="/"><button onClick={() => this.logOut()}>Log out</button></a>
@@ -27,6 +29,13 @@ export class HeaderBar extends React.Component {
             accountButton = (
                 <li><Link className="nav-item" to="/account">Account</Link></li>
             );
+        } else {
+            loginButton = (
+                <li><Link className="nav-item" to="/login">Login</Link></li>
+            );
+            registerButton = (
+                <li><Link className="nav-item" to="/register">Signup</Link></li>
+            );
         }
         return (
             <div className="header-bar">
@@ -34,8 +43,8 @@ export class HeaderBar extends React.Component {
                 <ul className="nav-items">
                     {concertsButton}
                     {accountButton}
-                    <li><Link className="nav-item" to="/login">Login</Link></li>
-                    <li><Link className="nav-item" to="/register">Signup</Link></li>
+                    {loginButton}
+                    {registerButton}
                 </ul>
                 {logOutButton}
             </div>
