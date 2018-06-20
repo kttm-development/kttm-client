@@ -32,6 +32,14 @@ export const favoriteConcertError = (error) => {
   };
 };
 
+export const ADD_FAVORITE_SUCCESS = 'ADD_FAVORITE_SUCCESS';
+export const addFavoriteSuccess = (newFavorite) => {
+  return {
+    type: ADD_FAVORITE_SUCCESS,
+    newFavorite
+  };
+};
+
 
 
 // ===async post requests=== \\
@@ -69,9 +77,8 @@ export const newFavorite = (newFavoriteObj) => (dispatch, getState) => {
   }).then(res => {
     return res.json();
   })
-    .then(favorites => {
-      console.log(favorites)
-      return dispatch(favoriteConcertSuccess(favorites));
+    .then(favorite => {
+      return dispatch(addFavoriteSuccess(favorite));
     })
     .catch(err => dispatch(favoriteConcertError(err.message)));
 };
