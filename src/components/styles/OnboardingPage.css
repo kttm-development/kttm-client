@@ -30,8 +30,13 @@
     /* z-index: 1; */
 }
 
-.title, .sub-title {
-    font-family: 'Ruda', sans-serif;
+.title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: white;
+    text-align: center;
+} 
+
+.sub-title {
     color: white;
     text-align: center;
 }
@@ -42,7 +47,7 @@
 }
 
 .sub-title {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 500;
 }
 
@@ -94,7 +99,7 @@
     color: white;
 }
 
-/* ===ABOUT SECTION=== */
+/* ===FEATURES SECTION=== */
 
 .background-2 {
     left: 0;
@@ -106,7 +111,7 @@
         rgba(215, 201, 56, .5), 
         rgba(58, 63, 68, 0.6)
         ),
-        url(../../images/concert-bg3.jpg);
+        url(../../images/concert-bg3.png);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -117,7 +122,7 @@
     border-top: 1px solid #3a3f44;
 }
 
-.features-button {
+.about-button {
     display: block;
     width: 200px;
     padding: 20px;
@@ -130,31 +135,36 @@
     border-radius: 8px;
 }
 
-.features-button:hover {
+.about-button:hover {
     background-color: #d7c938;
     color: white;
 }
 
-.text-container {
+.features-container {
+    padding-top: 10vh;
+}
+
+.feature-one, .feature-two, .feature-three, .features-list {
     display: flex;
     flex-direction: row;
-    width: 75vw;
+}
+.feature-image{
     margin: auto;
-    padding-top: 5vh;
 }
 
-.about-left, .about-right {
+.feature-icon {
+    display: flex;
+    justify-content: center;
     color: white;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: justify;
+    margin: 0 auto;
 }
 
-.about-text {
-    padding: 40px;
+.feature-text {
+    color: white;
+    font-size: 30px;
 }
 
-/* ===FEATURES SECTION=== */
+/* ===ABOUT SECTION=== */
 
 .background-3 {
     left: 0;
@@ -181,7 +191,6 @@
     display: block;
     width: 200px;
     padding: 20px;
-    margin-top: 10vh;
     font-size: 30px;
     font-weight: 900;
     text-align: center;
@@ -196,24 +205,21 @@
     color: white;
 }
 
-.features-container {
+.text-container {
+    display: flex;
+    flex-direction: row;
+    width: 75vw;
+    margin: auto;
     padding-top: 5vh;
 }
 
-.feature-top{
-    display: flex;
-    flex-direction: row;
+.about-left, .about-right {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: justify;
 }
 
-.feature-bottom {
-    display: flex;
-    flex-direction: row;
-    margin-top: 10vh;
-}
-
-.feature-image, .feature-text {
-    border: 2px solid white;
-    padding: 20px;
-    margin-left: 4vw;
-    margin-right: 4vw;
+.about-text {
+    padding: 40px;
 }

@@ -1,4 +1,4 @@
-.login-form {
+.login-form, .signup-form {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -9,9 +9,15 @@
     padding: 40px;
     margin: auto;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
-.login-form-button {
+.page-title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+}
+
+.login-form-button, .signup-form-button {
     font-size: 20px;
     width: 40%;
     /* padding: 20px; */
@@ -20,7 +26,7 @@
     margin-bottom: 20px;
 }
 
-input#password, input#username {
+input#password, input#username, input#firstName, input#lastName, input#passwordConfirm {
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid #3a3f44;
@@ -35,4 +41,13 @@ input#password, input#username {
 
 .register-link {
     color: black;
+}
+
+.form-error {
+    color: red;
+    background-color: #d7d7d7;
+    border-radius: 4px;
+    width: 40%;
+    margin: auto;
+    padding: 5px;
 }

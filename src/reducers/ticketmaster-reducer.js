@@ -11,7 +11,7 @@ import {
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
 import {CLEAR_AUTH} from '../actions/auth';
 
-import concertImg from '../images/concert-bg3.jpg'
+import concertImg from '../images/concert-bg3.png'
 
 const initialState = {
     loading: false,
@@ -23,7 +23,7 @@ const initialState = {
         state:'',
         date:'',
         id:'',
-        name:'Please hit the "expand" button on a concert from the "Concert" tab above',
+        // name:'Please hit the "expand" button on a concert from the "Concert" tab above',
         image:concertImg,
         time: '',
         venue:'',

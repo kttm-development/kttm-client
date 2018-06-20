@@ -54,7 +54,7 @@ class ConcertSearchResults extends React.Component {
           }
           else {
             return (
-            <div className="section-container">
+            <div className="section-container col-8">
               <h1 className="page-title">Concerts</h1>
                 {console.log(this.props.concerts)}
                 {this.props.concerts.map(obj => (

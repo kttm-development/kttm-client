@@ -1,9 +1,8 @@
 import React from 'react';
 import { storeCurrentConcert } from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { newFavorite } from '../../actions/favorite-actions'
-// import Popup from "reactjs-popup";
 
 
 export function ConcertSearchItem({
@@ -23,7 +22,6 @@ export function ConcertSearchItem({
 }) {
   return (
     <span className="search-results">
-
     <div className="concert-container row">
       <div className="concert-details">
         <div className="pic-info col-4">
@@ -35,12 +33,13 @@ export function ConcertSearchItem({
               }
               else{
                 console.log(props)
-                {alert('Please Login Or Signup to save your favorites');}
+                {alert('Please login or signup to save this concert to  your favorites');}
               }
             }
             }>Favorite</button>
             <Link to='/concert-about'>
               <button
+                className="details-button blue push_button"
                 onClick={() => {
                   const currentConcertObj = {
                     city,

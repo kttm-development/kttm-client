@@ -44,25 +44,40 @@ export class ConcertAboutPage extends React.Component {
                 <h1 className="concert-title">{this.props.name}</h1>
                 <div className="concert-about row">
                     <div className="row">
-                        <div className="concert-info-left col-4">
-                            <h3>Concert details</h3>
-                            <p>Date: {this.props.date}</p>
-                            <p>Time: {this.props.time}</p>
-                            <p>Venue: {this.props.venue}</p>
-                            <p>City: {this.props.city}</p>
-                            <p>State: {this.props.state}</p>
+                        <div className="concert-search-about col-4">
+                            <h3 className="header">Concert details</h3>
+                            <label className="info-label">Date:</label>
+                            <label className="concert-label">{this.props.date}</label>
+                            <label className="info-label">Time:</label>
+                            <label className="concert-label">{this.props.time}</label>
+                            <label className="info-label">Venue:</label>
+                            <label className="concert-label">{this.props.venue}</label>
+                            <label className="info-label">City:</label>
+                            <label className="concert-label">{this.props.city}</label>
+                            <label className="info-label">State:</label>
+                            <label className="concert-label">{this.props.state}</label>
                         </div>
                         <div className="concert-info-right col-4">
-                            <h3>Concert description</h3>
+                            <h3 className="header">Concert description</h3>
                             <span>{describe}</span>
                         </div>
-                        <div className="concert-image">
+                        <div className="col-4">
                             <img src={this.props.image} alt='concert' className="concert-image"></img>
                         </div>
+
                     </div>
                     <div className="buttons-container row">
                         <div className="col-4">
-                            <a href="#" className="button blue push_button">Favorite<i class="fas fa-star icon"></i></a>
+                            <a href="#" className="button blue push_button" 
+                                onClick={() => {
+                                    if(this.props.loggedIn){
+                                    this.props.dispatch(newFavorite(this.props.currentConcert))
+                                    }
+                                    else{
+                                        {alert('Please login or signup to save this concert to  your favorites');}
+                                    }
+                                    }
+                                }>Favorite<i class="fas fa-star icon"></i></a>
                         </div>
                         <div className="col-4">
                             <a href={this.props.url} target="_blank" className="button blue push_button">Buy Tickets<i class="fas fa-ticket-alt icon"></i></a>
@@ -92,7 +107,8 @@ const mapStateToProps = state => ({
     url: state.ticketmaster.currentConcert.url,
     image: state.ticketmaster.currentConcert.image,
     description: state.ticketmaster.currentConcert.description,
-    attraction: state.ticketmaster.currentConcert.attraction
+    attraction: state.ticketmaster.currentConcert.attraction,
+    loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(ConcertAboutPage);
