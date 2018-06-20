@@ -21,7 +21,7 @@ const initialState = {
         state:'',
         date:'',
         id:'',
-        name:'Please hit the "expand" button on a concert from the "Concert" tab above',
+        // name:'Please hit the "expand" button on a concert from the "Concert" tab above',
         image:concertImg,
         time: '',
         venue:'',
