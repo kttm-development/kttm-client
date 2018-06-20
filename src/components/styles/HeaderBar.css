@@ -32,3 +32,48 @@
     font-weight: 900;
     padding: 20px;
 }
+
+.hamburger {
+    margin: 0 40px 0 0;
+    font-size: 36px;
+    line-height: 90px;
+    display: none;
+    width: 40px;
+    float: right;
+}
+
+#toggle {
+    display: none;
+}
+
+@media only screen and (max-width: 850px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .header-bar, .menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+    
+
+    .menu {
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-items {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #061826;
+        margin: 0;
+    }
+
+    #toggle:checked + .menu {
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+    }
+}
