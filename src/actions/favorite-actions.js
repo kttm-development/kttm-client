@@ -101,3 +101,4 @@ export const deleteFavorite = (id) => (dispatch, getState) => {
     })
     .catch(err => dispatch(favoriteConcertError(err.message)));
 };
+

@@ -3,6 +3,8 @@ import { storeCurrentConcert } from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { newFavorite } from '../../actions/favorite-actions'
+// import Popup from "reactjs-popup";
+
 
 export function ConcertSearchItem({
   city,
@@ -16,6 +18,7 @@ export function ConcertSearchItem({
   url,
   attraction,
   dispatch,
+  props,
   description
 }) {
   return (
@@ -27,8 +30,12 @@ export function ConcertSearchItem({
           <img src={image} alt="concert" className="concert-search-image" />
           <button onClick={() => {
               const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
-              console.log(newFavoriteObj)
+              if(props.loggedIn){
               dispatch(newFavorite(newFavoriteObj))
+              }
+              else{
+                {alert('Please Login Or Signup to save your favorites');}
+              }
             }
             }>Favorite</button>
             <Link to='/concert-about'>
@@ -68,4 +75,8 @@ export function ConcertSearchItem({
   );
 }
 
-export default connect()(ConcertSearchItem);
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(ConcertSearchItem);
