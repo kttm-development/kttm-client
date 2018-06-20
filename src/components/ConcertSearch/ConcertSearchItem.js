@@ -34,6 +34,7 @@ export function ConcertSearchItem({
               dispatch(newFavorite(newFavoriteObj))
               }
               else{
+                console.log(props)
                 {alert('Please Login Or Signup to save your favorites');}
               }
             }
@@ -75,8 +76,6 @@ export function ConcertSearchItem({
   );
 }
 
-const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
-});
 
-export default connect(mapStateToProps)(ConcertSearchItem);
+
+export default connect()(ConcertSearchItem);

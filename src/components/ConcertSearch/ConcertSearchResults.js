@@ -78,7 +78,8 @@ const mapStateToProps = state => ({
   favorite: state.favorite.favorite,
   currentPage: state.ticketmaster.currentPage,
   currentSearchResults: state.ticketmaster.currentSearchResults,
-  isLastPage: state.ticketmaster.isLastPage
+  isLastPage: state.ticketmaster.isLastPage,
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(ConcertSearchResults);
