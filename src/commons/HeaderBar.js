@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
+
 import '../components/styles/HeaderBar.css'
 
 export class HeaderBar extends React.Component {
@@ -22,7 +23,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <Link className="logo" to="/">KTTM</Link>
+                <Link className="logo" to="/">CC</Link>
                 <ul className="nav-items">
                     <li><Link className="nav-item" to="/concert-about">Concert About</Link></li>
                     <li><Link className="nav-item" to="/concerts">Concerts</Link></li>

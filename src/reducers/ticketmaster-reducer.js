@@ -9,7 +9,7 @@ import {
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
-import concertImg from '../images/concert-bg3.jpg'
+import concertImg from '../images/concert-bg3.png'
 
 const initialState = {
     loading: false,

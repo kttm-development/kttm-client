@@ -14,7 +14,7 @@
 }
 
 .footer-items, .footer-item {
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     list-style-type: none;
     text-decoration: none;
@@ -27,7 +27,7 @@
 }
 
 .footer-logo {
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     text-decoration: none;
     font-size: 50px;
@@ -36,7 +36,7 @@
 }
 
 .authors {
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     display: flex;
     flex-direction: row;

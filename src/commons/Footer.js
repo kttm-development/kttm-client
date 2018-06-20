@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
     render() {
         return (
             <div className="footer">
-                <Link className="footer-logo" to="/">KTTM</Link>
+                <Link className="footer-logo" to="/">CC</Link>
                 <ul className="footer-items">
                     <li><Link className="nav-item" to="/">Onboarding</Link></li>
                     <li><Link className="footer-item" to="/concerts">Concerts</Link></li>
