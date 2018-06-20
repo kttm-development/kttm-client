@@ -28,9 +28,11 @@ export class LoginForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                <h1 className="page-title">Login</h1>
                 {error}
                 <label htmlFor="username" className="fields-and-labels">Username</label>
                 <Field
+                    placeholderText='hello'
                     className="fields-and-labels"
                     component={Input}
                     type="text"
@@ -48,9 +50,9 @@ export class LoginForm extends React.Component {
                     validate={[required, nonEmpty]}
                 />
                 <button className="login-form-button blue push_button" disabled={this.props.pristine || this.props.submitting}>
-                    Log in
+                    Login
                 </button>
-                <span>Need an account?  <Link to="/register" className="register-link">Register</Link></span>
+                <span>Need an account?   <Link to="/register" className="register-link">Register</Link></span>
             </form>
         );
     }
