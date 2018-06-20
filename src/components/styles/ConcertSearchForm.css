@@ -2,11 +2,11 @@
     background-color: #F1F9FF;
     border: 1px solid #3a3f44;
     border-radius: 8px;
-    padding: 50px;
-    /* height: 500px; */
+    padding: 25px;
+    width: 85%;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 110px;
+    margin-bottom: 110px;
 }
 
 .form {
