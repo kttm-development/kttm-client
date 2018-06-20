@@ -68,7 +68,16 @@ export class ConcertAboutPage extends React.Component {
                     </div>
                     <div className="buttons-container row">
                         <div className="col-4">
-                            <a href="#" className="button blue push_button">Favorite<i class="fas fa-star icon"></i></a>
+                            <a href="#" className="button blue push_button" 
+                                onClick={() => {
+                                    if(this.props.loggedIn){
+                                    this.props.dispatch(newFavorite(this.props.currentConcert))
+                                    }
+                                    else{
+                                        {alert('Please login or signup to save this concert to  your favorites');}
+                                    }
+                                    }
+                                }>Favorite<i class="fas fa-star icon"></i></a>
                         </div>
                         <div className="col-4">
                             <a href={this.props.url} target="_blank" className="button blue push_button">Buy Tickets<i class="fas fa-ticket-alt icon"></i></a>
@@ -98,7 +107,8 @@ const mapStateToProps = state => ({
     url: state.ticketmaster.currentConcert.url,
     image: state.ticketmaster.currentConcert.image,
     description: state.ticketmaster.currentConcert.description,
-    attraction: state.ticketmaster.currentConcert.attraction
+    attraction: state.ticketmaster.currentConcert.attraction,
+    loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(ConcertAboutPage);

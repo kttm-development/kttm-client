@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { newFavorite } from '../../actions/favorite-actions'
 
+
 export function ConcertSearchItem({
   city,
   state,
@@ -16,23 +17,26 @@ export function ConcertSearchItem({
   url,
   attraction,
   dispatch,
+  props,
   description
 }) {
   return (
     <span className="search-results">
-
-      <div className="concert-container row">
-        <div className="concert-details">
-          <div className="pic-info col-4">
-            <img src={image} alt="concert" className="concert-search-image" />
-            <button
-              className="favorite-button blue push_button"
-              onClick={() => {
-                const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
-                console.log(newFavoriteObj)
-                dispatch(newFavorite(newFavoriteObj))
+    <div className="concert-container row">
+      <div className="concert-details">
+        <div className="pic-info col-4">
+          <img src={image} alt="concert" className="concert-search-image" />
+          <button onClick={() => {
+              const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
+              if(props.loggedIn){
+              dispatch(newFavorite(newFavoriteObj))
               }
-              }>Favorite</button>
+              else{
+                console.log(props)
+                {alert('Please login or signup to save this concert to  your favorites');}
+              }
+            }
+            }>Favorite</button>
             <Link to='/concert-about'>
               <button
                 className="details-button blue push_button"
@@ -70,5 +74,7 @@ export function ConcertSearchItem({
     </span>
   );
 }
+
+
 
 export default connect()(ConcertSearchItem);
