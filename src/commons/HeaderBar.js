@@ -7,6 +7,7 @@ import { clearAuthToken } from '../local-storage';
 
 import '../components/styles/HeaderBar.css'
 
+// export for tests
 export class HeaderBar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
@@ -21,7 +22,7 @@ export class HeaderBar extends React.Component {
         let registerButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <li><Link className="nav-item" onClick={() => this.logOut()} to="/">Log Out</Link></li>
             );
             accountButton = (
                 <li><Link className="nav-item" to="/account">Account</Link></li>
@@ -47,17 +48,17 @@ export class HeaderBar extends React.Component {
 
                     <div className="menu">
                         <ul className="nav-items">
-                            <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
+                            <li><Link className="nav-item" to="/concerts">Search for Concerts</Link></li>
                             {accountButton}
                             {loginButton}
                             {registerButton}
+                            {!this.props.loggedIn ? <Redirect to='/' /> : ''}
+                            {logOutButton}
                         </ul>
-                        {!this.props.loggedIn ? <Redirect to='/' /> : ''}
-                        {logOutButton}
+                        
                     </div>
                 </div>
             </React.Fragment>
-
         );
     }
 }
@@ -66,4 +67,5 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
+// default export
 export default connect(mapStateToProps)(HeaderBar);

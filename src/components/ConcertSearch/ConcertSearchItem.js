@@ -34,12 +34,11 @@ export function ConcertSearchItem({
                   dispatch(newFavorite(newFavoriteObj))
                 }
                 else {
-                  console.log(props)
-                  { alert('Please login or signup to save this concert to  your favorites'); }
+                   alert('Please login or signup to save this concert to  your favorites'); 
                 }
               }
               }>Favorite</button>
-            <Link to='/concert-about'>
+            <Link className='nav-item' to='/concert-about'>
               <button
                 className="details-button blue push_button"
                 onClick={() => {
@@ -56,7 +55,6 @@ export function ConcertSearchItem({
                     attraction,
                     description
                   }
-                  console.log('current Obj', currentConcertObj)
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
               >More Details</button></Link>

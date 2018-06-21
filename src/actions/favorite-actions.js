@@ -57,7 +57,6 @@ export const getFavorites = () => (dispatch, getState) => {
     return res.json();
   })
     .then(favorites => {
-      console.log('get favorites', favorites)
       dispatch(clearFavorites())
       return dispatch(favoriteConcertSuccess(favorites));
     })
@@ -96,7 +95,6 @@ export const deleteFavorite = (id) => (dispatch, getState) => {
     }
   })
     .then(() => {
-      console.log('got to here')
       return dispatch(getFavorites());
     })
     .catch(err => dispatch(favoriteConcertError(err.message)));

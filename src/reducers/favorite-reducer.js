@@ -26,6 +26,5 @@ export default function reducer(state=initialState, action) {
             favorites: [...state.favorites, action.newFavorite]
         });
     }
-    console.log('new state', state)
     return state;
 }

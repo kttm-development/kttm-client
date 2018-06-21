@@ -1,6 +1,5 @@
 import React from 'react';
-import { API_BASE_URL } from '../../config';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/OnboardingPage.css'
 
 export default class WelcomeSection extends React.Component {
