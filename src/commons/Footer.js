@@ -1,18 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import '../components/styles/Footer.css'
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
     render() {
+        let accountButton;
+        let loginButton;
+        let registerButton;
+        if (this.props.loggedIn) {
+            accountButton = (
+                <li><Link className="footer-item" to="/account">Account</Link></li>
+            );
+        } else {
+            loginButton = (
+                <li><Link className="footer-item" to="/login">Login</Link></li>
+            );
+            registerButton = (
+                <li><Link className="footer-item" to="/register">Signup</Link></li>
+            );
+        }
         return (
             <div className="footer">
-                <Link className="footer-logo" to="/">KTTM</Link>
+                <Link className="footer-logo" to="/">CC</Link>
                 <ul className="footer-items">
                     <li><Link className="footer-item" to="/concerts">Concerts</Link></li>
-                    <li><Link className="footer-item" to="/account">Account</Link></li>
-                    <li><Link className="footer-item" to="/">Login</Link></li>
-                    <li><Link className="footer-item" to="/register">Signup</Link></li>
+                    {accountButton}
+                    {loginButton}
+                    {registerButton}
                 </ul>
                 <div className="authors">
                     <div className="authors-left">
@@ -28,3 +44,9 @@ export default class Footer extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(Footer);

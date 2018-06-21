@@ -1,10 +1,43 @@
-.concert-search {
-    display: block;
-    border: 2px solid black;
+.form-container {
+    background-color: #F1F9FF;
+    border: 1px solid #3a3f44;
     border-radius: 8px;
-    padding: 20px;
-    width: 75%;
-    height: 500px;
+    padding: 25px;
+    width: 85%;
     margin: auto;
+    margin-top: 110px;
+    margin-bottom: 110px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    text-align: center;
+}
+
+.dropdown {
+    margin: 10px 40px;
+    border: 1px solid #3a3f44;
+    font-size: 14px;
+}
+
+.search-button {
+    margin: auto;
+    margin-top: 10px;
+    font-size: 20px;
+    width: 50%;
+}
+
+.results-info {
+    text-align: center;
     margin-top: 50px;
+}
+
+/* ===RESPONSIVE LAYOUT */
+
+@media only screen and (max-width: 850px) {
+
 }

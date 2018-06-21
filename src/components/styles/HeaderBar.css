@@ -1,16 +1,17 @@
-.header-bar, .header-bar ul, .nav-items {
+.header-bar, .header-bar ul {
     display: flex;
     flex-direction: row;
 }
 
 .header-bar {
     justify-content: space-between;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid #3a3f44;
     background-color: #42A4F8;
+    width: 100%;
 }
 
 .nav-items li, .nav-item {
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: white;
@@ -24,10 +25,53 @@
 }
 
 .logo {
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 30px;
     text-decoration: none;
     color: white;
     font-weight: 900;
     padding: 20px;
+}
+
+.hamburger {
+    margin: 0 40px 0 0;
+    font-size: 36px;
+    line-height: 90px;
+    display: none;
+    width: 40px;
+    float: right;
+}
+
+#toggle {
+    display: none;
+}
+
+@media only screen and (max-width: 850px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu {
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
+     .menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-item {
+        display: block;
+        border-bottom: 1px solid #061826;
+        margin: 0;
+    }
+
+    #toggle:checked + .menu {
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+    }
 }

@@ -3,7 +3,61 @@
     flex-direction: row;
 }
 
-/* ===responsive grid=== */
+.favorite-button, .details-button {
+  margin: auto;
+  margin-top: 20px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.favorite-button:hover, .details-button:hover, .search-button:hover {
+  cursor: pointer;
+}
+
+.concert-search-image {
+  border-radius: 8px;
+  width: 95%;
+  margin: auto;
+}
+
+/* ===RESPONSIVE LAYOUT */
+
+@media only screen and (max-width: 850px) {
+  .search-and-results {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-results {
+    width: 90vw;
+    padding: 10px;
+    padding-top: 20px;
+  }
+
+  .form-container {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  .details-button {
+    margin-bottom: 20px;
+  }
+
+  .results-info {
+    margin-top: 40px;
+  }
+
+  .page-title {
+    margin-bottom: 20px;
+  }
+
+  .concert-label {
+    padding: 5px 10px;
+  }
+
+}
+
+/* ===RESPONSIVE GRID=== */
 
 .row {
     max-width: 1400px;

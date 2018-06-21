@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
 import './styles/App.css'
+import OnboardingPage from './Pages/OnboardingPage'
 import HeaderBar from '../commons/HeaderBar';
 import Footer from '../commons/Footer'
 import LoginPage from './Pages/LoginPage';
 import ConcertSearchPage from './Pages/ConcertSearchPage';
+import ConcertAboutPage from './Pages/ConcertAboutPage'
 import DashboardPage from './Pages/DashboardPage';
+import Account from './Pages/Account'
 import RegistrationPage from './Pages/RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
 
@@ -46,9 +49,12 @@ export class App extends React.Component {
             <div className="app">
                 <HeaderBar />
                 <div className="content">
-                    <Route exact path="/" component={LoginPage} />
-                    <Route exact path="/dashboard" component={ConcertSearchPage} />
-                    {/* <Route exact path="/dashboard" component={DashboardPage} /> */}
+                    <Route exact path="/" component={OnboardingPage} />
+                    <Route exact path="/concert-about" component={ConcertAboutPage} />
+                    <Route exact path="/concerts" component={ConcertSearchPage} />
+                    <Route exact path="/account" component={Account} />
+                    <Route exact path="/dashboard" component={DashboardPage} />
+                    <Route exact path="/login" component={LoginPage} />
                     <Route exact path="/register" component={RegistrationPage} />
                 </div>
                 <Footer />
