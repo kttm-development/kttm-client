@@ -39,7 +39,7 @@ export function ConcertSearchItem({
                 }
               }
               }>Favorite</button>
-            <Link to='/concert-about'>
+            <Link className='nav-item' to='/concert-about'>
               <button
                 className="details-button blue push_button"
                 onClick={() => {
