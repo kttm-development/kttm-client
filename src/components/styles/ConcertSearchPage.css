@@ -28,9 +28,15 @@
     flex-direction: column;
   }
 
+  .search-results {
+    width: 90vw;
+    padding: 10px;
+    padding-top: 20px;
+  }
+
   .form-container {
     margin-top: 50px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
   }
 
   .details-button {
@@ -39,6 +45,14 @@
 
   .results-info {
     margin-top: 40px;
+  }
+
+  .page-title {
+    margin-bottom: 20px;
+  }
+
+  .concert-label {
+    padding: 5px 10px;
   }
 
 }

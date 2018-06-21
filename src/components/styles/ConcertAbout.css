@@ -10,6 +10,10 @@
     text-decoration: underline;
 }
 
+.concert-title {
+    padding-top: 30px;
+}
+
 .concert-about {
     width: 80vw;
     background-color: #F1F9FF;
@@ -17,7 +21,7 @@
     border-radius: 8px;
     padding: 40px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -42,4 +46,22 @@
 .button {
     width: 60%;
     margin: auto;
+}
+
+@media only screen and (max-width: 850px) {
+    .concert-title {
+        width: 90vw;
+        margin: auto;
+    }
+
+    .concert-about {
+        width: 90vw;
+        padding: 10px;
+    }
+
+    .button {
+        width: 70vw;
+        margin: 20px 0px;
+    }
+
 }
