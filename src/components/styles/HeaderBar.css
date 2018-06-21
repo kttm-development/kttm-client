@@ -1,9 +1,9 @@
-.header-bar, .header-bar ul {
+.navbar, .navbar ul {
     display: flex;
     flex-direction: row;
 }
 
-.header-bar {
+.navbar {
     justify-content: space-between;
     border-bottom: 1px solid #3a3f44;
     background-color: #42A4F8;

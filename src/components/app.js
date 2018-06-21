@@ -4,7 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 
 import './styles/App.css'
 import OnboardingPage from './Pages/OnboardingPage'
-import HeaderBar from '../commons/HeaderBar';
+import Navbar from '../commons/Navbar';
 import Footer from '../commons/Footer'
 import LoginPage from './Pages/LoginPage';
 import ConcertSearchPage from './Pages/ConcertSearchPage';
@@ -47,7 +47,7 @@ export class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <HeaderBar />
+                <Navbar />
                 <div className="content">
                     <Route exact path="/" component={OnboardingPage} />
                     <Route exact path="/concert-about" component={ConcertAboutPage} />

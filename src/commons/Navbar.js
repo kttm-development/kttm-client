@@ -5,9 +5,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
 
-import '../components/styles/HeaderBar.css'
+import '../components/styles/Navbar.css'
 
-export class HeaderBar extends React.Component {
+export class Navbar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -36,7 +36,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <React.Fragment>
-                <div className="header-bar">
+                <div className="navbar">
 
                     <div className="logo">
                         <Link className="logo" to="/">CC</Link>
@@ -66,4 +66,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(HeaderBar);
+export default connect(mapStateToProps)(Navbar);
