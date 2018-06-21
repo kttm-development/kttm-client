@@ -1,26 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
-const coords = [
-    {
-    "lng": -122.417473,
-    "lat": 37.778479
-    },
-    {
-        "lng": -122.2555418,
-        "lat": 37.8740742
-    }
-]
 
-const ConcertSearchMap = withScriptjs(withGoogleMap(() => {
+const ConcertSearchMap = withScriptjs(withGoogleMap((props) => {
     return (
         <GoogleMap
-            defaultZoom={10}
-            defaultCenter={{  lat: 37.778479, lng: -122.417473 }}
+            defaultZoom={6}
+            defaultCenter={props.mapCenter}
         >
-            {coords.map((item, index) => <Marker key={index} position={{ lat: item.lat, lng: item.lng }} />)}
+            {props.concerts.map((item, index) => <Marker key={index} position={{ lat: item.coords.lat, lng: item.coords.lng }} />)}
         </GoogleMap>
     );
 }));
 
-export default ConcertSearchMap;
+const mapStateToProps = state => ({
+    concerts: state.ticketmaster.concerts,
+    mapCenter: state.ticketmaster.mapCenter
+});
+
+export default connect(mapStateToProps)(ConcertSearchMap);
