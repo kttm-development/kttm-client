@@ -1,4 +1,4 @@
-.header-bar, .header-bar ul, .nav-items {
+.header-bar, .header-bar ul {
     display: flex;
     flex-direction: row;
 }
@@ -52,21 +52,19 @@
         cursor: pointer;
     }
 
-    .header-bar, .menu ul {
-        display: flex;
-        flex-direction: column;
-    }
-    
-
     .menu {
         text-align: center;
         width: 100%;
         display: none;
     }
 
-    .nav-items {
+     .menu ul {
         display: flex;
         flex-direction: column;
+    }
+
+    .nav-item {
+        display: block;
         border-bottom: 1px solid #061826;
         margin: 0;
     }

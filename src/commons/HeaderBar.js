@@ -37,12 +37,14 @@ export class HeaderBar extends React.Component {
         return (
             <React.Fragment>
                 <div className="header-bar">
-                    {/* <div className="logo-hamburger"> */}
-                        <Link className="logo" to="/">CC</Link>
 
-                        <label htmlFor="toggle" className="hamburger">&#9776;</label>
-                        <input type="checkbox" id="toggle" />
-                    {/* </div> */}
+                    <div className="logo">
+                        <Link className="logo" to="/">CC</Link>
+                    </div>
+
+                    <label htmlFor="toggle" className="hamburger">&#9776;</label>
+                    <input type="checkbox" id="toggle" />
+
                     <div className="menu">
                         <ul className="nav-items">
                             <li><Link className="nav-item" to="/concerts">Concerts</Link></li>

@@ -20,8 +20,30 @@
   margin: auto;
 }
 
+/* ===RESPONSIVE LAYOUT */
 
-/* ===responsive grid=== */
+@media only screen and (max-width: 850px) {
+  .search-and-results {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+
+  .details-button {
+    margin-bottom: 20px;
+  }
+
+  .results-info {
+    margin-top: 40px;
+  }
+
+}
+
+/* ===RESPONSIVE GRID=== */
 
 .row {
     max-width: 1400px;
