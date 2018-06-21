@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 
 import '../styles/ConcertSearchResults.css';
+
 import ConcertSearchItem from './ConcertSearchItem';
+import ConcertSearchMap from './ConcertSearchMap';
+import {GOOGLE_MAPS_URL} from '../../config';
 import {fetchTicketmasterConcerts, setPageNumber} from '../../actions/ticketmaster-actions';
 
 class ConcertSearchResults extends React.Component {
@@ -56,7 +59,12 @@ class ConcertSearchResults extends React.Component {
             return (
             <div className="section-container col-8">
               <h1 className="page-title">Concerts</h1>
-                {console.log(this.props.concerts)}
+              <ConcertSearchMap
+                     isMarkerShown
+                     googleMapURL={GOOGLE_MAPS_URL}
+                     loadingElement={<div style={{ height: '100%' }} />}
+                     containerElement={<div style={{ height: '300px' }} />}
+                     mapElement={<div style={{ height: '100%' }} />}/>
                 {this.props.concerts.map(obj => (
                   <ConcertSearchItem {...obj} dispatch={this.props.dispatch} props={this.props} key={String(obj.id)} />
                 ))}
