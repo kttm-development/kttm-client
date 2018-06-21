@@ -20,7 +20,6 @@
 .login-form-button, .signup-form-button {
     font-size: 20px;
     width: 40%;
-    /* padding: 20px; */
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -50,4 +49,21 @@ input#password, input#username, input#firstName, input#lastName, input#passwordC
     width: 40%;
     margin: auto;
     padding: 5px;
+}
+
+/* ===RESPONSIVE LAYOUT */
+
+@media only screen and (max-width: 850px) {
+    .login-form, .signup-form {
+        width: 90vw;
+    }
+
+    input#username, input#password, input#firstName, input#lastName, input#passwordConfirm, .login-form-button {
+        width: 70vw;
+    }
+
+    .login-form-button, .signup-form-button {
+        margin-bottom: 40px;
+        width: 70vw;
+    }
 }
