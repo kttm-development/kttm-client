@@ -34,8 +34,7 @@ export function ConcertSearchItem({
                   dispatch(newFavorite(newFavoriteObj))
                 }
                 else {
-                  console.log(props)
-                  { alert('Please login or signup to save this concert to  your favorites'); }
+                   alert('Please login or signup to save this concert to  your favorites'); 
                 }
               }
               }>Favorite</button>
@@ -56,7 +55,6 @@ export function ConcertSearchItem({
                     attraction,
                     description
                   }
-                  console.log('current Obj', currentConcertObj)
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
               >More Details</button></Link>

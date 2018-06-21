@@ -7,9 +7,6 @@ import ConcertSearchItem from './ConcertSearchItem';
 import {fetchTicketmasterConcerts, setPageNumber} from '../../actions/ticketmaster-actions';
 
 class ConcertSearchResults extends React.Component {
-  // componentDidMount(){
-  //   console.log(this.props.concerts)
-  // }
 
   onNextClick(props) {
     const {location, genre} = props.currentSearchResults;
@@ -56,7 +53,6 @@ class ConcertSearchResults extends React.Component {
             return (
             <section className="section-container col-8">
               <h1 className="page-title" id="concert-results-title">Concerts</h1>
-                {console.log(this.props.concerts)}
                 {this.props.concerts.map(obj => (
                   <ConcertSearchItem {...obj} dispatch={this.props.dispatch} props={this.props} key={String(obj.id)} />
                 ))}
