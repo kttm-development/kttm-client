@@ -7,6 +7,7 @@ import { clearAuthToken } from '../local-storage';
 
 import '../components/styles/HeaderBar.css'
 
+// export for tests
 export class HeaderBar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
@@ -57,7 +58,6 @@ export class HeaderBar extends React.Component {
                     </div>
                 </div>
             </React.Fragment>
-
         );
     }
 }
@@ -66,4 +66,5 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
+// default export
 export default connect(mapStateToProps)(HeaderBar);

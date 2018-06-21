@@ -6,7 +6,8 @@ import '../styles/ConcertSearchResults.css';
 import ConcertSearchItem from './ConcertSearchItem';
 import {fetchTicketmasterConcerts, setPageNumber} from '../../actions/ticketmaster-actions';
 
-class ConcertSearchResults extends React.Component {
+// Named export for tests
+export class ConcertSearchResults extends React.Component {
 
   onNextClick(props) {
     const {location, genre} = props.currentSearchResults;
