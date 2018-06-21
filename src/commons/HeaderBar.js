@@ -35,17 +35,29 @@ export class HeaderBar extends React.Component {
             );
         }
         return (
-            <div className="header-bar">
-                <Link className="logo" to="/">CC</Link>
-                <ul className="nav-items">
-                    <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
-                    {accountButton}
-                    {loginButton}
-                    {registerButton}
-                </ul>
-                {!this.props.loggedIn ? <Redirect to='/'/> : ''}
-                {logOutButton}
-            </div>
+            <React.Fragment>
+                <div className="header-bar">
+
+                    <div className="logo">
+                        <Link className="logo" to="/">CC</Link>
+                    </div>
+
+                    <label htmlFor="toggle" className="hamburger">&#9776;</label>
+                    <input type="checkbox" id="toggle" />
+
+                    <div className="menu">
+                        <ul className="nav-items">
+                            <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
+                            {accountButton}
+                            {loginButton}
+                            {registerButton}
+                        </ul>
+                        {!this.props.loggedIn ? <Redirect to='/' /> : ''}
+                        {logOutButton}
+                    </div>
+                </div>
+            </React.Fragment>
+
         );
     }
 }
