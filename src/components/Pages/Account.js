@@ -13,7 +13,7 @@ import { getContacts } from '../../actions/contacts-actions';
 export class Account extends React.Component {
     componentDidMount() {
         this.props.dispatch(getFavorites())
-        // this.props.dispatch(getContacts())
+        this.props.dispatch(getContacts())
 
     }
 
