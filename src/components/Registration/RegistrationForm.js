@@ -58,7 +58,7 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, matchesPassword]}
                 />
                 <button className="signup-form-button blue push_button" type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
-                <span>Already have an account?   <Link to="/" className="register-link">Login</Link></span>
+                <span>Already have an account?   <Link to="/login" className="register-link">Login</Link></span>
             </form>
         );
     }

@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 
 import '../styles/ConcertSearchResults.css';
+
 import ConcertSearchItem from './ConcertSearchItem';
+import ConcertSearchMap from './ConcertSearchMap';
+import {GOOGLE_MAPS_URL} from '../../config';
 import {fetchTicketmasterConcerts, setPageNumber} from '../../actions/ticketmaster-actions';
 
-class ConcertSearchResults extends React.Component {
-  // componentDidMount(){
-  //   console.log(this.props.concerts)
-  // }
+// Named export for tests
+export class ConcertSearchResults extends React.Component {
 
   onNextClick(props) {
     const {location, genre} = props.currentSearchResults;
@@ -54,16 +55,22 @@ class ConcertSearchResults extends React.Component {
           }
           else {
             return (
-            <div className="section-container col-8">
-              <h1 className="page-title">Concerts</h1>
+            <section className="section-container col-8">
+              <h1 className="page-title" id="concert-results-title">Concerts</h1>
+              <ConcertSearchMap
+                     isMarkerShown
+                     googleMapURL={GOOGLE_MAPS_URL}
+                     loadingElement={<div style={{ height: '100%' }} />}
+                     containerElement={<div style={{ height: '300px' }} />}
+                     mapElement={<div style={{ height: '100%' }} />}/>
                 {console.log(this.props.concerts)}
                 {this.props.concerts.map(obj => (
                   <ConcertSearchItem {...obj} dispatch={this.props.dispatch} props={this.props} key={String(obj.id)} />
                 ))}
-                {this.props.currentPage === 0 ? '' : <a href='#top'><button onClick={() => this.onPrevClick(this.props)}>Previous</button></a>}
+                {this.props.currentPage === 0 ? '' : <a href='#concert-results-title'><button onClick={() => this.onPrevClick(this.props)}>Previous</button></a>}
                 Page {this.props.currentPage + 1}
-                {this.props.isLastPage ? '' : <a href='#top'><button onClick={() => this.onNextClick(this.props)}>Next</button></a>}
-            </div>
+                {this.props.isLastPage ? '' : <a href='#concert-results-title'><button onClick={() => this.onNextClick(this.props)}>Next</button></a>}
+            </section>
           );
         }
         

@@ -10,8 +10,8 @@ export class ConcertSearchPage extends React.Component {
         return (
             <div className="concert-search-page">
                 <div className="search-and-results">
-                    <ConcertSearchForm />
-                    <ConcertSearchResults />
+                    <ConcertSearchForm className="search-form" />
+                    <ConcertSearchResults className="search-results" />
                 </div>
             </div>
         );
