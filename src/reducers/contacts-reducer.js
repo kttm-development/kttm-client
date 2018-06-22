@@ -3,7 +3,7 @@ import { GET_CONTACTS_SUCCESS, CLEAR_CONTACTS, ADD_CONTACTS_SUCCESS, GET_CONTACT
 const initialState = {
     loading: false,
     error:null,
-    contacts:null,
+    contacts:[{name:null, email:null}],
 };
 
 export default function reducer(state=initialState, action) {
@@ -17,7 +17,7 @@ export default function reducer(state=initialState, action) {
         return Object.assign({}, state, {
             loading: false,
             error: null,
-            contacts: []
+            contacts: [{name:null, email:null}]
         });
     }
     else if (action.type === ADD_CONTACTS_SUCCESS) {
