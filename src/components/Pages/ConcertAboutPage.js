@@ -77,13 +77,13 @@ export class ConcertAboutPage extends React.Component {
                                         {alert('Please login or signup to save this concert to  your favorites');}
                                     }
                                     }
-                                }>Favorite<i class="fas fa-star icon"></i></a>
+                                }>Favorite<i className="fas fa-star icon"></i></a>
                         </div>
                         <div className="col-4">
-                            <a href={this.props.url} target="_blank" className="button blue push_button">Buy Tickets<i class="fas fa-ticket-alt icon"></i></a>
+                            <a href={this.props.url} target="_blank" className="button blue push_button">Buy Tickets<i className="fas fa-ticket-alt icon"></i></a>
                         </div>
                         <div className="col-4">
-                            <a href={airBNBLink} target="_blank" className="button blue push_button">Find Hotels<i class="fas fa-building icon"></i></a>
+                            <a href={airBNBLink} target="_blank" className="button blue push_button">Find Hotels<i className="fas fa-building icon"></i></a>
 
                         </div>
                     </div>
