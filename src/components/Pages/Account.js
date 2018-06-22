@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RiseLoader } from 'react-spinners';
+// import { RiseLoader } from 'react-spinners';
 
 import '../styles/Account.css';
 import ChangePassword from '../Account/ChangePassword';

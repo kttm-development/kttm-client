@@ -6,9 +6,6 @@ import { newFavorite } from '../../actions/favorite-actions'
 
 import '../styles/ConcertAbout.css'
 export class ConcertAboutPage extends React.Component {
-    componentDidMount() {
-        // console.log(this.props.currentConcert)
-    }
     render() {
 
         let airBNBCity = this.props.city.replace(' ', '-')
@@ -38,7 +35,6 @@ export class ConcertAboutPage extends React.Component {
         if (!this.props.description) {
             describe = <p>The "{this.props.name}" event will be held on {this.props.date} at {this.props.venue} in {this.props.city}, {this.props.state}.  It will feature {this.props.attraction} as the main event.  The event will start at {this.props.time}.</p>
         }
-        console.log(this.props);
         return (
             <div className="concert-about-page">
                 <h1 className="concert-title">{this.props.name}</h1>
@@ -68,13 +64,13 @@ export class ConcertAboutPage extends React.Component {
                     </div>
                     <div className="buttons-container row">
                         <div className="col-4">
-                            <a href="#" className="button blue push_button" 
+                            <a className="button blue push_button" 
                                 onClick={() => {
                                     if(this.props.loggedIn){
                                     this.props.dispatch(newFavorite(this.props.currentConcert))
                                     }
                                     else{
-                                        {alert('Please login or signup to save this concert to  your favorites');}
+                                        alert('Please login or signup to save this concert to  your favorites');
                                     }
                                     }
                                 }>Favorite<i className="fas fa-star icon"></i></a>

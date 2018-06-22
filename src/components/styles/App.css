@@ -21,7 +21,7 @@
     background-image:-moz-linear-gradient(top, #48C6D4, #3EACBA);
     background-image:-ms-linear-gradient(top, #48C6D4, #3EACBA);
     background-image:-o-linear-gradient(top, #48C6D4, #3EACBA);
-    background-image:linear-gradient(top, #48C6D4, #3EACBA);
+    background-image:linear-gradient(to bottom, #48C6D4, #3EACBA);
     
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
@@ -38,7 +38,7 @@
     background-image:-moz-linear-gradient(top, #3EACBA, #48C6D4);
     background-image:-ms-linear-gradient(top, #3EACBA, #48C6D4);
     background-image:-o-linear-gradient(top, #3EACBA, #48C6D4);
-    background-image:linear-gradient(top, #3EACBA, #48C6D4);
+    background-image:linear-gradient(to bottom, #3EACBA, #48C6D4);
   }
   
   .push_button {
