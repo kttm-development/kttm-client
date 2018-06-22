@@ -26,16 +26,15 @@ export class Account extends React.Component {
                         <div className="row">
                             <div className="col-6">
                                 <div className="add-contact">
-                                    {/* <h3>Add Contact</h3> */}
                                     <AddContact />
                                 </div>
                             </div>
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <div className="change-password">
                                     {/* <h3>Change Password</h3> */}
-                                    <ChangePassword />
-                                </div>
-                            </div>
+                                    {/* <ChangePassword /> */}
+                                {/* </div>
+                            </div> */} 
 
                         </div>
                         <div className="account-bottom-section row">
