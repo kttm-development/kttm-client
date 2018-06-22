@@ -32,3 +32,9 @@
 .concert-label {
     margin: 5px 0px 20px 0px;
 }
+
+/* ===RESPONSIVE LAYOUT */
+
+@media only screen and (max-width: 850px) {
+
+}

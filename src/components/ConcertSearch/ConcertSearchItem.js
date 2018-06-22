@@ -22,22 +22,23 @@ export function ConcertSearchItem({
 }) {
   return (
     <span className="search-results">
-    <div className="concert-container row">
-      <div className="concert-details">
-        <div className="pic-info col-4">
-          <img src={image} alt="concert" className="concert-search-image" />
-          <button onClick={() => {
-              const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
-              if(props.loggedIn){
-              dispatch(newFavorite(newFavoriteObj))
+      <div className="concert-container row">
+        <div className="concert-details">
+          <div className="pic-info col-4">
+            <img src={image} alt="concert" className="concert-search-image" />
+            <button
+              className="favorite-button blue push_button"
+              onClick={() => {
+                const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
+                if (props.loggedIn) {
+                  dispatch(newFavorite(newFavoriteObj))
+                }
+                else {
+                   alert('Please login or signup to save this concert to  your favorites'); 
+                }
               }
-              else{
-                console.log(props)
-                {alert('Please login or signup to save this concert to  your favorites');}
-              }
-            }
-            }>Favorite</button>
-            <Link to='/concert-about'>
+              }>Favorite</button>
+            <Link className='nav-item' to='/concert-about'>
               <button
                 className="details-button blue push_button"
                 onClick={() => {
@@ -54,7 +55,6 @@ export function ConcertSearchItem({
                     attraction,
                     description
                   }
-                  console.log('current Obj', currentConcertObj)
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
               >More Details</button></Link>

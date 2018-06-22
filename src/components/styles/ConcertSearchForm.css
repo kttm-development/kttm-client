@@ -21,7 +21,7 @@
 .dropdown {
     margin: 10px 40px;
     border: 1px solid #3a3f44;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .search-button {
@@ -34,4 +34,10 @@
 .results-info {
     text-align: center;
     margin-top: 50px;
+}
+
+/* ===RESPONSIVE LAYOUT */
+
+@media only screen and (max-width: 850px) {
+
 }

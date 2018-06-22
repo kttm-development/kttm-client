@@ -22,7 +22,6 @@ export const fetchGenres = () => dispatch => {
         return res.json();
     })
     .then(genres => {
-        console.log(genres)
         dispatch(fetchGenreSuccess(genres));
     })
     .catch(err => dispatch(fetchGenreError(err.message)));

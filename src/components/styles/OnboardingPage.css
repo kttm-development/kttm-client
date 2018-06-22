@@ -27,32 +27,21 @@
 
 .welcome-section {
     padding-top: 20vh;
-    /* z-index: 1; */
 }
 
 .title {
     font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     text-align: center;
+    font-size: 60px;
+    font-weight: 700;
 } 
 
 .sub-title {
     color: white;
     text-align: center;
-}
-
-.title {
-    font-size: 60px;
-    font-weight: 700;
-}
-
-.sub-title {
     font-size: 30px;
     font-weight: 500;
-}
-
-.title-container {
-    /* margin-top: 20%; */
 }
 
 .buttons-container {
@@ -108,7 +97,7 @@
     bottom: 0;
     background: 
         linear-gradient(
-        rgba(215, 201, 56, .5), 
+        rgba(215, 201, 56, .9), 
         rgba(58, 63, 68, 0.6)
         ),
         url(../../images/concert-bg3.png);
@@ -162,6 +151,7 @@
 .feature-text {
     color: white;
     font-size: 30px;
+    text-align: center;
 }
 
 /* ===ABOUT SECTION=== */
@@ -173,7 +163,7 @@
     bottom: 0;
     background: 
         linear-gradient(
-        rgba(84, 218, 72, .7), 
+        rgba(84, 218, 72, .9), 
         rgba(58, 63, 68, 0.6)
         ),
         url(../../images/concert-bg5.jpg);
@@ -222,4 +212,81 @@
 
 .about-text {
     padding: 40px;
+}
+
+/* ===RESPONSIVE LAYOUT=== */
+
+@media only screen and (max-width: 850px) {
+
+    /* ===RESPONSIVE WELCOME SECTION===*/
+
+    .background-1 {
+        height: 100%;
+    }
+
+    .welcome-section {
+        padding-top: 10vh;
+    }
+
+    .title {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-button, .learn-more-button {
+        margin: auto;
+    }
+
+    .learn-more-button {
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    /* ===RESPONSIVE FEATURES SECTION=== */
+
+    .background-2 {
+        height: 100%;
+    }
+
+    .features-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-button {
+        margin: auto;
+        margin-bottom: 60px;
+    }
+
+    .feature-text {
+        font-size: 26px;
+    }
+
+    /* ===RESPONSIVE ABOUT SECTION=== */
+
+    .background-3 {
+        height: 100%;
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-text {
+        text-align: left;
+        padding: 0px;
+    }
+
+    .scroll-top-button {
+        margin: auto;
+        margin-bottom: 60px;
+    }
+
+
 }

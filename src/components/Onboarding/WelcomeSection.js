@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import '../styles/OnboardingPage.css'
 
 export default class WelcomeSection extends React.Component {
@@ -15,12 +15,14 @@ export default class WelcomeSection extends React.Component {
                     </div>
                     <div className="row">
                         <div className="buttons-container">
-                            <button
-                                className="login-button"
-                                onClick={() => {
-                                    this.props.history.push('/login')
-                                }}
-                            >Login</button>
+                            <Link className="nav-item" to="/login">
+                                <button
+                                    className="login-button"
+                                    onClick={() => {
+
+                                    }}
+                                >Login</button>
+                            </Link>
                             <a href="#features" className="learn-more-button">Learn More</a>
                         </div>
                     </div>
