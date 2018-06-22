@@ -18,6 +18,13 @@ export class Account extends React.Component {
     }
 
     render() {
+        let contacts;
+        if(this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email!==null){
+            contacts=this.props.contacts.map(obj => (
+                <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
+            ))
+        }
+
         if (this.props.loggedIn) {
             return (
                 <div className="account-page">
@@ -41,9 +48,7 @@ export class Account extends React.Component {
                             <div className="col-6">
                                 <div className="contacts">
                                     <h3>Contacts:</h3>
-                                    {this.props.contacts.map(obj => (
-                                        <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
-                                    ))} 
+                                    {contacts} 
                                 </div>
                             </div>
                             <div className="col-6">
