@@ -9,9 +9,9 @@ import protectedDataReducer from './reducers/protected-data';
 import ticketmasterReducer from './reducers/ticketmaster-reducer';
 import favoriteReducer from './reducers/favorite-reducer';
 import contactReducer from './reducers/contacts-reducer';
+import sideDrawerReducer from './reducers/side-drawer-reducer';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 import { composeWithDevTools } from 'redux-devtools-extension';
-
 
 const store = createStore(
 	combineReducers({
@@ -22,7 +22,8 @@ const store = createStore(
 		genre: genreReducer,
 		location: locationReducer,
 		favorite: favoriteReducer,
-		contact: contactReducer
+		contact: contactReducer,
+		sideDrawerOpen: sideDrawerReducer,
 	}),
 	composeWithDevTools(),
 	applyMiddleware(thunk)
