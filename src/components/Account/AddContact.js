@@ -1,17 +1,15 @@
 import React from 'react';
 import { Formik } from 'formik';
-// import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import '../styles/AccountForms.css';
 import { newContact } from '../../actions/contacts-actions';
-// import { storeAuthInfo } from '../../actions/auth';
-// import { AuthServices } from '../../services/api';
+
 
 export class SignupForm extends React.Component {
-    _handleSubmit = (values, bag) => {
+    _handleSubmit = (values, {bag, resetForm}) => {
         console.log(values)
-       this.props.dispatch(newContact(values))
+       return this.props.dispatch(newContact(values))
            .catch(err => {
                 bag.setSubmitting(false);
                 this.setState({ error: true });
@@ -22,14 +20,6 @@ export class SignupForm extends React.Component {
         return (
             <div className="form-container">
                 <Formik
-                    // validationSchema={Yup.object().shape({
-                    //     password: Yup.string()
-                    //         .min(6)
-                    //         .required("Don't forget to enter a valid password"),
-                    //     confirmPassword: Yup.string()
-                    //         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                    //         .required("Don't forget to confirm your password"),
-                    // })}
                     initialValues={{
                         name: '',
                         email: '',
@@ -42,7 +32,7 @@ export class SignupForm extends React.Component {
                         errors,
                         touched,
                         handleBlur,
-                        isValid,
+                        isValid
                     }) => (
                             <div className="input-container">
                                 <h2>Add Contact</h2>
