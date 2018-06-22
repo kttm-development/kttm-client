@@ -3,7 +3,7 @@ import { GET_CONTACTS_SUCCESS, CLEAR_CONTACTS, ADD_CONTACTS_SUCCESS, GET_CONTACT
 const initialState = {
     loading: false,
     error:null,
-    contacts: [{name: 'Megan', id:'126472', email: 'leonardo.megan@gmail.com'}],
+    contacts: [{name: 'Megan', id:'126472', email: 'leonardo.megan@gmail.com'}, {name: 'Megan', id:'126482', email: 'cheese.megan@gmail.com'}, {name: 'Megan', id:'126473', email: 'megan.e.leonardo@gmail.com'}],
 };
 
 export default function reducer(state=initialState, action) {
