@@ -22,7 +22,6 @@ export const fetchLocations = () => dispatch => {
         return res.json();
     })
         .then(locations => {
-            console.log(locations)
             dispatch(fetchLocationSuccess(locations));
         })
         .catch(err => dispatch(fetchLocationError(err.message)));

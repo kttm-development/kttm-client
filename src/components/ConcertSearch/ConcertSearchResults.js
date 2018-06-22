@@ -9,10 +9,8 @@ import ConcertSearchMap from './ConcertSearchMap';
 import {GOOGLE_MAPS_URL} from '../../config';
 import {fetchTicketmasterConcerts, setPageNumber} from '../../actions/ticketmaster-actions';
 
-class ConcertSearchResults extends React.Component {
-  // componentDidMount(){
-  //   console.log(this.props.concerts)
-  // }
+// Named export for tests
+export class ConcertSearchResults extends React.Component {
 
   onNextClick(props) {
     const {location, genre} = props.currentSearchResults;

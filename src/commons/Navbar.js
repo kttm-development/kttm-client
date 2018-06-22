@@ -5,9 +5,10 @@ import { Link, Redirect } from 'react-router-dom';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
 
-import '../components/styles/HeaderBar.css'
+import '../components/styles/Navbar.css'
 
-export class HeaderBar extends React.Component {
+// export for tests
+export class Navbar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -21,7 +22,7 @@ export class HeaderBar extends React.Component {
         let registerButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <li><Link className="nav-item" onClick={() => this.logOut()} to="/">Log Out</Link></li>
             );
             accountButton = (
                 <li><Link className="nav-item" to="/account">Account</Link></li>
@@ -36,7 +37,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <React.Fragment>
-                <div className="header-bar">
+                <div className="Navbar">
 
                     <div className="logo">
                         <Link className="logo" to="/">CC</Link>
@@ -47,17 +48,17 @@ export class HeaderBar extends React.Component {
 
                     <div className="menu">
                         <ul className="nav-items">
-                            <li><Link className="nav-item" to="/concerts">Concerts</Link></li>
+                            <li><Link className="nav-item" to="/concerts">Search for Concerts</Link></li>
                             {accountButton}
                             {loginButton}
                             {registerButton}
+                            {!this.props.loggedIn ? <Redirect to='/' /> : ''}
+                            {logOutButton}
                         </ul>
-                        {!this.props.loggedIn ? <Redirect to='/' /> : ''}
-                        {logOutButton}
+                        
                     </div>
                 </div>
             </React.Fragment>
-
         );
     }
 }
@@ -66,4 +67,5 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(HeaderBar);
+// default export
+export default connect(mapStateToProps)(Navbar);
