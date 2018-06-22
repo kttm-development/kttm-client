@@ -61,6 +61,8 @@ class ConcertSearchResults extends React.Component {
               <h1 className="page-title" id="concert-results-title">Concerts</h1>
               <ConcertSearchMap
                      isMarkerShown
+                     mapCenter={this.props.mapCenter}
+                     concerts={this.props.concerts}
                      googleMapURL={GOOGLE_MAPS_URL}
                      loadingElement={<div style={{ height: '100%' }} />}
                      containerElement={<div style={{ height: '300px' }} />}
@@ -88,7 +90,8 @@ const mapStateToProps = state => ({
   currentPage: state.ticketmaster.currentPage,
   currentSearchResults: state.ticketmaster.currentSearchResults,
   isLastPage: state.ticketmaster.isLastPage,
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  mapCenter: state.ticketmaster.mapCenter
 });
 
 export default connect(mapStateToProps)(ConcertSearchResults);

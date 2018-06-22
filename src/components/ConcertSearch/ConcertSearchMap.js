@@ -14,9 +14,6 @@ const ConcertSearchMap = withScriptjs(withGoogleMap((props) => {
     );
 }));
 
-const mapStateToProps = state => ({
-    concerts: state.ticketmaster.concerts,
-    mapCenter: state.ticketmaster.mapCenter
-});
 
-export default connect(mapStateToProps)(ConcertSearchMap);
+
+export default ConcertSearchMap;
