@@ -4,20 +4,18 @@ import { Formik } from 'formik';
 import { connect } from 'react-redux';
 
 import '../styles/AccountForms.css';
+import { newContact } from '../../actions/contacts-actions';
 // import { storeAuthInfo } from '../../actions/auth';
 // import { AuthServices } from '../../services/api';
 
 export class SignupForm extends React.Component {
     _handleSubmit = (values, bag) => {
-        // AuthServices.signup(values)
-        //     .then(res => {
-        //         bag.setSubmitting(false);
-        //         this.props.dispatch(storeAuthInfo(res.authToken));
-        //     })
-        //     .catch(err => {
-        //         bag.setSubmitting(false);
-        //         this.setState({ error: true });
-        //     });
+        console.log(values)
+       this.props.dispatch(newContact(values))
+           .catch(err => {
+                bag.setSubmitting(false);
+                this.setState({ error: true });
+            });
     };
 
     render() {
@@ -34,7 +32,7 @@ export class SignupForm extends React.Component {
                     // })}
                     initialValues={{
                         name: '',
-                        phone: '',
+                        email: '',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({
@@ -63,12 +61,12 @@ export class SignupForm extends React.Component {
                                             <div className="error-messages">{errors.password}</div>
                                         )}
                                     <input
-                                        type="password"
+                                        type="email"
                                         className="single-input"
                                         onChange={handleChange}
-                                        name="phone"
-                                        label="Phone"
-                                        placeholder="Phone Number of Contact"
+                                        name="email"
+                                        label="Email"
+                                        placeholder="Email for Contact"
                                         onBlur={handleBlur}
                                     />
                                     {errors.confirmPassword &&
