@@ -3,11 +3,14 @@ import { Formik } from 'formik';
 import { connect } from 'react-redux';
 
 import { fetchTicketmasterConcerts, setSearchResults, setPageNumber } from '../../actions/ticketmaster-actions';
-import GenreSelect from '../../commons/GenreSelect'
-import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
-import LocationSelect from '../../commons/LocationSelect';
 import { fetchLocations } from '../../actions/location-actions';
+
+import GenreSelect from '../../commons/GenreSelect'
+import LocationSelect from '../../commons/LocationSelect';
+import DMASelect from './DMASelect';
+
+import '../styles/ConcertSearchForm.css';
 
 const SELECT_GENRE = [
     {
@@ -95,6 +98,7 @@ export class ConcertSearchForm extends React.Component {
                                                 touched={touched[el.name]}
                                             />
                                         ))}
+                                        <DMASelect />
                                         <button className="search-button blue push_button">Search</button>
                                     </form>
                                 </div>
