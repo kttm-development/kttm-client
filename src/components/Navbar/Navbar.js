@@ -43,11 +43,13 @@ export class Navbar extends React.Component {
             <React.Fragment>
                 <header className="navbar">
                     <nav className="navigation">
+                        <div className="spacer-half"></div>
                         <div className="logo"><Link className="logo" to="/">CC</Link></div>
                         <div className="spacer"></div>
                         <div className="toggle-button">
                             <DrawerToggleButton />
                         </div>
+                        <div className="spacer-half"></div>
                         <div className="navigation-items">
                             <ul>
                                 <li><Link to="/concerts">Concerts</Link></li>
