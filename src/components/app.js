@@ -53,7 +53,7 @@ export class App extends React.Component {
             return (
                 <div className="app">
                     <Navbar />
-                    <SideDrawer />
+                    <SideDrawer show={this.props.sideDrawerOpen} />
                     <Backdrop />
                     <main className="content">
                         <Route exact path="/" component={OnboardingPage} />
@@ -71,6 +71,7 @@ export class App extends React.Component {
             return (
                 <div className="app">
                     <Navbar />
+                    <SideDrawer show={this.props.sideDrawerOpen} />
                     <main className="content">
                         <Route exact path="/" component={OnboardingPage} />
                         <Route exact path="/concert-about" component={ConcertAboutPage} />

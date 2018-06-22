@@ -8,7 +8,6 @@ export function DrawerToggleButton(props) {
     return (
         <button
             onClick={() => {
-                console.log('its been clicked!')
                 return props.dispatch(sideDrawerToggle())
             }}
             className="toggle-button"

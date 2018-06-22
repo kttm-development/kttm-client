@@ -44,10 +44,10 @@ export class Navbar extends React.Component {
                 <header className="navbar">
                     <nav className="navigation">
                         <div className="logo"><Link className="logo" to="/">CC</Link></div>
-                        <div>
+                        <div className="spacer"></div>
+                        <div className="toggle-button">
                             <DrawerToggleButton />
                         </div>
-                        <div className="spacer"></div>
                         <div className="navigation-items">
                             <ul>
                                 <li><Link to="/concerts">Concerts</Link></li>
