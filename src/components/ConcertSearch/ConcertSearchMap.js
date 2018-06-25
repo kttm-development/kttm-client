@@ -31,8 +31,8 @@ const ConcertSearchMap = compose(
                 return (
                 <Marker key={index} position={{ lat: item.lat, lng: item.lng }} onClick={() => props.onOpen(index)}>
                 {props.isOpen.includes(index) && <InfoWindow onCloseClick={() => props.onClose(index)}>
-                <span>helloss</span>
-                  {/* {item.name.map(event => {
+                <span>
+                  {item.name.map((event,idx) => {
                     let {
                         city,
                         state,
@@ -48,26 +48,26 @@ const ConcertSearchMap = compose(
                       } = props.concerts[event];
                       console.log(name,'here');
                       return (
-                        // <Link to='/concert-about' onClick={() => {
-                        //     const currentConcertObj = {
-                        //       city,
-                        //       state,
-                        //       date,
-                        //       id,
-                        //       name,
-                        //       image,
-                        //       time,
-                        //       venue,
-                        //       url,
-                        //       attraction,
-                        //       description
-                        //     }
-                        //     props.dispatch(storeCurrentConcert(currentConcertObj))
-                        //   }}
-                        // >{item.name}</Link>
-                        name
+                        <Link key={idx} to='/concert-about' onClick={() => {
+                            const currentConcertObj = {
+                              city,
+                              state,
+                              date,
+                              id,
+                              name,
+                              image,
+                              time,
+                              venue,
+                              url,
+                              attraction,
+                              description
+                            }
+                            props.dispatch(storeCurrentConcert(currentConcertObj))
+                          }}
+                        >{name}<br/></Link>
                       );
-                  })} */}
+                  })}
+                        </span>
                     </InfoWindow>}
                 </Marker>
                 )
