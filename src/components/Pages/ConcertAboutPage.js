@@ -12,9 +12,31 @@ export class ConcertAboutPage extends React.Component {
     componentDidMount(){
         this.props.dispatch(getFavorites())
         this.props.dispatch(getContacts())
+        window.fbAsyncInit = function() {
+            //SDK loaded, initialize it
+            window.FB.init({
+                appId      : '2016793845037751',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+            //JS SDK initialized, now you can use it
+            window.FB.XFBML.parse();
+        };
+
+        
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
     }
 
+
     render() {
+
+
         let airBNBCity = this.props.city.replace(' ', '-')
         let airBNBLink = `https://www.airbnb.com/s/${airBNBCity}--${this.props.state}--United-States/homes?refinement_paths%5B%5D=%2Fhomes&checkin=${this.props.date}`
 
@@ -122,6 +144,21 @@ export class ConcertAboutPage extends React.Component {
                         <div className="col-4">
                             {contactFriends}
                         </div>
+                        <div className="col-4">
+                            <button className="button blue push_button" 
+                                    onClick={function() {
+                                        window.FB.ui({
+                                              method: 'feed',
+                                              link: "https://concertconnect-client.herokuapp.com/concerts", 
+                                              caption: `cheese.`
+                                            }, function(response){
+                                                console.log(response);
+                                            }
+                                        );
+                                    }}
+
+                            >Share To Facebook <i className="fas fa-address-book icon"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,6 +166,8 @@ export class ConcertAboutPage extends React.Component {
 
     }
 }
+                              {/* <a href='https://www.facebook.com/dialog/feed?%20app_id=1792747887435029%20&description=This%20is%20ConcertConnect%20&link=https%3A%2F%2Fconcertconnect-client.herokuapp.com%20&redirect_uri=https://concertconnect-client.herokuapp.com/concerts'       */}
+
 
 const mapStateToProps = state => ({
     loading: state.ticketmaster.concerts,

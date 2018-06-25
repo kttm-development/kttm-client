@@ -60,9 +60,10 @@ export class Navbar extends React.Component {
                                 {accountButton}
                                 {loginButton}
                                 {registerButton}
+                                {!this.props.loggedIn ? <Redirect to='/' /> : ''}
+                                {logOutButton}
                             </ul>
-                            {!this.props.loggedIn ? <Redirect to='/' /> : ''}
-                            {logOutButton}
+                            <div className="sharethis-inline-share-buttons"></div>
                         </div>
                     </nav>
                 </header>
