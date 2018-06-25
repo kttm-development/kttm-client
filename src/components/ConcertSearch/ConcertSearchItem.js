@@ -46,14 +46,14 @@ export function ConcertSearchItem({
                 }
                 if (props.loggedIn) {
                   dispatch(newFavorite(newFavoriteObj))
-                  toast("Concert added to your account's favorites list!", {  
+                  toast.success("Concert added to your account's favorites list!", {  
                     className: 'black-background', 
                     bodyClassName: "grow-font-size", 
                     progressClassName: 'fancy-progress-bar' 
                   })
                 }
                 else {
-                  toast("Please login or signup to save this concert to  your favorites", {  
+                  toast.error("Please login or signup to save this concert to  your favorites", {  
                     className: 'black-background', 
                     bodyClassName: "grow-font-size", 
                     progressClassName: 'fancy-progress-bar' 

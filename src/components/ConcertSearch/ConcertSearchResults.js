@@ -94,7 +94,7 @@ export class ConcertSearchResults extends React.Component {
             <h3 className="page-number">Page {this.props.currentPage + 1}</h3>
             {this.props.isLastPage ? '' : <a href='#concert-results-title'><button onClick={() => this.onNextClick(this.props)} className="next-button blue push_button">Next <i className="fas fa-arrow-right"></i></button></a>}
           </div>
-          <ToastContainer />
+          <ToastContainer position="bottom-left" hideProgressBar />
         </section>
       );
     }
