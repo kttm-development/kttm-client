@@ -7,12 +7,19 @@ import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
 
 const ConcertSearchMap = compose(
     withStateHandlers(() => ({
-      isOpen: false,
+      isOpen: [],
     }), {
-      onToggleOpen: ({ isOpen }) => () => ({
-        isOpen: !isOpen,
-      })
-    }),
+        onOpen: ({isOpen}) => (index) => {
+            return ({
+          isOpen: [...isOpen, index],
+        })}
+      ,
+        onClose: ({isOpen}) => (index) => {
+            return ({
+          isOpen: [...isOpen.filter(item => item !== index)],
+        })}
+      }
+    ),
     withScriptjs,
     withGoogleMap
   )(props =>
@@ -20,38 +27,47 @@ const ConcertSearchMap = compose(
             zoom={6}
             center={props.mapCenter}
         >
-            {props.concerts.map((item, index) => {
-                const {city,
-                    state,
-                    date,
-                    id,
-                    name,
-                    image,
-                    time,
-                    venue,
-                    url,
-                    attraction,
-                    description} = item;
+            {props.markers.map((item, index) => {
                 return (
-                <Marker key={index} position={{ lat: item.coords.lat, lng: item.coords.lng }} onClick={props.onToggleOpen}>
-                {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-                  <Link to='/concert-about' onClick={() => {
-                  const currentConcertObj = {
-                    city,
-                    state,
-                    date,
-                    id,
-                    name,
-                    image,
-                    time,
-                    venue,
-                    url,
-                    attraction,
-                    description
-                  }
-                  props.dispatch(storeCurrentConcert(currentConcertObj))
-                }}
-              >{item.name}</Link>
+                <Marker key={index} position={{ lat: item.lat, lng: item.lng }} onClick={() => props.onOpen(index)}>
+                {props.isOpen.includes(index) && <InfoWindow onCloseClick={() => props.onClose(index)}>
+                <span>helloss</span>
+                  {/* {item.name.map(event => {
+                    let {
+                        city,
+                        state,
+                        date,
+                        id,
+                        name,
+                        image,
+                        time,
+                        venue,
+                        url,
+                        attraction,
+                        description
+                      } = props.concerts[event];
+                      console.log(name,'here');
+                      return (
+                        // <Link to='/concert-about' onClick={() => {
+                        //     const currentConcertObj = {
+                        //       city,
+                        //       state,
+                        //       date,
+                        //       id,
+                        //       name,
+                        //       image,
+                        //       time,
+                        //       venue,
+                        //       url,
+                        //       attraction,
+                        //       description
+                        //     }
+                        //     props.dispatch(storeCurrentConcert(currentConcertObj))
+                        //   }}
+                        // >{item.name}</Link>
+                        name
+                      );
+                  })} */}
                     </InfoWindow>}
                 </Marker>
                 )
