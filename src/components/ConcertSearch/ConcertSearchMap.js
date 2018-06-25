@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
 
+import '../styles/ConcertSearchResults.css';
+
 
 const ConcertSearchMap = compose(
     withStateHandlers(() => ({

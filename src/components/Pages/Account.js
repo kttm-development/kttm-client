@@ -7,7 +7,7 @@ import ChangePassword from '../Account/ChangePassword';
 import AddContact from '../Account/AddContact';
 import Contacts from '../Account/Contacts';
 import Favorites from '../Account/Favorites';
-import {getFavorites} from '../../actions/favorite-actions'
+import { getFavorites } from '../../actions/favorite-actions'
 import { getContacts } from '../../actions/contacts-actions';
 
 export class Account extends React.Component {
@@ -18,6 +18,13 @@ export class Account extends React.Component {
     }
 
     render() {
+        let contacts;
+        if (this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email !== null) {
+            contacts = this.props.contacts.map(obj => (
+                <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
+            ))
+        }
+
         if (this.props.loggedIn) {
             return (
                 <div className="account-page">
@@ -25,30 +32,21 @@ export class Account extends React.Component {
                     <div className="account-details row">
                         <div className="row">
                             <div className="col-6">
-                                <div className="add-contact">
+                                <div className="">
                                     <AddContact />
                                 </div>
                             </div>
-                            {/* <div className="col-6">
-                                <div className="change-password">
-                                    {/* <h3>Change Password</h3> */}
-                                    {/* <ChangePassword /> */}
-                                {/* </div>
-                            </div> */} 
-
-                        </div>
-                        <div className="account-bottom-section row">
                             <div className="col-6">
-                                <div className="contacts">
-                                    <h3>Contacts:</h3>
-                                    {this.props.contacts.map(obj => (
-                                        <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
-                                    ))} 
+                                <div className="contacts account-form-container">
+                                    <h3 className="contact-section-title">Contacts:</h3>
+                                    {contacts}
                                 </div>
                             </div>
-                            <div className="col-6">
+                        </div>
+                        <div className="account-bottom-section row">
+                            <div className="col-12">
                                 <div className="favorites">
-                                    <h3>Favorited Concerts:</h3>
+                                    <h3 className="favorite-section-title" >Favorited Concerts:</h3>
                                     {this.props.favorites.map(obj => (
                                         <Favorites dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
                                     ))}
@@ -60,12 +58,12 @@ export class Account extends React.Component {
             );
 
         }
-        else{
-            return(
+        else {
+            return (
                 <div className="account-page">
                     <h1 className="concert-title">Account Management</h1>
                     <div className="account-details row">
-                     <h2 className="concert-title">Please login to see account page</h2>
+                        <h2 className="concert-title">Please login to see account page</h2>
                     </div>
                 </div>
             )
