@@ -32,6 +32,15 @@
     font-weight: 900;
 }
 
+.logout-button {
+    border: 1px solid white;
+    margin-left: 30px;
+    margin-right: 30px;
+    /* height: 25px; */
+    /* padding: 10px; */
+    /* float: right; */
+}
+
 .spacer {
     flex: 1;
 }
@@ -39,6 +48,12 @@
 .spacer-half {
     flex: 0.5;
 }
+
+.navigation-items {
+    display: flex;
+    flex-direction: row;
+}
+
 
 .navigation-items ul {
     list-style: none;
@@ -48,6 +63,9 @@
 }
 
 .navigation-items li {
+    margin-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
     padding: 0 0.5rem;
 }
 
