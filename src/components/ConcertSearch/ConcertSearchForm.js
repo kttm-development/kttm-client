@@ -8,7 +8,6 @@ import { fetchLocations } from '../../actions/location-actions';
 
 import GenreSelect from '../../commons/GenreSelect'
 import LocationSelect from '../../commons/LocationSelect';
-import DMASelect from './DMASelect';
 
 import '../styles/ConcertSearchForm.css';
 
@@ -75,30 +74,36 @@ export class ConcertSearchForm extends React.Component {
                                     <h1 className='page-title'>Find Concerts</h1>
                                     <form className="form" onSubmit={handleSubmit}>
                                         {SELECT_GENRE.map(el => (
-                                            <GenreSelect
-                                                dispatch={this.props.dispatch}
-                                                genres={this.props.genres}
-                                                {...el}
-                                                key={el.name}
-                                                handleChange={setFieldValue}
-                                                className="dropdown"
-                                                error={errors[el.name]}
-                                                touched={touched[el.name]}
-                                            />
+                                            <React.Fragment>
+                                                <h2 className="select-label">Genre:</h2>
+                                                <GenreSelect
+                                                    dispatch={this.props.dispatch}
+                                                    genres={this.props.genres}
+                                                    {...el}
+                                                    key={el.name}
+                                                    handleChange={setFieldValue}
+                                                    className="dropdown"
+                                                    error={errors[el.name]}
+                                                    touched={touched[el.name]}
+                                                />
+                                            </React.Fragment>
                                         ))}
                                         {SELECT_LOCATION.map(el => (
-                                            <LocationSelect
-                                                dispatch={this.props.dispatch}
-                                                locations={this.props.locations}
-                                                {...el}
-                                                key={el.name}
-                                                handleChange={setFieldValue}
-                                                className="dropdown"
-                                                error={errors[el.name]}
-                                                touched={touched[el.name]}
-                                            />
+                                            <React.Fragment>
+                                                <h2 className="select-label">City:</h2>
+                                                <LocationSelect
+                                                    dispatch={this.props.dispatch}
+                                                    locations={this.props.locations}
+                                                    {...el}
+                                                    key={el.name}
+                                                    handleChange={setFieldValue}
+                                                    className="dropdown"
+                                                    error={errors[el.name]}
+                                                    touched={touched[el.name]}
+                                                />
+                                            </React.Fragment>
+
                                         ))}
-                                        <DMASelect />
                                         <button className="search-button blue push_button">Search</button>
                                     </form>
                                 </div>
