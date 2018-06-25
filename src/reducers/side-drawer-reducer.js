@@ -1,5 +1,5 @@
 import {
-    SIDE_DRAWER_TOGGLE, BACKDROP_CLICKED
+    SIDE_DRAWER_TOGGLE,
 } from '../actions/side-drawer-actions';
 
 const initialState = {

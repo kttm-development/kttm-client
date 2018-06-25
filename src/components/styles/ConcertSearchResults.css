@@ -33,6 +33,18 @@
     margin: 5px 0px 20px 0px;
 }
 
+.favorite-button, .details-button {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.favorite-button:hover, .details-button:hover, .search-button:hover {
+    cursor: pointer;
+}
+
 .map {
     border:1px solid #3a3f44;
     width: 85%;
