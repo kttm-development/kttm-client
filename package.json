@@ -6,9 +6,9 @@
     "react-scripts": "1.1.1"
   },
   "dependencies": {
+    "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "dotenv": "^6.0.0",
     "formik": "^0.11.11",
     "jwt-decode": "^2.2.0",
     "react": "^16.2.0",
@@ -19,6 +19,7 @@
     "react-router-dom": "^4.1.1",
     "react-spinners": "^0.3.2",
     "reactjs-popup": "^1.1.1",
+    "recompose": "^0.27.1",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.3.0",
