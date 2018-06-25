@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose, withProps, withStateHandlers } from 'recompose';
+import { compose, withStateHandlers } from 'recompose';
 import { Link } from 'react-router-dom'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
