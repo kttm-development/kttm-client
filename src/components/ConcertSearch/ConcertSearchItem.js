@@ -3,6 +3,8 @@ import { storeCurrentConcert } from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { newFavorite } from '../../actions/favorite-actions'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export function ConcertSearchItem({
@@ -29,12 +31,33 @@ export function ConcertSearchItem({
             <button
               className="favorite-button blue push_button"
               onClick={() => {
-                const newFavoriteObj = { city, state, date, id, name, image, time, venue, url, attraction, description }
+                const newFavoriteObj = {
+                  city,
+                  state,
+                  date,
+                  id,
+                  name,
+                  image,
+                  time,
+                  venue,
+                  url,
+                  attraction,
+                  description
+                }
                 if (props.loggedIn) {
                   dispatch(newFavorite(newFavoriteObj))
+                  toast("Concert added to your account's favorites list!", {  
+                    className: 'black-background', 
+                    bodyClassName: "grow-font-size", 
+                    progressClassName: 'fancy-progress-bar' 
+                  })
                 }
                 else {
-                   alert('Please login or signup to save this concert to  your favorites'); 
+                  toast("Please login or signup to save this concert to  your favorites", {  
+                    className: 'black-background', 
+                    bodyClassName: "grow-font-size", 
+                    progressClassName: 'fancy-progress-bar' 
+                  })
                 }
               }
               }>Favorite</button>
@@ -74,7 +97,5 @@ export function ConcertSearchItem({
     </span>
   );
 }
-
-
 
 export default connect()(ConcertSearchItem);

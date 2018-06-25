@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ConcertSearchItem from './ConcertSearchItem';
 import ConcertSearchMap from './ConcertSearchMap';
@@ -24,6 +26,8 @@ export class ConcertSearchResults extends React.Component {
     props.dispatch(fetchTicketmasterConcerts(location, genre, page));
     props.dispatch(setPageNumber(page));
   }
+
+  // notify = () => toast("Concert added to your account's favorites list!")
 
   render() {
 
@@ -77,13 +81,20 @@ export class ConcertSearchResults extends React.Component {
           </div>
           <h1 className="page-title" id="concert-results-title">Concerts</h1>
           {this.props.concerts.map(obj => (
-            <ConcertSearchItem {...obj} dispatch={this.props.dispatch} props={this.props} key={String(obj.id)} />
+            <ConcertSearchItem
+              // notifiy={() => toast("Concert added to your account's favorites list!")}
+              {...obj}
+              dispatch={this.props.dispatch}
+              props={this.props}
+              key={String(obj.id)}
+            />
           ))}
           <div className="pagination">
             {this.props.currentPage === 0 ? '' : <a href='#concert-results-title'><button onClick={() => this.onPrevClick(this.props)} className="previous-button blue push_button"><i className="fas fa-arrow-left"></i> Previous</button></a>}
             <h3 className="page-number">Page {this.props.currentPage + 1}</h3>
             {this.props.isLastPage ? '' : <a href='#concert-results-title'><button onClick={() => this.onNextClick(this.props)} className="next-button blue push_button">Next <i className="fas fa-arrow-right"></i></button></a>}
           </div>
+          <ToastContainer />
         </section>
       );
     }
