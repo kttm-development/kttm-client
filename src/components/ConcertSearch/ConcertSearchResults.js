@@ -38,7 +38,6 @@ export class ConcertSearchResults extends React.Component {
         </div>
       );
     }
-
     if (this.props.error) {
       return (
         <div className="results-info col-8">
@@ -50,34 +49,28 @@ export class ConcertSearchResults extends React.Component {
       );
     }
 
-    if (this.props.empty === true) {
-      return (
-        <div className="section-container col-8">
-          <div className="map">
-            <ConcertSearchMap
-              isMarkerShown
-              mapCenter={this.props.mapCenter}
-              concerts={this.props.concerts}
-              googleMapURL={GOOGLE_MAPS_URL}
-              loadingElement={<div style={{ height: '100%' }} />}
-              containerElement={<div style={{ height: '300px' }} />}
-              mapElement={<div style={{ height: '100%' }} />} />
-          </div>
-          <h3 className="results-info">Search for concerts near you to display shows...</h3>
-        </div>)
-    }
+          if (this.props.empty===true) {
+              return(
+              <div className="col-8">
+                <h3 className="results-info">Search for concerts near you to display shows...</h3>
+              </div>)
+          }
+ 
+   
     else {
       return (
         <section className="section-container col-8">
           <div className="map">
-            <ConcertSearchMap
-              isMarkerShown
-              mapCenter={this.props.mapCenter}
-              concerts={this.props.concerts}
-              googleMapURL={GOOGLE_MAPS_URL}
-              loadingElement={<div style={{ height: '100%' }} />}
-              containerElement={<div style={{ height: '300px' }} />}
-              mapElement={<div style={{ height: '100%' }} />} />
+           <ConcertSearchMap
+                     isMarkerShown
+                     mapCenter={this.props.mapCenter}
+                     concerts={this.props.concerts}
+                     markers={this.props.markers}
+                     dispatch={this.props.dispatch}
+                     googleMapURL={GOOGLE_MAPS_URL}
+                     loadingElement={<div style={{ height: '100%' }} />}
+                     containerElement={<div style={{ height: '300px' }} />}
+                     mapElement={<div style={{ height: '100%' }} />}/>
           </div>
           <h1 className="page-title" id="concert-results-title">Concerts</h1>
           {this.props.concerts.map(obj => (
@@ -99,6 +92,7 @@ export class ConcertSearchResults extends React.Component {
       );
     }
 
+
   }
 }
 
@@ -112,7 +106,8 @@ const mapStateToProps = state => ({
   currentSearchResults: state.ticketmaster.currentSearchResults,
   isLastPage: state.ticketmaster.isLastPage,
   loggedIn: state.auth.currentUser !== null,
-  mapCenter: state.ticketmaster.mapCenter
+  mapCenter: state.ticketmaster.mapCenter,
+  markers: state.ticketmaster.markers
 });
 
 export default connect(mapStateToProps)(ConcertSearchResults);

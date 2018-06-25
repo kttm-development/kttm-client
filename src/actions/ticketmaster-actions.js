@@ -47,6 +47,14 @@ export const setMapCenter = (mapCenter) => ({
     mapCenter
 });
 
+export const SET_MARKERS = 'SET_MARKERS';
+export const setMarkers = (markers) => ({
+    type: SET_MARKERS,
+    markers
+});
+
+
+
 export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => {
     dispatch(sendingTicketmasterInfo)
     return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/${page}`, {
@@ -64,6 +72,7 @@ export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => 
         else{
         dispatch(setIsLastPage(results.isLastPage));
         dispatch(setMapCenter(results.mapCenter));
+        dispatch(setMarkers(results.markers));
         return dispatch(ticketmasterInfoSuccess(results.concerts));
         }
     })
