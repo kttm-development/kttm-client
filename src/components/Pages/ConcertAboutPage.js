@@ -14,9 +14,13 @@ export class ConcertAboutPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(getFavorites())
         this.props.dispatch(getContacts())
+        
     }
 
+
     render() {
+
+
         let airBNBCity = this.props.city.replace(' ', '-')
         let airBNBLink = `https://www.airbnb.com/s/${airBNBCity}--${this.props.state}--United-States/homes?refinement_paths%5B%5D=%2Fhomes&checkin=${this.props.date}`
 
@@ -132,6 +136,7 @@ export class ConcertAboutPage extends React.Component {
 
     }
 }
+
 
 const mapStateToProps = state => ({
     loading: state.ticketmaster.concerts,
