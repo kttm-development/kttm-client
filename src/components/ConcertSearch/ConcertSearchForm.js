@@ -75,7 +75,7 @@ export class ConcertSearchForm extends React.Component {
                                     <form className="form" onSubmit={handleSubmit}>
                                         {SELECT_GENRE.map(el => (
                                             <React.Fragment>
-                                                <h2 className="select-label">Genre:</h2>
+                                                <h3 className="select-label">Genre:</h3>
                                                 <GenreSelect
                                                     dispatch={this.props.dispatch}
                                                     genres={this.props.genres}
@@ -90,7 +90,7 @@ export class ConcertSearchForm extends React.Component {
                                         ))}
                                         {SELECT_LOCATION.map(el => (
                                             <React.Fragment>
-                                                <h2 className="select-label">City:</h2>
+                                                <h3 className="select-label">City:</h3>
                                                 <LocationSelect
                                                     dispatch={this.props.dispatch}
                                                     locations={this.props.locations}
@@ -102,7 +102,6 @@ export class ConcertSearchForm extends React.Component {
                                                     touched={touched[el.name]}
                                                 />
                                             </React.Fragment>
-
                                         ))}
                                         <button className="search-button blue push_button">Search</button>
                                     </form>
