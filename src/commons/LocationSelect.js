@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LocationAdder from './LocationAdder';
 
-function LocationSelect ({
+function LocationSelect({
     locations,
     handleChange,
     error,
@@ -13,11 +13,12 @@ function LocationSelect ({
 }) {
     return (
         <React.Fragment>
-            <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
+            <input type="textbox" list="locations" onChange={e => handleChange(name, e.target.value)} name={name} {...rest} />
+            <datalist id="locations">
                 {locations.map((obj, index) => (
                     <LocationAdder key={index} {...obj} />
                 ))}
-            </select>
+            </datalist>
             {!!error && touched && <div className="error-messages">{error}</div>}
         </React.Fragment>
     );
