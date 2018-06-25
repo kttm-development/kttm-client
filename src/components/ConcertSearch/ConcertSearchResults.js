@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 
-import '../styles/ConcertSearchResults.css';
-
 import ConcertSearchItem from './ConcertSearchItem';
 import ConcertSearchMap from './ConcertSearchMap';
 import { GOOGLE_MAPS_URL } from '../../config';
 import { fetchTicketmasterConcerts, setPageNumber } from '../../actions/ticketmaster-actions';
 
-// Named export for tests
+import '../styles/ConcertSearchResults.css';
+
 export class ConcertSearchResults extends React.Component {
 
   onNextClick(props) {
@@ -49,23 +48,34 @@ export class ConcertSearchResults extends React.Component {
 
     if (this.props.empty === true) {
       return (
-        <div className="col-8">
+        <div className="section-container col-8">
+          <div className="map">
+            <ConcertSearchMap
+              isMarkerShown
+              mapCenter={this.props.mapCenter}
+              concerts={this.props.concerts}
+              googleMapURL={GOOGLE_MAPS_URL}
+              loadingElement={<div style={{ height: '100%' }} />}
+              containerElement={<div style={{ height: '300px' }} />}
+              mapElement={<div style={{ height: '100%' }} />} />
+          </div>
           <h3 className="results-info">Search for concerts near you to display shows...</h3>
         </div>)
     }
     else {
       return (
         <section className="section-container col-8">
+          <div className="map">
+            <ConcertSearchMap
+              isMarkerShown
+              mapCenter={this.props.mapCenter}
+              concerts={this.props.concerts}
+              googleMapURL={GOOGLE_MAPS_URL}
+              loadingElement={<div style={{ height: '100%' }} />}
+              containerElement={<div style={{ height: '300px' }} />}
+              mapElement={<div style={{ height: '100%' }} />} />
+          </div>
           <h1 className="page-title" id="concert-results-title">Concerts</h1>
-          <ConcertSearchMap
-            isMarkerShown
-            mapCenter={this.props.mapCenter}
-            concerts={this.props.concerts}
-            googleMapURL={GOOGLE_MAPS_URL}
-            loadingElement={<div style={{ height: '100%' }} />}
-            containerElement={<div style={{ height: '300px' }} />}
-            mapElement={<div style={{ height: '100%' }} />} />
-          {console.log(this.props.concerts)}
           {this.props.concerts.map(obj => (
             <ConcertSearchItem {...obj} dispatch={this.props.dispatch} props={this.props} key={String(obj.id)} />
           ))}

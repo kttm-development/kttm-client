@@ -33,6 +33,14 @@
     margin: 5px 0px 20px 0px;
 }
 
+.map {
+    border:1px solid #3a3f44;
+    width: 85%;
+    margin: auto;
+    margin-top: 110px;
+
+}
+
 .pagination {
     display: flex;
     justify-content: center;
