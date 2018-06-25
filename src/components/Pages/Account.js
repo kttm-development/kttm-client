@@ -5,16 +5,26 @@ import { connect } from 'react-redux';
 import '../styles/Account.css';
 import ChangePassword from '../Account/ChangePassword';
 import AddContact from '../Account/AddContact';
-// import Contacts from '../Account/Contacts';
+import Contacts from '../Account/Contacts';
 import Favorites from '../Account/Favorites';
 import {getFavorites} from '../../actions/favorite-actions'
+import { getContacts } from '../../actions/contacts-actions';
 
 export class Account extends React.Component {
     componentDidMount() {
         this.props.dispatch(getFavorites())
+        this.props.dispatch(getContacts())
+
     }
 
     render() {
+        let contacts;
+        if(this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email!==null){
+            contacts=this.props.contacts.map(obj => (
+                <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
+            ))
+        }
+
         if (this.props.loggedIn) {
             return (
                 <div className="account-page">
@@ -23,22 +33,22 @@ export class Account extends React.Component {
                         <div className="row">
                             <div className="col-6">
                                 <div className="add-contact">
-                                    {/* <h3>Add Contact</h3> */}
                                     <AddContact />
                                 </div>
                             </div>
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <div className="change-password">
                                     {/* <h3>Change Password</h3> */}
-                                    <ChangePassword />
-                                </div>
-                            </div>
+                                    {/* <ChangePassword /> */}
+                                {/* </div>
+                            </div> */} 
 
                         </div>
                         <div className="account-bottom-section row">
                             <div className="col-6">
                                 <div className="contacts">
-                                    <h3>Placeholder for contacts</h3>
+                                    <h3>Contacts:</h3>
+                                    {contacts} 
                                 </div>
                             </div>
                             <div className="col-6">
@@ -71,6 +81,7 @@ export class Account extends React.Component {
 const mapStateToProps = state => ({
     empty: state.ticketmaster.empty,
     favorites: state.favorite.favorites,
+    contacts: state.contact.contacts,
     loggedIn: state.auth.currentUser !== null
 });
 
