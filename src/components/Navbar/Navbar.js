@@ -8,10 +8,14 @@ import { clearAuthToken } from '../../local-storage';
 import DrawerToggleButton from './DrawerToggleButton';
 
 import '../../components/styles/Navbar.css';
+import { clearContacts } from '../../actions/contacts-actions';
+import { clearFavorites } from '../../actions/favorite-actions';
 
 export class Navbar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
+        this.props.dispatch(clearContacts());
+        this.props.dispatch(clearFavorites());
         clearAuthToken();
     }
 

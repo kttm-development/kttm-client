@@ -50,7 +50,7 @@ export function Favorites({
             >More Details</button></Link>
         </div>
         <div className="concert-search-about col-8">
-          <label className="info-label">Name:</label>
+          <label className="info-label">Title:</label>
           <label className="concert-label">{name}</label>
           <label className="info-label">Venue:</label>
           <label className="concert-label">{venue}</label>
