@@ -12,13 +12,13 @@ export default function GenreSelect({
 }) {
   return (
     <React.Fragment>
-      <select onChange={e => handleChange(name, e.target.value)} name={name} {...rest}>
+      <input type="textbox" list="genres" onChange={e => handleChange(name, e.target.value)} name={name} {...rest} />
+      <datalist id="genres">
         {genres.map((obj, index) => (
           <GenreAdder key={index} {...obj} />
         ))}
-      </select>
+      </datalist>
       {!!error && touched && <div className="error-messages">{error}</div>}
     </React.Fragment>
   );
 }
- 

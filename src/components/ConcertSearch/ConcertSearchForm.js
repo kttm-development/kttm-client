@@ -3,11 +3,13 @@ import { Formik } from 'formik';
 import { connect } from 'react-redux';
 
 import { fetchTicketmasterConcerts, setSearchResults, setPageNumber } from '../../actions/ticketmaster-actions';
-import GenreSelect from '../../commons/GenreSelect'
-import '../styles/ConcertSearchForm.css';
 import { fetchGenres } from '../../actions/genre-actions';
-import LocationSelect from '../../commons/LocationSelect';
 import { fetchLocations } from '../../actions/location-actions';
+
+import GenreSelect from '../../commons/GenreSelect'
+import LocationSelect from '../../commons/LocationSelect';
+
+import '../styles/ConcertSearchForm.css';
 
 const SELECT_GENRE = [
     {
@@ -72,28 +74,34 @@ export class ConcertSearchForm extends React.Component {
                                     <h1 className='page-title'>Find Concerts</h1>
                                     <form className="form" onSubmit={handleSubmit}>
                                         {SELECT_GENRE.map(el => (
-                                            <GenreSelect
-                                                dispatch={this.props.dispatch}
-                                                genres={this.props.genres}
-                                                {...el}
-                                                key={el.name}
-                                                handleChange={setFieldValue}
-                                                className="dropdown"
-                                                error={errors[el.name]}
-                                                touched={touched[el.name]}
-                                            />
+                                            <React.Fragment>
+                                                <h3 className="select-label">Genre:</h3>
+                                                <GenreSelect
+                                                    dispatch={this.props.dispatch}
+                                                    genres={this.props.genres}
+                                                    {...el}
+                                                    key={el.name}
+                                                    handleChange={setFieldValue}
+                                                    className="dropdown"
+                                                    error={errors[el.name]}
+                                                    touched={touched[el.name]}
+                                                />
+                                            </React.Fragment>
                                         ))}
                                         {SELECT_LOCATION.map(el => (
-                                            <LocationSelect
-                                                dispatch={this.props.dispatch}
-                                                locations={this.props.locations}
-                                                {...el}
-                                                key={el.name}
-                                                handleChange={setFieldValue}
-                                                className="dropdown"
-                                                error={errors[el.name]}
-                                                touched={touched[el.name]}
-                                            />
+                                            <React.Fragment>
+                                                <h3 className="select-label">City:</h3>
+                                                <LocationSelect
+                                                    dispatch={this.props.dispatch}
+                                                    locations={this.props.locations}
+                                                    {...el}
+                                                    key={el.name}
+                                                    handleChange={setFieldValue}
+                                                    className="dropdown"
+                                                    error={errors[el.name]}
+                                                    touched={touched[el.name]}
+                                                />
+                                            </React.Fragment>
                                         ))}
                                         <button className="search-button blue push_button">Search</button>
                                     </form>

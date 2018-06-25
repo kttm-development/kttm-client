@@ -15,10 +15,12 @@ export function Contacts({
     <div className="concert-container row">
       <div className="concert-details">
         <div className="pic-info col-4">
-          <button onClick={() => {
+          <button 
+            className="blue push_button"
+            onClick={() => {
               dispatch(deleteContact(id))
             }
-            }>Remove Contact</button>
+            }>Remove</button>
         </div>
         <div className="concert-search-about col-8">
           <label className="info-label">Name:</label>

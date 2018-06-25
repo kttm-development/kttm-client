@@ -20,7 +20,9 @@
 
 .dropdown {
     margin: 10px 40px;
+    padding: 10px;
     border: 1px solid #3a3f44;
+    border-radius: 8px;
     font-size: 14px;
 }
 
@@ -34,6 +36,12 @@
 .results-info {
     text-align: center;
     margin-top: 50px;
+}
+
+.select-label {
+    margin: 5px 40px;
+    /* margin-left: 5px 40px; */
+    text-align: left;
 }
 
 /* ===RESPONSIVE LAYOUT */
