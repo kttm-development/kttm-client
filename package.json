@@ -6,10 +6,7 @@
     "react-scripts": "1.1.1"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "create-react-class": "^15.6.3",
->>>>>>> 199ef6ddeeb83b335636b57a8acab81c467a3fbc
     "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
