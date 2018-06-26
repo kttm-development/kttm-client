@@ -27,8 +27,6 @@ export class ConcertSearchResults extends React.Component {
     props.dispatch(setPageNumber(page));
   }
 
-  // notify = () => toast("Concert added to your account's favorites list!")
-
   render() {
 
     if (this.props.loading === true) {
@@ -74,8 +72,8 @@ export class ConcertSearchResults extends React.Component {
           </div>
           <h1 className="page-title" id="concert-results-title">Concerts</h1>
           {this.props.concerts.map(obj => (
+            // console.log(obj)
             <ConcertSearchItem
-              // notifiy={() => toast("Concert added to your account's favorites list!")}
               {...obj}
               dispatch={this.props.dispatch}
               props={this.props}
