@@ -43,16 +43,16 @@ export class ConcertSearchForm extends React.Component {
             });
     };
 
-    // inputConversion = (input) => {
-    //     let conversion = input.split('');
-    //     conversion[0] = conversion[0].toUpperCase();
-    //     for (let i = 1; i < conversion.length; i++) {
-    //         if (conversion[i] === ' ' && conversion[i + 1] == conversion[i + 1].toLowerCase()) {
-    //             conversion[i + 1] = conversion[i + 1].toUpperCase();
-    //         }
-    //     }
-    //     return conversion.join('');
-    // }
+    inputConversion = (input) => {
+        let conversion = input.split('');
+        conversion[0] = conversion[0].toUpperCase();
+        for (let i = 1; i < conversion.length; i++) {
+            if (conversion[i] === ' ' && conversion[i + 1] == conversion[i + 1].toLowerCase()) {
+                conversion[i + 1] = conversion[i + 1].toUpperCase();
+            }
+        }
+        return conversion.join('');
+    }
 
     render() {
 
