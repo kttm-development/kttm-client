@@ -65,7 +65,7 @@ export class ConcertSearchResults extends React.Component {
                      loadingElement={<div style={{ height: '100%' }} />}
                      containerElement={<div style={{ height: '300px' }} />}
                      mapElement={<div style={{ height: '100%' }} />}/>
-                {console.log(this.props.concerts)}
+                {/* {console.log(this.props.concerts)} */}
                 {this.props.concerts.map(obj => (
                   <ConcertSearchItem {...obj} dispatch={this.props.dispatch} props={this.props} key={String(obj.id)} />
                 ))}

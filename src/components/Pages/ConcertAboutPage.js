@@ -4,18 +4,15 @@ import { RiseLoader } from 'react-spinners';
 import { newFavorite } from '../../actions/favorite-actions';
 import { getContacts } from '../../actions/contacts-actions';
 import { getFavorites } from '../../actions/favorite-actions';
-import YouTube from '../../commons/YouTubeAdder';
 import { showVideos } from '../../actions/youtube-actions';
-
-
-
 import '../styles/ConcertAbout.css'
-import YouTubeSelect from '../../commons/YouTubeSelect';
+import Youtube from '../../commons/YouTube';
+
 export class ConcertAboutPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(getFavorites())
         this.props.dispatch(getContacts())
-        this.props.dispatch(showVideos(this.props.attraction));
+        this.props.dispatch(showVideos(this.props.attraction))
     }
 
     render() {
@@ -76,29 +73,25 @@ export class ConcertAboutPage extends React.Component {
             }
 
         }
+        // if (this.props.videos) {
+        //     for (let i = 0; i < this.props.videos.length; i++) {
+        //         const element = this.props.videos[i];
+        //         let videoTitle = this.props.videos.map(obj => obj.snippet.title)
+        //         let videoBox = this.props.videos.map(obj => obj.id.videoId)
+        //         let videoThumbnail = this.props.videos.map(obj => obj.snippet.thumbnails.default.url)
+        //         let videoFooter = this.props.videos.map(obj => obj.snippet.channelId)
+        //         return
+        //             <div className="youTube">
+        //                 <h1>{videoTitle}</h1>
+        //                 <a href={`https://www.youtube.com/watch?v=${videoBox}`}><img src={`${videoThumbnail}`} ></img></a>
+        //                 <h2><a href={`https://www.youtube.com/channel/${videoFooter}`}>More from this Channel</a></h2>
+        //             </div>;
+        //     }
+        // }
 
 
-        if (this.props.videos) {
-            const generateVideoItemHtml = function (videos) {
-                let videoTitle =
-                    <div>
-                        <h1>{videos.snippet.title}</h1>
-                        <a href={`https://www.youtube.com/watch?v=${videos.id.videoId}`} data-lity><img src={`${videos.snippet.thumbnails.default.url}`} ></img></a>
-                        <h2><a href={`https://www.youtube.com/channel/${videos.snippet.channelId}`}>More from this Channel</a></h2>
-                    </div>;
-                return videoTitle;
-            };
-            const generateVideoHtml = function (videos) {
-                console.log(videos);
-                let items = videos.map((item) => generateVideoItemHtml(item));
-                //  items.join('');
-                console.log(items);
-
-            }
-            generateVideoHtml(this.props.videos)
-        }
         return (
-            <div className="concert-about-page">
+            <div className="concert-about-page" >
                 <h1 className="concert-title">{this.props.name}</h1>
                 <div className="concert-about row">
                     <div className="row">
@@ -122,12 +115,7 @@ export class ConcertAboutPage extends React.Component {
                         <div className="col-4">
                             <img src={this.props.image} alt='concert' className="concert-image"></img>
                         </div>
-
-                        <div className="col-4">
-                            {/* <YouTubeSelect videos={this.props.videos}/> */}
-                            {this.items}
-                        </div>
-
+                        <Youtube />
                     </div>
                     <div className="buttons-container row">
                         <div className="col-4">
