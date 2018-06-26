@@ -10,7 +10,6 @@ import Footer from '../commons/Footer';
 import LoginPage from './Pages/LoginPage';
 import ConcertSearchPage from './Pages/ConcertSearchPage';
 import ConcertAboutPage from './Pages/ConcertAboutPage'
-import DashboardPage from './Pages/DashboardPage';
 import Account from './Pages/Account'
 import RegistrationPage from './Pages/RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
@@ -64,7 +63,6 @@ export class App extends React.Component {
                             <Route exact path="/concert-about" component={ConcertAboutPage} />
                             <Route exact path="/concerts" component={ConcertSearchPage} />
                             <Route exact path="/account" component={Account} />
-                            <Route exact path="/dashboard" component={DashboardPage} />
                             <Route exact path="/login" component={LoginPage} />
                             <Route exact path="/register" component={RegistrationPage} />
                         </main>
@@ -84,7 +82,6 @@ export class App extends React.Component {
                                 <Route exact path="/concert-about" component={ConcertAboutPage} />
                                 <Route exact path="/concerts" component={ConcertSearchPage} />
                                 <Route exact path="/account" component={Account} />
-                                <Route exact path="/dashboard" component={DashboardPage} />
                                 <Route exact path="/login" component={LoginPage} />
                                 <Route exact path="/register" component={RegistrationPage} />
                             </main>
