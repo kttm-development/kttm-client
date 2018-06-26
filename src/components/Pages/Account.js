@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { RiseLoader } from 'react-spinners';
+import { RiseLoader } from 'react-spinners';
 
 import '../styles/Account.css';
 import ChangePassword from '../Account/ChangePassword';
@@ -18,8 +18,27 @@ export class Account extends React.Component {
     }
 
     render() {
+        let favorite;
+        if(this.props.favoriteLoading){
+            favorite=RiseLoader
+        }
+        if(this.props.favoriteError){
+            favorite=`Oops! Something Went Wrong: ${this.props.favoriteError}`
+        }
+        if(!this.props.favoriteError&&!this.props.favoriteLoading){
+            favorite= <span>{this.props.favorites.map(obj => (
+                        <Favorites dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
+                      ))}</span>
+        }
+
         let contacts;
-        if (this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email !== null) {
+        if(this.props.contactLoading){
+            contacts=RiseLoader
+        }
+        if(this.props.contactsError){
+            contacts=`Oops! Something Went Wrong: ${this.props.contactsError}`
+        }
+        if (this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email !== null && !this.props.contactsError) {
             contacts = this.props.contacts.map(obj => (
                 <Contacts dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
             ))
@@ -47,9 +66,7 @@ export class Account extends React.Component {
                             <div className="col-12">
                                 <div className="favorites">
                                     <h3 className="favorite-section-title" >Favorited Concerts:</h3>
-                                    {this.props.favorites.map(obj => (
-                                        <Favorites dispatch={this.props.dispatch} {...obj} key={String(obj.id)} />
-                                    ))}
+                                    {favorite}
                                 </div>
                             </div>
                         </div>
@@ -75,6 +92,10 @@ const mapStateToProps = state => ({
     empty: state.ticketmaster.empty,
     favorites: state.favorite.favorites,
     contacts: state.contact.contacts,
+    favoriteError: state.favorite.error,
+    contactsError: state.contact.error,
+    favoriteLoading: state.favorite.loading,
+    contactLoading: state.contact.loading,
     loggedIn: state.auth.currentUser !== null
 });
 

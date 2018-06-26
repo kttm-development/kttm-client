@@ -25,21 +25,14 @@ export class ConcertAboutPage extends React.Component {
         let airBNBLink = `https://www.airbnb.com/s/${airBNBCity}--${this.props.state}--United-States/homes?refinement_paths%5B%5D=%2Fhomes&checkin=${this.props.date}`
 
 
-        if (this.props.loading === true) {
-            return (
-                <div className="loading-wrapper">
-                    <RiseLoader />
-                </div>
-            );
-        }
 
-        if (this.props.error) {
+        if (!this.props.name) {
             return (
                 <div>
                     <h2>OOPS!</h2>
                     <h3>Something Went Wrong:</h3>
-                    <h3><em> {this.props.error}</em></h3>
-                    <h4><strong>Please try searching again</strong></h4>
+                    <h3><em> There is no current concert selected.</em></h3>
+                    <h4><strong>Please go back to the concert search page and try again</strong></h4>
                 </div>
             );
         }
