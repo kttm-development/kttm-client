@@ -1,60 +1,48 @@
 import React from 'react';
-import { Formik } from 'formik';
 import { connect } from 'react-redux';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
-import { fetchTicketmasterConcerts, setSearchResults, setPageNumber } from '../../actions/ticketmaster-actions';
+import { fetchTicketmasterConcerts, setPageNumber } from '../../actions/ticketmaster-actions';
 import { fetchGenres } from '../../actions/genre-actions';
 import { fetchLocations } from '../../actions/location-actions';
 
-import GenreSelect from '../../commons/GenreSelect'
-import LocationSelect from '../../commons/LocationSelect';
-
 import '../styles/ConcertSearchForm.css';
 
-const SELECT_GENRE = [
-    {
-        name: 'genre',
-    },
-]
-
-const SELECT_LOCATION = [
-    {
-        name: 'location',
-    }
-]
-
 export class ConcertSearchForm extends React.Component {
+
     componentDidMount() {
         this.props.dispatch(fetchGenres())
         this.props.dispatch(fetchLocations())
     }
 
+    genres = this.props.genres;
+    locations = this.props.locations;
+
     state = {
+        selectedOptionGenre: '',
+        selectedOptionLocation: '',
         error: false,
     };
 
-    _handleSubmit = (values, bag) => {
-        this.props.dispatch(setSearchResults({ location: values.location, genre: values.genre }))
+    _handleSubmit = () => {
         this.props.dispatch(setPageNumber(0));
-        this.props.dispatch(fetchTicketmasterConcerts(values.location, values.genre, 0))
-            .catch(err => {
-                bag.setSubmitting(false);
-                this.setState({ error: true });
-            });
+        this.props.dispatch(fetchTicketmasterConcerts(this.state.selectedOptionLocation.value, this.state.selectedOptionGenre.value, 0))
     };
 
-    inputConversion = (input) => {
-        let conversion = input.split('');
-        conversion[0] = conversion[0].toUpperCase();
-        for (let i = 1; i < conversion.length; i++) {
-            if (conversion[i] === ' ' && conversion[i + 1] == conversion[i + 1].toLowerCase()) {
-                conversion[i + 1] = conversion[i + 1].toUpperCase();
-            }
-        }
-        return conversion.join('');
+    handleChangeGenre = (selectedOptionGenre) => {
+        this.setState({ selectedOptionGenre });
+    }
+
+    handleChangeLocation = (selectedOptionLocation) => {
+        this.setState({ selectedOptionLocation });
     }
 
     render() {
+        const { selectedOptionGenre } = this.state;
+        const { selectedOptionLocation } = this.state;
+        const genreValue = selectedOptionGenre && selectedOptionGenre.value;
+        const locationValue = selectedOptionLocation && selectedOptionLocation.value;
 
         if (this.state.error) {
             return (
@@ -67,60 +55,39 @@ export class ConcertSearchForm extends React.Component {
         return (
             <div className="col-4">
                 <div className="form-container">
-                    <Formik
-                        initialValues={{
-                            location: 'Abilene - Sweetwater',
-                            genre: 'Alternative',
-                        }}
-                        onSubmit={this._handleSubmit}
-                        render={({
-                            handleSubmit,
-                            handleChange,
-                            setFieldValue,
-                            errors,
-                            touched,
-                            isValid,
-                        }) => (
-                                <div className="input">
-                                    <h1 className='page-title'>Find Concerts</h1>
-                                    <form className="form" onSubmit={handleSubmit}>
-                                        {SELECT_GENRE.map(el => (
-                                            <React.Fragment>
-                                                <h3 className="select-label">Genre:</h3>
-                                                <GenreSelect
-                                                    // inputConversion={this.inputConversion(this)}
-                                                    dispatch={this.props.dispatch}
-                                                    genres={this.props.genres}
-                                                    {...el}
-                                                    key={el.name}
-                                                    handleChange={setFieldValue}
-                                                    className="dropdown"
-                                                    error={errors[el.name]}
-                                                    touched={touched[el.name]}
-                                                />
-                                            </React.Fragment>
-                                        ))}
-                                        {SELECT_LOCATION.map(el => (
-                                            <React.Fragment>
-                                                <h3 className="select-label">City:</h3>
-                                                <LocationSelect
-                                                    inputConversion={this.inputConversion(this)}
-                                                    dispatch={this.props.dispatch}
-                                                    locations={this.props.locations}
-                                                    {...el}
-                                                    key={el.name}
-                                                    handleChange={setFieldValue}
-                                                    className="dropdown"
-                                                    error={errors[el.name]}
-                                                    touched={touched[el.name]}
-                                                />
-                                            </React.Fragment>
-                                        ))}
-                                        <button className="search-button blue push_button">Search</button>
-                                    </form>
-                                </div>
-                            )}
-                    />
+                    <h1 className='page-title'>Find Concerts</h1>
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        this._handleSubmit();
+                    }}>
+                        <div className="genre">
+                            <h4 className="form-label">Genre:</h4>
+                            <Select
+                                name="form-field-genre"
+                                className="select-box"
+                                value={genreValue}
+                                onChange={this.handleChangeGenre}
+                                options={this.genres.map(el => {
+                                    return { value: el.genre, label: el.genre };
+                                })}
+                            />
+                        </div>
+
+                        <div className="location">
+                            <h4 className="form-label">Location:</h4>
+                            <Select
+                                name="form-field-location"
+                                className="select-box"
+                                value={locationValue}
+                                onChange={this.handleChangeLocation}
+                                options={this.locations.map(el => {
+                                    return { value: el.location, label: el.location };
+                                })}
+                            />
+                        </div>
+
+                        <button className="search-button blue push_button">Search</button>
+                    </form>
                 </div>
             </div>
         );
