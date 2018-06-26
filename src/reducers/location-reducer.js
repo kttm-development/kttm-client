@@ -17,7 +17,8 @@ export default function reducer(state = initialState, action) {
     }
     else if (action.type === FETCH_LOCATION_ERROR) {
         return Object.assign({}, state, {
-            error: action.error
+            error: action.error,
+            locations: []
         });
     }
 
