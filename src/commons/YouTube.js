@@ -16,11 +16,11 @@ export class Youtube extends React.Component {
                 let videoThumbnail = element.snippet.thumbnails.default.url;
                 let videoFooter = element.snippet.channelId;
                 let vid = <div className="col-4 ">
-                    <h3><a className="text-align-centered">{videoTitle}</a></h3>
+                    <h3 ><a className="youtube-video-title">{videoTitle}</a></h3>
                     <a href={`https://www.youtube.com/watch?v=${videoBox}`} data-lity>
                         <img className="concert-image " src={`${videoThumbnail}`} ></img>
                     </a>
-                    <h3><a className="text-align-centered" href={`https://www.youtube.com/channel/${videoFooter}`}>More from this Channel</a></h3>
+                    <h3 className="youtube-video-title"><a className="youtube-channel-link" href={`https://www.youtube.com/channel/${videoFooter}`}>More from this Channel</a></h3>
                     <script src={lity}></script>
                     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                 </div>

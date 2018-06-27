@@ -1,9 +1,11 @@
-.form-container {
+.concert-search-form-container {
+    position: fixed;
     background-color: #F1F9FF;
     border: 1px solid #3a3f44;
     border-radius: 8px;
     padding: 25px;
-    width: 85%;
+    /* width: 85%; */
+    width: 400px;
     margin: auto;
     margin-top: 110px;
     margin-bottom: 110px;
@@ -32,7 +34,7 @@
     margin-top: 25px;
     margin-bottom: 5px;
     font-size: 20px;
-    width: 85%!important;
+    width: 85%;
     outline: none;
 }
 
@@ -44,5 +46,13 @@
 /* ===RESPONSIVE LAYOUT */
 
 @media only screen and (max-width: 850px) {
-
+    .concert-search-form-container {  
+        position: static;
+        width: 85%;
+        margin-bottom: 0;
+        margin-top: 40px;
+    }
+    .map {
+        margin-top: 40px!important;
+    }
 }

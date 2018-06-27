@@ -20,7 +20,7 @@ export function Favorites({
   description
 }) {
   return (
-    <span className="search-results">
+    <span className="favorites-container">
       <div className="concert-container row">
         <div className="concert-details">
           <div className="col-4">

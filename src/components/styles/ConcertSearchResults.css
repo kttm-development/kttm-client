@@ -9,6 +9,12 @@
     margin-top: 50px;
 }
 
+.search-results-title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
 .concert-search-image {
     width: 90%;
     margin: auto;
@@ -29,7 +35,7 @@
     margin: 5px 0px 20px 0px;
 }
 
-.icon {
+.icon-favorite-details {
     float: right;
     margin: 10px 20px;
 }
@@ -50,10 +56,15 @@
 .map {
     border:1px solid #3a3f44;
     width: 85%;
+    /* height: 375px; */
     margin: auto;
     margin-top: 110px;
 
 }
+
+/* .gm-style-pbc {
+    height: 375px;
+} */
 
 .pagination {
     display: flex;

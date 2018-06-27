@@ -15,9 +15,9 @@ export function Contacts({
         <div className="concert-details">
           <div className="contact-details col-8">
             <label className="info-label">Name:</label>
-            <label className="concert-label">{name}</label>
+            <label className="contact-label">{name}</label>
             <label className="info-label">Email Address:</label>
-            <label className="concert-label">{email}</label>
+            <label className="contact-label">{email}</label>
           </div>
           <div className="col-4">
             <a

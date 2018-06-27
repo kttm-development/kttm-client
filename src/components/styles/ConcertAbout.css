@@ -56,6 +56,11 @@
     cursor: pointer;
 }
 
+.youtube-video-title, .youtube-channel-link {
+    text-align: center;
+    margin: auto;
+}
+
 @media only screen and (max-width: 850px) {
     .concert-title {
         width: 90vw;
