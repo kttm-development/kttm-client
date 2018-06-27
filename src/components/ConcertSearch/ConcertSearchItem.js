@@ -61,6 +61,18 @@ export function ConcertSearchItem({
                 }
               }
               }>Favorite</button>
+              <EmailButton city={city}
+                state={state}
+                date={date}
+                name={name}
+                image={image}
+                time={time}
+                venue={venue}
+                url={url}
+                attraction={attraction}
+                contacts={props.contacts}
+                loggedIn={props.loggedIn}
+              />
             <Link className='nav-item' to='/concert-about'>
               <button
                 className="details-button blue push_button"
@@ -81,18 +93,6 @@ export function ConcertSearchItem({
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
               >More Details</button></Link>
-              <EmailButton city={city}
-                state={state}
-                date={date}
-                name={name}
-                image={image}
-                time={time}
-                venue={venue}
-                url={url}
-                attraction={attraction}
-                contacts={props.contacts}
-                loggedIn={props.loggedIn}
-              />
           </div>
           <div className="concert-search-about col-8">
             <label className="info-label">Name:</label>
