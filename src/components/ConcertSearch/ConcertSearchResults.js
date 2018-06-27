@@ -106,7 +106,8 @@ const mapStateToProps = state => ({
   isLastPage: state.ticketmaster.isLastPage,
   loggedIn: state.auth.currentUser !== null,
   mapCenter: state.ticketmaster.mapCenter,
-  markers: state.ticketmaster.markers
+  markers: state.ticketmaster.markers,
+  contacts: state.contact.contacts
 });
 
 export default connect(mapStateToProps)(ConcertSearchResults);
