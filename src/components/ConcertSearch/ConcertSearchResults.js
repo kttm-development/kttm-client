@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import googleMap from '../../images/googlemaps.jpg'
 
 import ConcertSearchItem from './ConcertSearchItem';
 import ConcertSearchMap from './ConcertSearchMap';
@@ -51,6 +52,7 @@ export class ConcertSearchResults extends React.Component {
               return(
               <div className="col-8">
                 <h3 className="results-info">Search for concerts near you to display shows...</h3>
+                <img alt="google map" className="google-map-img" src={googleMap}></img>
               </div>)
           }
  

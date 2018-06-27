@@ -9,6 +9,16 @@
     margin-top: 50px;
 }
 
+.google-map-img {
+    display: block;
+    padding: 20px;
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
+
 .concert-container {
     /* padding-bottom: 50px; */
     /* height: 300px; */
