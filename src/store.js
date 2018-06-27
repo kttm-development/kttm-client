@@ -11,6 +11,7 @@ import contactReducer from './reducers/contacts-reducer';
 import sideDrawerReducer from './reducers/side-drawer-reducer';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import youtubeReducer from './reducers/youtube-reducer';
 
 const store = createStore(
 	combineReducers({
@@ -22,6 +23,7 @@ const store = createStore(
 		favorite: favoriteReducer,
 		contact: contactReducer,
 		sideDrawerOpen: sideDrawerReducer,
+		youtube: youtubeReducer,
 	}),
 	composeWithDevTools(),
 	applyMiddleware(thunk)
