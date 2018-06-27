@@ -60,7 +60,7 @@ export function ConcertSearchItem({
                   })
                 }
               }
-              }>Favorite   <i className="icon-favorite-details fas fa-star"></i></button>
+              }>Favorite   <i className="icon-favorite-details fas fa-star"></i></a>
               <EmailButton city={city}
                 state={state}
                 date={date}
