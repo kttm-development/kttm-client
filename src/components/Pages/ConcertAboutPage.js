@@ -8,6 +8,8 @@ import { showVideos } from '../../actions/youtube-actions';
 import '../styles/ConcertAbout.css'
 import Youtube from '../../commons/YouTube';
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+
 
 
 export class ConcertAboutPage extends React.Component {
@@ -129,6 +131,12 @@ export class ConcertAboutPage extends React.Component {
                         </div>
                         <div className="col-4">
                             {contactFriends}
+                        </div>
+                        
+                    </div>
+                    <div className="buttons-container row">
+                        <div className="col-4">
+                                <Link to="/concerts"><button className="button blue push_button">Back to Concerts <i className="fas fa-music"></i></button></Link>
                         </div>
                     </div>
                 </div>
