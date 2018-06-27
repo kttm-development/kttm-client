@@ -12,9 +12,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 export class ConcertAboutPage extends React.Component {
     componentDidMount() {
-        this.props.dispatch(getFavorites())
-        this.props.dispatch(getContacts())
-        this.props.dispatch(showVideos(this.props.attraction))
+        this.props.dispatch(getFavorites());
+        this.props.dispatch(getContacts());
+        this.props.attraction ? this.props.dispatch(showVideos(this.props.attraction)) : this.props.dispatch(showVideos(this.props.name));
     }
 
 
