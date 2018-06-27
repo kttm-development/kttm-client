@@ -8,6 +8,7 @@ import { showVideos } from '../../actions/youtube-actions';
 import '../styles/ConcertAbout.css'
 import Youtube from '../../commons/YouTube';
 
+
 export class ConcertAboutPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(getFavorites())
@@ -115,8 +116,10 @@ export class ConcertAboutPage extends React.Component {
                         <div className="col-4">
                             <img src={this.props.image} alt='concert' className="concert-image"></img>
                         </div>
+                        <br />
                         <Youtube />
                     </div>
+   
                     <div className="buttons-container row">
                         <div className="col-4">
                             <a className="button blue push_button"
