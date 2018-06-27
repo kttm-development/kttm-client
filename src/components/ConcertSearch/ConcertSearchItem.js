@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { newFavorite } from '../../actions/favorite-actions'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import EmailButton from '../../commons/EmailButton'
 
 export function ConcertSearchItem({
   city,
@@ -28,7 +28,7 @@ export function ConcertSearchItem({
         <div className="concert-details">
           <div className="pic-info col-4">
             <img src={image} alt="concert" className="concert-search-image" />
-            <button
+            <a
               className="favorite-button blue push_button"
               onClick={() => {
                 const newFavoriteObj = {
@@ -60,7 +60,19 @@ export function ConcertSearchItem({
                   })
                 }
               }
-              }>Favorite</button>
+              }>Favorite   <i className="icon-favorite-details fas fa-star"></i></a>
+              <EmailButton city={city}
+                state={state}
+                date={date}
+                name={name}
+                image={image}
+                time={time}
+                venue={venue}
+                url={url}
+                attraction={attraction}
+                contacts={props.contacts}
+                loggedIn={props.loggedIn}
+              />
             <Link className='nav-item' to='/concert-about'>
               <button
                 className="details-button blue push_button"
@@ -80,7 +92,7 @@ export function ConcertSearchItem({
                   }
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
-              >More Details</button></Link>
+              >More Details   <i className="icon-favorite-details fas fa-info-circle"></i></button></Link>
           </div>
           <div className="concert-search-about col-8">
             <label className="info-label">Name:</label>

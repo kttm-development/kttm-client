@@ -11,13 +11,12 @@
 
 .google-map-img {
     display: block;
-    padding: 20px;
+    /* padding: 20px; */
+    height: 350px;
     width: 85%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 110px;
 }
-
-
 
 .concert-container {
     /* padding-bottom: 50px; */
@@ -26,6 +25,7 @@
 
 .concert-search-image {
     width: 90%;
+    margin: auto;
 }
 
 .concert-search-about {
@@ -43,8 +43,14 @@
     margin: 5px 0px 20px 0px;
 }
 
+.icon-favorite-details {
+    float: right;
+    margin: 10px 20px;
+}
+
 .favorite-button, .details-button {
-    margin: auto;
+    width: 95%;
+    /* margin: auto; */
     margin-top: 20px;
     font-size: 20px;
     text-decoration: none;
@@ -58,10 +64,15 @@
 .map {
     border:1px solid #3a3f44;
     width: 85%;
+    /* height: 375px; */
     margin: auto;
     margin-top: 110px;
 
 }
+
+/* .gm-style-pbc {
+    height: 375px;
+} */
 
 .pagination {
     display: flex;

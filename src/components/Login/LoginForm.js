@@ -52,7 +52,7 @@ export class LoginForm extends React.Component {
                 <button className="login-form-button blue push_button" disabled={this.props.pristine || this.props.submitting}>
                     Login
                 </button>
-                <span>Need an account?   <Link to="/register" className="register-link">Register</Link></span>
+                <span className="login-signup-span">Need an account?   <Link to="/register" className="register-link">Signup</Link></span>
             </form>
         );
     }

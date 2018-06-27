@@ -19,10 +19,12 @@
 
 .login-form-button, .signup-form-button {
     font-size: 20px;
-    width: 40%;
+    width: 50%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    outline: none;
+    cursor: pointer;
 }
 
 input#password, input#username, input#firstName, input#lastName, input#passwordConfirm {
@@ -31,15 +33,24 @@ input#password, input#username, input#firstName, input#lastName, input#passwordC
     border: 1px solid #3a3f44;
     border-radius: 4px;
     padding: 10px;
-    width: 40%;
+    width: 50%;
+    font-size: 16px;
 }
 
 .fields-and-labels {
+    width: 50%;
+    margin: auto;
+    text-align: left;
     margin-top: 10px;
 }
 
 .register-link {
+    text-decoration: underline;
     color: black;
+}
+
+.register-link:hover {
+    color: #48A6F5;
 }
 
 .form-error {
@@ -49,6 +60,10 @@ input#password, input#username, input#firstName, input#lastName, input#passwordC
     width: 40%;
     margin: auto;
     padding: 5px;
+}
+
+.login-signup-span {
+    font-size: 18px;
 }
 
 /* ===RESPONSIVE LAYOUT */

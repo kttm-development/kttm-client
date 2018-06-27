@@ -8,6 +8,8 @@ import { showVideos } from '../../actions/youtube-actions';
 import '../styles/ConcertAbout.css'
 import Youtube from '../../commons/YouTube';
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+
 
 
 export class ConcertAboutPage extends React.Component {
@@ -16,7 +18,6 @@ export class ConcertAboutPage extends React.Component {
         this.props.dispatch(getContacts());
         this.props.attraction ? this.props.dispatch(showVideos(this.props.attraction)) : this.props.dispatch(showVideos(this.props.name));
     }
-
 
     render() {
 
@@ -46,7 +47,13 @@ export class ConcertAboutPage extends React.Component {
         if (this.props.contacts) {
             if (!this.props.loggedIn) {
                 contactFriends = <a className="button blue push_button"
-                    onClick={() => alert('Please login or signup to send emails to your contact list')}
+                    onClick={() => {
+                        toast.error("Please login or signup to send this concert to your contacts", {
+                            className: 'black-background',
+                            bodyClassName: "grow-font-size",
+                            progressClassName: 'fancy-progress-bar'
+                        })
+                    }}
                 >Email Contacts<i className="fas fa-address-book icon"></i></a>
             }
             else if (this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email !== null) {
@@ -65,10 +72,10 @@ export class ConcertAboutPage extends React.Component {
 
 
         return (
-            <div className="concert-about-page" >
-                <h1 className="concert-title">{this.props.name}</h1>
-                <div className="concert-about row">
+            <div className="concert-about-page">
+                <div className="concert-about">
                     <div className="row">
+                        <h1 className="concert-title-about col-12">{this.props.name}</h1>
                         <div className="concert-search-about col-4">
                             <h3 className="header">Concert details</h3>
                             <label className="info-label">Date:</label>
@@ -124,6 +131,12 @@ export class ConcertAboutPage extends React.Component {
                         </div>
                         <div className="col-4">
                             {contactFriends}
+                        </div>
+                        
+                    </div>
+                    <div className="buttons-container row">
+                        <div className="col-4">
+                                <Link to="/concerts"><button className="button blue push_button">Back to Concerts <i className="fas fa-music"></i></button></Link>
                         </div>
                     </div>
                 </div>
