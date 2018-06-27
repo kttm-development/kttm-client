@@ -29,7 +29,7 @@ export class Navbar extends React.Component {
 
         if (this.props.loggedIn) {
             logOutButton = (
-                <button className="logout-button blue push_button" onClick={() => this.logOut()}>Log out</button>
+                <a className="logout-button blue push_button" onClick={() => this.logOut()}>Log out</a>
             );
             accountButton = (
                 <li><Link to="/account">Account</Link></li>

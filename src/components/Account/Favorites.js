@@ -23,17 +23,10 @@ export function Favorites({
     <span className="search-results">
       <div className="concert-container row">
         <div className="concert-details">
-          <div className="pic-info col-4">
+          <div className="col-4">
             <img src={image} alt="concert" className="concert-search-image" />
-            <button
-              className="un-favorite-button blue push_button"
-              onClick={() => {
-                dispatch(deleteFavorite(id))
-              }}
-            >Un-Favorite</button>
-            <Link to='/concert-about'>
-              <button
-                className="more-details-button blue push_button"
+            <div className="favorites-buttons-container">
+              <Link to='/concert-about' className="more-details-button blue push_button"
                 onClick={() => {
                   const currentConcertObj = {
                     city,
@@ -50,7 +43,15 @@ export function Favorites({
                   }
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
-              >More Details</button></Link>
+              >More Details</Link>
+              <a
+                className="un-favorite-button blue push_button"
+                onClick={() => {
+                  dispatch(deleteFavorite(id))
+                }}
+              ><i className="fas fa-trash-alt"></i></a>
+            </div>
+
           </div>
           <div className="concert-search-about col-8">
             <label className="info-label">Title:</label>

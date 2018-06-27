@@ -15,6 +15,16 @@
     margin-bottom: 110px;
 }
 
+.contact-form-container {
+    background-color: #F1F9FF;
+    border: 1px solid #3a3f44;
+    border-radius: 8px;
+    width: 85%;
+    margin: auto;
+    margin-top: 110px;
+    margin-bottom: 110px;
+}
+
 .add-contact, .change-password, .contacts, .favorites {
     width: 100%;
     margin: auto;
@@ -29,6 +39,18 @@
     margin-bottom: 50px;
     overflow: auto;
     background-color: #48A6F5;
+}
+
+.contacts-list {
+    display: block;
+    background-color: #F1F9FF;
+    border: 1px solid #3a3f44;
+    border-radius: 8px;
+    padding: 20px;
+    width: 85%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px
 }
 
 .favorites {
@@ -46,16 +68,64 @@
     color: white;
 }
 
+.single-input-contact {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #3a3f44;
+    background-color: #F1F9FF;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+.single-input-contact-top {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #3a3f44;
+    background-color: #F1F9FF;
+    width: 100%;
+    font-size: 16px;
+}
+
 .submit-button {
     font-size: 20px;
+    width: 100%;
     margin: auto;
+    margin-top: 20px;
 }
 
 .submit-button:hover {
     cursor: pointer;
 }
 
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.remove-contact {
+    margin-top: 33.33%;
+    margin-left: 40px;
+}
+
+.favorites-buttons-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .more-details-button, .un-favorite-button {
+    width: 100px;
     margin: auto;
     margin-top: 15px;
     cursor: pointer;

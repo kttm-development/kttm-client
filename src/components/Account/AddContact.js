@@ -38,7 +38,7 @@ export class SignupForm extends React.Component {
                                 <h3 className="contact-section-title">Add Contact</h3>
                                 <form onSubmit={handleSubmit}>
                                     <input
-                                        className="single-input"
+                                        className="single-input-contact-top"
                                         onChange={handleChange}
                                         type="name"
                                         name="name"
@@ -52,7 +52,7 @@ export class SignupForm extends React.Component {
                                         )}
                                     <input
                                         type="email"
-                                        className="single-input"
+                                        className="single-input-contact"
                                         onChange={handleChange}
                                         name="email"
                                         label="Email"
@@ -65,7 +65,7 @@ export class SignupForm extends React.Component {
                                                 {errors.confirmPassword}
                                             </div>
                                         )}
-                                    <button className="submit-button blue push_button" disabled={!isValid}>Submit</button>
+                                    <button className="submit-button blue push_button" disabled={!isValid}>Create</button>
                                 </form>
                             </div>
                         )}

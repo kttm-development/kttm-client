@@ -12,6 +12,12 @@
     transition: transform 0.3s ease-out;
 }
 
+.logout-button-mobile {
+    width: 75%;
+    margin: auto;
+    float: left;
+}
+
 .side-drawer.open {
     transform: translateX(0);
 }
@@ -22,6 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* text-align: center; */
 }
 
 .side-drawer a {
@@ -42,10 +49,5 @@
 @media (min-width: 850px) {
     .side-drawer {
         display: none;
-    }
-
-    .logout-button-mobile {
-        width: 80%;
-        margin: auto;
     }
 }
