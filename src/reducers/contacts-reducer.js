@@ -9,6 +9,7 @@ const initialState = {
 export default function reducer(state=initialState, action) {
     if (action.type === GET_CONTACTS_SUCCESS) {
         return Object.assign({}, state, {
+            loading: false,
             error: null,
             contacts: action.contacts
         });

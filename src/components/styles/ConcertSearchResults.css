@@ -33,6 +33,49 @@
     margin: 5px 0px 20px 0px;
 }
 
+.favorite-button, .details-button {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.favorite-button:hover, .details-button:hover, .search-button:hover {
+    cursor: pointer;
+}
+
+.map {
+    border:1px solid #3a3f44;
+    width: 85%;
+    margin: auto;
+    margin-top: 110px;
+
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* margin: auto; */
+    /* float: right; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* margin-right: 200px; */
+}
+
+.next-button, .previous-button {
+    width: 100px!important;
+    padding: 0px;
+    /* margin-left: 75px;
+    margin-right: 75px; */
+    cursor: pointer;
+}
+
+.page-number {
+    margin: auto 50px;
+}
+
 /* ===RESPONSIVE LAYOUT */
 
 @media only screen and (max-width: 850px) {

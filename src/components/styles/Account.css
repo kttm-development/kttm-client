@@ -4,19 +4,46 @@
     margin: auto;
 } 
 
+.account-form-container {
+    background-color: #F1F9FF;
+    border: 1px solid #3a3f44;
+    border-radius: 8px;
+    padding: 25px;
+    width: 85%;
+    margin: auto;
+    margin-top: 110px;
+    margin-bottom: 110px;
+}
+
 .add-contact, .change-password, .contacts, .favorites {
     width: 100%;
     margin: auto;
-    /* border: 1px solid #3a3f44; */
 }
 
-.contacts, .favorites {
+.contacts, .favorites, .add-contact {
     border: 1px solid #3a3f44;
     text-align: center;
     height: 50vh;
-    margin-top: 75px;
-    margin-bottom: 75px;
+    min-height: 450px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     overflow: auto;
+    background-color: #48A6F5;
+}
+
+.favorites {
+    margin-top: 0px;
+    /* border: 1px solid #3a3f44; */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 100vh;
+    min-height: 650px;
+}
+
+.favorite-section-title, .contact-section-title {
+    color: white;
 }
 
 .submit-button {
@@ -25,5 +52,11 @@
 }
 
 .submit-button:hover {
+    cursor: pointer;
+}
+
+.more-details-button, .un-favorite-button {
+    margin: auto;
+    margin-top: 15px;
     cursor: pointer;
 }

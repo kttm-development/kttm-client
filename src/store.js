@@ -5,7 +5,6 @@ import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
 import genreReducer from './reducers/genre-reducer'
 import locationReducer from './reducers/location-reducer';
-import protectedDataReducer from './reducers/protected-data';
 import ticketmasterReducer from './reducers/ticketmaster-reducer';
 import favoriteReducer from './reducers/favorite-reducer';
 import contactReducer from './reducers/contacts-reducer';
@@ -18,7 +17,6 @@ const store = createStore(
 	combineReducers({
 		form: formReducer,
 		auth: authReducer,
-		protectedData: protectedDataReducer,
 		ticketmaster: ticketmasterReducer,
 		genre: genreReducer,
 		location: locationReducer,

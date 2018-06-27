@@ -10,10 +10,10 @@ import Footer from '../commons/Footer';
 import LoginPage from './Pages/LoginPage';
 import ConcertSearchPage from './Pages/ConcertSearchPage';
 import ConcertAboutPage from './Pages/ConcertAboutPage'
-import DashboardPage from './Pages/DashboardPage';
 import Account from './Pages/Account'
 import RegistrationPage from './Pages/RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
+import Meta from './meta'
 
 import './styles/App.css'
 
@@ -51,38 +51,43 @@ export class App extends React.Component {
 
         if (this.props.sideDrawerOpen) {
             return (
-                <div className="app">
-                    <Navbar />
-                    <SideDrawer show={this.props.sideDrawerOpen} />
-                    <Backdrop />
-                    <main className="content">
-                        <Route exact path="/" component={OnboardingPage} />
-                        <Route exact path="/concert-about" component={ConcertAboutPage} />
-                        <Route exact path="/concerts" component={ConcertSearchPage} />
-                        <Route exact path="/account" component={Account} />
-                        <Route exact path="/dashboard" component={DashboardPage} />
-                        <Route exact path="/login" component={LoginPage} />
-                        <Route exact path="/register" component={RegistrationPage} />
-                    </main>
-                    <Footer />
+                <div class="wrapper">
+                    <Meta />
+                    <div className="app">
+                    
+                        <Navbar />
+                        <SideDrawer show={this.props.sideDrawerOpen} />
+                        <Backdrop />
+                        <main className="content">
+                            <Route exact path="/" component={OnboardingPage} />
+                            <Route exact path="/concert-about" component={ConcertAboutPage} />
+                            <Route exact path="/concerts" component={ConcertSearchPage} />
+                            <Route exact path="/account" component={Account} />
+                            <Route exact path="/login" component={LoginPage} />
+                            <Route exact path="/register" component={RegistrationPage} />
+                        </main>
+                        <Footer />
+                    </div>
                 </div>
-            )
-        } else {
-            return (
-                <div className="app">
-                    <Navbar />
-                    <SideDrawer show={this.props.sideDrawerOpen} />
-                    <main className="content">
-                        <Route exact path="/" component={OnboardingPage} />
-                        <Route exact path="/concert-about" component={ConcertAboutPage} />
-                        <Route exact path="/concerts" component={ConcertSearchPage} />
-                        <Route exact path="/account" component={Account} />
-                        <Route exact path="/dashboard" component={DashboardPage} />
-                        <Route exact path="/login" component={LoginPage} />
-                        <Route exact path="/register" component={RegistrationPage} />
-                    </main>
-                    <Footer />
-                </div>
+                )
+            } else {
+                return (
+                    <div className="wrapper">
+                        <Meta />
+                        <div className="app">
+                            <Navbar />
+                            <SideDrawer show={this.props.sideDrawerOpen} />
+                            <main className="content">
+                                <Route exact path="/" component={OnboardingPage} />
+                                <Route exact path="/concert-about" component={ConcertAboutPage} />
+                                <Route exact path="/concerts" component={ConcertSearchPage} />
+                                <Route exact path="/account" component={Account} />
+                                <Route exact path="/login" component={LoginPage} />
+                                <Route exact path="/register" component={RegistrationPage} />
+                            </main>
+                            <Footer />
+                        </div>
+                    </div>
             );
         }
 

@@ -6,7 +6,8 @@ import {
     SET_PAGE_NUMBER,
     SET_SEARCH_RESULTS,
     SET_IS_LAST_PAGE,
-    SET_MAP_CENTER
+    SET_MAP_CENTER,
+    SET_MARKERS
 } from '../actions/ticketmaster-actions';
 
 import { SHOW_CONCERTS_SUCCESS } from '../actions/show-concerts.js';
@@ -35,7 +36,8 @@ const initialState = {
     currentPage: 0,
     currentSearchResults: null,
     isLastPage: false,
-    mapCenter: null
+    mapCenter: null,
+    markers: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -96,6 +98,11 @@ export default function reducer(state = initialState, action) {
     else if (action.type === SET_MAP_CENTER) {
         return Object.assign({}, state, {
             mapCenter: action.mapCenter,
+        });
+    }
+    else if (action.type === SET_MARKERS) {
+        return Object.assign({}, state, {
+            markers: action.markers,
         });
     }
     else if (action.type === CLEAR_AUTH) {

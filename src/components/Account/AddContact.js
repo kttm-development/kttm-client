@@ -18,7 +18,7 @@ export class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="form-container">
+            <div className="add-contact account-form-container">
                 <Formik
                     initialValues={{
                         name: '',
@@ -35,7 +35,7 @@ export class SignupForm extends React.Component {
                         isValid
                     }) => (
                             <div className="input-container">
-                                <h2>Add Contact</h2>
+                                <h3 className="contact-section-title">Add Contact</h3>
                                 <form onSubmit={handleSubmit}>
                                     <input
                                         className="single-input"

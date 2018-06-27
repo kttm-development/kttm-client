@@ -29,17 +29,17 @@ export class Navbar extends React.Component {
 
         if (this.props.loggedIn) {
             logOutButton = (
-                <button className="logout-button" onClick={() => this.logOut()}>Log out</button>
+                <button className="logout-button blue push_button" onClick={() => this.logOut()}>Log out</button>
             );
             accountButton = (
-                <li><Link   to="/account">Account</Link></li>
+                <li><Link to="/account">Account</Link></li>
             );
         } else {
             loginButton = (
-                <li><Link   to="/login">Login</Link></li>
+                <li><Link to="/login">Login</Link></li>
             );
             registerButton = (
-                <li><Link   to="/register">Signup</Link></li>
+                <li><Link to="/register">Signup</Link></li>
             );
         }
 
@@ -60,9 +60,10 @@ export class Navbar extends React.Component {
                                 {accountButton}
                                 {loginButton}
                                 {registerButton}
+                                {!this.props.loggedIn ? <Redirect to='/' /> : ''}
+                                <li className="sharethis-inline-share-buttons"></li>
+                                {logOutButton}
                             </ul>
-                            {!this.props.loggedIn ? <Redirect to='/' /> : ''}
-                            {logOutButton}
                         </div>
                     </nav>
                 </header>
