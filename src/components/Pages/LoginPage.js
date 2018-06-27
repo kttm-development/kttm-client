@@ -7,7 +7,7 @@ import LoginForm from '../Login/LoginForm';
 export function LoginPage(props) {
     // If we are logged in redirect straight to the concert search page
     if (props.loggedIn) {
-        return <Redirect to="/concerts" />;
+        return <Redirect to="/" />;
     }
 
     return (

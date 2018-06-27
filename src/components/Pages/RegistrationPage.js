@@ -8,7 +8,7 @@ export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
     // is successful) redirect to the concert search page
     if (props.loggedIn) {
-        return <Redirect to="/concerts" />;
+        return <Redirect to="/" />;
     }
     return (
         <div className="home">
