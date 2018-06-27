@@ -40,7 +40,7 @@ export class ConcertSearchResults extends React.Component {
     if (this.props.error) {
       return (
         <div className="results-info col-8">
-          <h2>OOPS! <em> {this.props.error}.</em></h2>
+          <h2><em> {this.props.error}.</em></h2>
           <h3><strong>Please try searching again</strong></h3>
           <img alt="google map" className="google-map-img" src={googleMap}></img>
         </div>
