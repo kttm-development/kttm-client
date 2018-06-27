@@ -23,6 +23,8 @@
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    outline: none;
+    cursor: pointer;
 }
 
 input#password, input#username, input#firstName, input#lastName, input#passwordConfirm {
@@ -32,6 +34,7 @@ input#password, input#username, input#firstName, input#lastName, input#passwordC
     border-radius: 4px;
     padding: 10px;
     width: 50%;
+    font-size: 16px;
 }
 
 .fields-and-labels {
@@ -42,6 +45,7 @@ input#password, input#username, input#firstName, input#lastName, input#passwordC
 }
 
 .register-link {
+    text-decoration: underline;
     color: black;
 }
 

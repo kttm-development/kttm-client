@@ -29,6 +29,11 @@
     margin: 5px 0px 20px 0px;
 }
 
+.icon {
+    float: right;
+    margin: 10px 20px;
+}
+
 .favorite-button, .details-button {
     width: 95%;
     /* margin: auto; */

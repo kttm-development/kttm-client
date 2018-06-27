@@ -60,7 +60,7 @@ export function ConcertSearchItem({
                   })
                 }
               }
-              }>Favorite</a>
+              }>Favorite   <i className="icon fas fa-star"></i></a>
             <Link to='/concert-about' className="details-button blue push_button"
                 onClick={() => {
                   const currentConcertObj = {
@@ -78,7 +78,7 @@ export function ConcertSearchItem({
                   }
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
-              >More Details</Link>
+              >More Details   <i className="icon fas fa-info-circle"></i></Link>
           </div>
           <div className="concert-search-about col-8">
             <label className="info-label">Name:</label>
