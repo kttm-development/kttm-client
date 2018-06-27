@@ -1,22 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
+import { newFavorite } from '../../actions/favorite-actions';
+import { getContacts } from '../../actions/contacts-actions';
+import { getFavorites } from '../../actions/favorite-actions';
+import { showVideos } from '../../actions/youtube-actions';
+import '../styles/ConcertAbout.css'
+import Youtube from '../../commons/YouTube';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { newFavorite } from '../../actions/favorite-actions'
-import { getContacts } from '../../actions/contacts-actions';
-import { getFavorites } from '../../actions/favorite-actions'
 
-
-import '../styles/ConcertAbout.css'
 export class ConcertAboutPage extends React.Component {
-
     componentDidMount() {
         this.props.dispatch(getFavorites())
         this.props.dispatch(getContacts())
-
+        this.props.dispatch(showVideos(this.props.attraction))
     }
-
 
     render() {
 
@@ -62,6 +61,8 @@ export class ConcertAboutPage extends React.Component {
             }
 
         }
+
+
         return (
             <div className="concert-about-page">
                 <div className="concert-about">
@@ -87,8 +88,10 @@ export class ConcertAboutPage extends React.Component {
                         <div className="col-4">
                             <img src={this.props.image} alt='concert' className="concert-image"></img>
                         </div>
-
+                        <br />
+                        <Youtube />
                     </div>
+   
                     <div className="buttons-container row">
                         <div className="col-4">
                             <a className="button blue push_button"
@@ -146,7 +149,8 @@ const mapStateToProps = state => ({
     description: state.ticketmaster.currentConcert.description,
     attraction: state.ticketmaster.currentConcert.attraction,
     contacts: state.contact.contacts,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    videos: state.youtube.items,
 });
 
 export default connect(mapStateToProps)(ConcertAboutPage);

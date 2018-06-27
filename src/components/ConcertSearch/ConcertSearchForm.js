@@ -16,8 +16,7 @@ export class ConcertSearchForm extends React.Component {
         this.props.dispatch(fetchLocations())
     }
 
-    genres = this.props.genres;
-    locations = this.props.locations;
+    
 
     state = {
         selectedOptionGenre: '',
@@ -43,6 +42,8 @@ export class ConcertSearchForm extends React.Component {
         const { selectedOptionLocation } = this.state;
         const genreValue = selectedOptionGenre && selectedOptionGenre.value;
         const locationValue = selectedOptionLocation && selectedOptionLocation.value;
+        const genres = this.props.genres;
+        const locations = this.props.locations;
 
         if (this.state.error) {
             return (
@@ -67,7 +68,7 @@ export class ConcertSearchForm extends React.Component {
                                 className="select-box"
                                 value={genreValue}
                                 onChange={this.handleChangeGenre}
-                                options={this.genres.map(el => {
+                                options={genres.map(el => {
                                     return { value: el.genre, label: el.genre };
                                 })}
                             />
@@ -80,7 +81,7 @@ export class ConcertSearchForm extends React.Component {
                                 className="select-box"
                                 value={locationValue}
                                 onChange={this.handleChangeLocation}
-                                options={this.locations.map(el => {
+                                options={locations.map(el => {
                                     return { value: el.location, label: el.location };
                                 })}
                             />
