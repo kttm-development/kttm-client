@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import googleMap from '../../images/googlemaps.jpg'
 
 import ConcertSearchItem from './ConcertSearchItem';
 import ConcertSearchMap from './ConcertSearchMap';
@@ -39,10 +40,9 @@ export class ConcertSearchResults extends React.Component {
     if (this.props.error) {
       return (
         <div className="results-info col-8">
-          <h2>OOPS!</h2>
-          <h3>Something Went Wrong:</h3>
-          <h3><em> {this.props.error}</em></h3>
-          <h4><strong>Please try searching again</strong></h4>
+          <h2><em> {this.props.error}.</em></h2>
+          <h3><strong>Please try searching again</strong></h3>
+          <img alt="google map" className="google-map-img" src={googleMap}></img>
         </div>
       );
     }
@@ -50,6 +50,7 @@ export class ConcertSearchResults extends React.Component {
           if (this.props.empty===true) {
               return(
               <div className="col-8">
+                <img alt="google map" className="google-map-img" src={googleMap}></img>
                 <h3 className="results-info">Search for concerts near you to display shows...</h3>
               </div>)
           }
@@ -72,7 +73,6 @@ export class ConcertSearchResults extends React.Component {
           </div>
           <h1 className="search-results-title" id="concert-results-title">Concerts</h1>
           {this.props.concerts.map(obj => (
-            // console.log(obj)
             <ConcertSearchItem
               {...obj}
               dispatch={this.props.dispatch}

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
-import { fetchTicketmasterConcerts, setPageNumber } from '../../actions/ticketmaster-actions';
+import { fetchTicketmasterConcerts, setPageNumber, setSearchResults } from '../../actions/ticketmaster-actions';
 import { fetchGenres } from '../../actions/genre-actions';
 import { fetchLocations } from '../../actions/location-actions';
 
@@ -25,6 +25,7 @@ export class ConcertSearchForm extends React.Component {
     };
 
     _handleSubmit = () => {
+        this.props.dispatch(setSearchResults({location: this.state.selectedOptionLocation.value, genre: this.state.selectedOptionGenre.value}));
         this.props.dispatch(setPageNumber(0));
         this.props.dispatch(fetchTicketmasterConcerts(this.state.selectedOptionLocation.value, this.state.selectedOptionGenre.value, 0))
     };

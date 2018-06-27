@@ -12,9 +12,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 export class ConcertAboutPage extends React.Component {
     componentDidMount() {
-        this.props.dispatch(getFavorites())
-        this.props.dispatch(getContacts())
-        this.props.dispatch(showVideos(this.props.attraction))
+        this.props.dispatch(getFavorites());
+        this.props.dispatch(getContacts());
+        this.props.attraction ? this.props.dispatch(showVideos(this.props.attraction)) : this.props.dispatch(showVideos(this.props.name));
     }
 
     render() {
@@ -45,7 +45,13 @@ export class ConcertAboutPage extends React.Component {
         if (this.props.contacts) {
             if (!this.props.loggedIn) {
                 contactFriends = <a className="button blue push_button"
-                    onClick={() => alert('Please login or signup to send emails to your contact list')}
+                    onClick={() => {
+                        toast.error("Please login or signup to send this concert to your contacts", {
+                            className: 'black-background',
+                            bodyClassName: "grow-font-size",
+                            progressClassName: 'fancy-progress-bar'
+                        })
+                    }}
                 >Email Contacts<i className="fas fa-address-book icon"></i></a>
             }
             else if (this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email !== null) {
