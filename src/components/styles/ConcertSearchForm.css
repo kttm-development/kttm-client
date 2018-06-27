@@ -4,11 +4,12 @@
     border: 1px solid #3a3f44;
     border-radius: 8px;
     padding: 25px;
-    /* width: 85%; */
     width: 400px;
-    margin: auto;
+    /* margin: auto; */
     margin-top: 110px;
     margin-bottom: 110px;
+    margin-left: 50px;
+    
 }
 
 .form {
@@ -48,7 +49,8 @@
 @media only screen and (max-width: 850px) {
     .concert-search-form-container {  
         position: static;
-        width: 85%;
+        width: 90%;
+        margin: auto;
         margin-bottom: 0;
         margin-top: 40px;
     }

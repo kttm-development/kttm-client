@@ -23,7 +23,7 @@
     z-index: -1;
     position: relative;
     height: 100vh;
-    min-height: 650px;
+    min-height: 750px;
 }
 
 .welcome-section {
@@ -112,7 +112,7 @@
     z-index: -1;
     position: relative;
     height: 100vh;
-    min-height: 650px;
+    min-height: 750px;
     border-top: 1px solid #3a3f44;
 }
 
@@ -179,7 +179,7 @@
     z-index: -1;
     position: relative;
     height: 100vh;
-    min-height: 650px;
+    min-height: 750px;
     border-top: 1px solid #3a3f44;
 }
 

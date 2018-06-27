@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
+import DrawerToggleButton from './DrawerToggleButton';
 import { clearAuth } from '../../actions/auth';
 import { clearAuthToken } from '../../local-storage';
-
-import DrawerToggleButton from './DrawerToggleButton';
-
-import '../../components/styles/Navbar.css';
 import { clearContacts } from '../../actions/contacts-actions';
 import { clearFavorites } from '../../actions/favorite-actions';
+
+import '../../components/styles/Navbar.css';
 
 export class Navbar extends React.Component {
     logOut() {

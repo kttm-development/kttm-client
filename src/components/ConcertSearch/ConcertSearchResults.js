@@ -67,7 +67,7 @@ export class ConcertSearchResults extends React.Component {
                      dispatch={this.props.dispatch}
                      googleMapURL={GOOGLE_MAPS_URL}
                      loadingElement={<div style={{ height: '100%' }} />}
-                     containerElement={<div style={{ height: '375px' }} />}
+                     containerElement={<div style={{ height: '350px' }} />}
                      mapElement={<div style={{ height: '100%' }} />}/>
           </div>
           <h1 className="search-results-title" id="concert-results-title">Concerts</h1>
