@@ -15,7 +15,7 @@ export default class AboutSection extends React.Component {
                             <h3 className="about-text">This app is made for anyone who loves live music. We aim to help connect you and your friends with upcoming concerts of all genres.</h3>
                         </div>
                         <div className="about-right col-6">
-                            <i class="feature-icon fas fa-headphones fa-6x"></i>
+                            <i className="feature-icon fas fa-headphones fa-6x"></i>
                             <h3 className="about-text">To find concerts, just log in and fill out where you want to see a show and what kind of show you want, then let our app show you upcoming music.</h3>
                         </div>
                     </div>
