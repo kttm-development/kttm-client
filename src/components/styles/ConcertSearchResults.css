@@ -9,13 +9,9 @@
     margin-top: 50px;
 }
 
-.concert-container {
-    /* padding-bottom: 50px; */
-    /* height: 300px; */
-}
-
 .concert-search-image {
     width: 90%;
+    margin: auto;
 }
 
 .concert-search-about {
@@ -34,7 +30,8 @@
 }
 
 .favorite-button, .details-button {
-    margin: auto;
+    width: 95%;
+    /* margin: auto; */
     margin-top: 20px;
     font-size: 20px;
     text-decoration: none;

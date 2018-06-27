@@ -65,6 +65,7 @@ export class Navbar extends React.Component {
                                 {logOutButton}
                             </ul>
                         </div>
+                        
                     </nav>
                 </header>
             </React.Fragment>

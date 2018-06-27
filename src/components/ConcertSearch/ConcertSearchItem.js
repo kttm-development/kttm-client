@@ -28,7 +28,7 @@ export function ConcertSearchItem({
         <div className="concert-details">
           <div className="pic-info col-4">
             <img src={image} alt="concert" className="concert-search-image" />
-            <button
+            <a
               className="favorite-button blue push_button"
               onClick={() => {
                 const newFavoriteObj = {
@@ -60,10 +60,8 @@ export function ConcertSearchItem({
                   })
                 }
               }
-              }>Favorite</button>
-            <Link className='nav-item' to='/concert-about'>
-              <button
-                className="details-button blue push_button"
+              }>Favorite</a>
+            <Link to='/concert-about' className="details-button blue push_button"
                 onClick={() => {
                   const currentConcertObj = {
                     city,
@@ -80,7 +78,7 @@ export function ConcertSearchItem({
                   }
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
-              >More Details</button></Link>
+              >More Details</Link>
           </div>
           <div className="concert-search-about col-8">
             <label className="info-label">Name:</label>

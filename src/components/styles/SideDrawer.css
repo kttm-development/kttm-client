@@ -31,7 +31,7 @@
 }
 
 .side-drawer li {
-    margin: .7rem 0;
+    margin: 1.25rem 0;
 }
 
 .side-drawer a:hover,
@@ -42,5 +42,10 @@
 @media (min-width: 850px) {
     .side-drawer {
         display: none;
+    }
+
+    .logout-button-mobile {
+        width: 80%;
+        margin: auto;
     }
 }

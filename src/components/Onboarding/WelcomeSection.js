@@ -16,14 +16,7 @@ export default class WelcomeSection extends React.Component {
                         </div>
                         <div className="row">
                             <div className="buttons-container">
-                                <Link className="nav-item" to="/login">
-                                    <button
-                                        className="login-button"
-                                        onClick={() => {
-
-                                        }}
-                                    >Login</button>
-                                </Link>
+                                <Link className="login-button" to="/login">Login</Link>
                                 <a href="#features" className="learn-more-button">Learn More</a>
                             </div>
                         </div>

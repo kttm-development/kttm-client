@@ -14,6 +14,13 @@
     padding-top: 30px;
 }
 
+.concert-title-about {
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
+
 .concert-about {
     width: 80vw;
     background-color: #F1F9FF;

@@ -23,7 +23,7 @@ export class SideDrawer extends React.Component {
 
         if (this.props.loggedIn) {
             logOutButton = (
-                <button className="logout-button" onClick={() => this.logOut()}>Log out</button>
+                <li><a className="logout-button-mobile blue push_button" onClick={() => this.logOut()}>Log out</a></li>
             );
             accountButton = (
                 <li><Link to="/account">Account</Link></li>
@@ -49,9 +49,10 @@ export class SideDrawer extends React.Component {
                     {accountButton}
                     {loginButton}
                     {registerButton}
+                    {logOutButton}
                 </ul>
                 {!this.props.loggedIn ? <Redirect to='/' /> : ''}
-                {logOutButton}
+                
             </nav>
         )
     }
