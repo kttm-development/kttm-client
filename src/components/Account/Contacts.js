@@ -1,8 +1,7 @@
 import React from 'react';
-import {deleteContact} from '../../actions/contacts-actions'
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom'
 
+import { deleteContact } from '../../actions/contacts-actions'
 
 export function Contacts({
   name,
@@ -11,24 +10,24 @@ export function Contacts({
   dispatch
 }) {
   return (
-    <span className="search-results">
-    <div className="concert-container row">
-      <div className="concert-details">
-        <div className="pic-info col-4">
-          <button 
-            className="blue push_button"
-            onClick={() => {
-              dispatch(deleteContact(id))
-            }
-            }>Remove</button>
+    <span className="contacts-list">
+      <div className="concert-container row">
+        <div className="concert-details">
+          <div className="contact-details col-8">
+            <label className="info-label">Name:</label>
+            <label className="contact-label">{name}</label>
+            <label className="info-label">Email Address:</label>
+            <label className="contact-label">{email}</label>
+          </div>
+          <div className="col-4">
+            <a
+              className="remove-contact blue push_button"
+              onClick={() => {
+                dispatch(deleteContact(id))
+              }
+              }><i className="fas fa-trash-alt"></i></a>
+          </div>
         </div>
-        <div className="concert-search-about col-8">
-          <label className="info-label">Name:</label>
-          <label className="concert-label">{name}</label>
-          <label className="info-label">Email Address:</label>
-          <label className="concert-label">{email}</label>
-        </div>
-      </div>
       </div>
     </span>
   );

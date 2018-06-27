@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
+import DrawerToggleButton from './DrawerToggleButton';
 import { clearAuth } from '../../actions/auth';
 import { clearAuthToken } from '../../local-storage';
-
-import DrawerToggleButton from './DrawerToggleButton';
-
-import '../../components/styles/Navbar.css';
 import { clearContacts } from '../../actions/contacts-actions';
 import { clearFavorites } from '../../actions/favorite-actions';
+
+import '../../components/styles/Navbar.css';
 
 export class Navbar extends React.Component {
     logOut() {
@@ -29,7 +28,7 @@ export class Navbar extends React.Component {
 
         if (this.props.loggedIn) {
             logOutButton = (
-                <button className="logout-button blue push_button" onClick={() => this.logOut()}>Log out</button>
+                <a className="logout-button blue push_button" onClick={() => this.logOut()}>Log out</a>
             );
             accountButton = (
                 <li><Link to="/account">Account</Link></li>
@@ -65,6 +64,7 @@ export class Navbar extends React.Component {
                                 {logOutButton}
                             </ul>
                         </div>
+                        
                     </nav>
                 </header>
             </React.Fragment>
