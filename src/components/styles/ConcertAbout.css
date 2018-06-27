@@ -14,6 +14,13 @@
     padding-top: 30px;
 }
 
+.concert-title-about {
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
+
 .concert-about {
     width: 80vw;
     background-color: #F1F9FF;
@@ -30,8 +37,6 @@
     justify-content: center;
     border-radius: 8px;
     width: 85%;
-    /* width: 200px;
-    height: 200px; */
     margin: auto;
 }
 
@@ -47,6 +52,76 @@
     width: 60%;
     margin: auto;
     cursor: pointer;
+}
+
+.video-preview-image {
+    /* display: block; */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    width: 85%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.youtube-video-title, .youtube-channel-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* width: 85%; */
+    text-align: center;
+    margin: auto;
+}
+
+.youtube-channel-link {
+    text-decoration: none;
+    margin-top: 10px;
+    color: #48A6F5;
+}
+
+.youtube-channel-link:hover {
+    text-decoration: underline;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 85%;
+    margin: auto;
+    border-radius: 8px;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #48A6F5;
+}
+
+.play-video-icon {
+    color: white;
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.video-container:hover .video-overlay {
+    opacity: 1;
+}
+
+.far:hover {
+    color: #eee;
 }
 
 @media only screen and (max-width: 850px) {

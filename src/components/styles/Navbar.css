@@ -34,10 +34,23 @@
 }
 
 .logout-button {
-    /* border: 1px solid white; */
+    width: 100px;
     margin-left: 30px;
     margin-right: 30px;
     cursor: pointer;
+}
+
+.logout-button:hover {
+    color: white;
+}
+
+.st-btn, .st-first, .st-last {
+    background-color: #F1F9FF!important;
+    margin-left: 20px;
+}
+
+svg {
+    fill: #48A6F5!important;
 }
 
 .spacer {

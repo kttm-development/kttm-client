@@ -50,8 +50,8 @@ export class ConcertSearchResults extends React.Component {
           if (this.props.empty===true) {
               return(
               <div className="col-8">
-                <h3 className="results-info">Search for concerts near you to display shows...</h3>
                 <img alt="google map" className="google-map-img" src={googleMap}></img>
+                <h3 className="results-info">Search for concerts near you to display shows...</h3>
               </div>)
           }
  
@@ -68,12 +68,11 @@ export class ConcertSearchResults extends React.Component {
                      dispatch={this.props.dispatch}
                      googleMapURL={GOOGLE_MAPS_URL}
                      loadingElement={<div style={{ height: '100%' }} />}
-                     containerElement={<div style={{ height: '300px' }} />}
+                     containerElement={<div style={{ height: '350px' }} />}
                      mapElement={<div style={{ height: '100%' }} />}/>
           </div>
-          <h1 className="page-title" id="concert-results-title">Concerts</h1>
+          <h1 className="search-results-title" id="concert-results-title">Concerts</h1>
           {this.props.concerts.map(obj => (
-            // console.log(obj)
             <ConcertSearchItem
               {...obj}
               dispatch={this.props.dispatch}

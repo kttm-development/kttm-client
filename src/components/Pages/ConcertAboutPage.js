@@ -19,7 +19,6 @@ export class ConcertAboutPage extends React.Component {
         this.props.attraction ? this.props.dispatch(showVideos(this.props.attraction)) : this.props.dispatch(showVideos(this.props.name));
     }
 
-
     render() {
 
 
@@ -73,10 +72,10 @@ export class ConcertAboutPage extends React.Component {
 
 
         return (
-            <div className="concert-about-page" >
-                <h1 className="concert-title">{this.props.name}</h1>
-                <div className="concert-about row">
+            <div className="concert-about-page">
+                <div className="concert-about">
                     <div className="row">
+                        <h1 className="concert-title-about col-12">{this.props.name}</h1>
                         <div className="concert-search-about col-4">
                             <h3 className="header">Concert details</h3>
                             <label className="info-label">Date:</label>

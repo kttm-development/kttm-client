@@ -23,7 +23,7 @@
     z-index: -1;
     position: relative;
     height: 100vh;
-    min-height: 650px;
+    min-height: 750px;
 }
 
 .welcome-section {
@@ -52,9 +52,11 @@
 }
 
 .login-button {
-    display: block;
+    text-decoration: none;
     width: 200px;
     padding: 20px;
+    padding-top: 25px;
+    text-align: center;
     font-size: 30px;
     font-weight: 900;
     color: white;
@@ -62,6 +64,7 @@
     border: none;
     border-radius: 8px;
     margin-right: 40px;
+    outline: none;
 }
 
 .login-button:hover {
@@ -109,7 +112,7 @@
     z-index: -1;
     position: relative;
     height: 100vh;
-    min-height: 650px;
+    min-height: 750px;
     border-top: 1px solid #3a3f44;
 }
 
@@ -176,7 +179,7 @@
     z-index: -1;
     position: relative;
     height: 100vh;
-    min-height: 650px;
+    min-height: 750px;
     border-top: 1px solid #3a3f44;
 }
 
