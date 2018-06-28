@@ -3,7 +3,7 @@ import { storeCurrentConcert } from '../../actions/ticketmaster-actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { newFavorite } from '../../actions/favorite-actions'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EmailButton from '../../commons/EmailButton'
 
