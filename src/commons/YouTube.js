@@ -23,8 +23,9 @@ export class Youtube extends React.Component {
                             </a>
                         </div>
                     </div>
-                    <span><a className="youtube-video-title">{videoTitle}</a></span>
-                    <span className="youtube-channel-link"><a className="youtube-channel-link" href={`https://www.youtube.com/channel/${videoFooter}`}>More from this Channel</a></span>
+                    <span><a className="youtube-video-title-prequel" href={`https://www.youtube.com/watch?v=${videoBox}`}>Click to play:</a></span>
+                    <span><a className="youtube-video-title" href={`https://www.youtube.com/watch?v=${videoBox}`}>{videoTitle}</a></span>
+                    <span className="youtube-channel-link"><a className="youtube-channel-link" href={`https://www.youtube.com/channel/${videoFooter}`}>More from artist's Youtube channel</a></span>
                     <script src={lity}></script>
                     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                 </div>

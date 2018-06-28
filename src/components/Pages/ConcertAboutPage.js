@@ -136,7 +136,7 @@ export class ConcertAboutPage extends React.Component {
                     </div>
                     <div className="buttons-container row">
                         <div className="col-4">
-                                <Link to="/concerts"><button className="button blue push_button">Back to Concerts <i className="fas fa-music"></i></button></Link>
+                                <Link to="/concerts"><a className="button blue push_button">Back to Concerts <i className="fas fa-music"></i></a></Link>
                         </div>
                     </div>
                 </div>
