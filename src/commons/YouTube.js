@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import lity from 'lity';
 import '../components/styles/lity.css'
 
 export class Youtube extends React.Component {
