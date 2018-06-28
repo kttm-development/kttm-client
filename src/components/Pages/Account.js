@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 
 import '../styles/Account.css';
-import ChangePassword from '../Account/ChangePassword';
 import AddContact from '../Account/AddContact';
 import Contacts from '../Account/Contacts';
 import Favorites from '../Account/Favorites';

@@ -15,7 +15,7 @@ export class Youtube extends React.Component {
                 let videoFooter = element.snippet.channelId;
                 let vid = <div className="col-4 ">
                     <div className="video-container">
-                        <img className="video-preview-image " src={`${videoThumbnail}`} ></img>
+                        <img alt='video preview' className="video-preview-image " src={`${videoThumbnail}`} ></img>
                         <div className="video-overlay">
                             <a href={`https://www.youtube.com/watch?v=${videoBox}`} title="video preview of artist" data-lity>
                                 <i className="play-video-icon far fa-play-circle fa-6x"></i>

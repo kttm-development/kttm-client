@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RiseLoader } from 'react-spinners';
 import { newFavorite } from '../../actions/favorite-actions';
 import { getContacts } from '../../actions/contacts-actions';
 import { getFavorites } from '../../actions/favorite-actions';
