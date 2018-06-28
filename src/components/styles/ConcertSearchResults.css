@@ -99,6 +99,9 @@
 
 /* ===RESPONSIVE LAYOUT */
 
-@media only screen and (max-width: 850px) {
-
+@media only screen and (max-width: 435px) {
+    .google-map-img {
+        display: none;
+        
+    }
 }
