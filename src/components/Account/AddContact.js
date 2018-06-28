@@ -1,40 +1,28 @@
 import React from 'react';
 import { Formik } from 'formik';
-// import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 import '../styles/AccountForms.css';
-// import { storeAuthInfo } from '../../actions/auth';
-// import { AuthServices } from '../../services/api';
+import { newContact } from '../../actions/contacts-actions';
+
 
 export class SignupForm extends React.Component {
-    _handleSubmit = (values, bag) => {
-        // AuthServices.signup(values)
-        //     .then(res => {
-        //         bag.setSubmitting(false);
-        //         this.props.dispatch(storeAuthInfo(res.authToken));
-        //     })
-        //     .catch(err => {
-        //         bag.setSubmitting(false);
-        //         this.setState({ error: true });
-        //     });
+    _handleSubmit = (values, {bag, resetForm}) => {
+        console.log(values)
+       return this.props.dispatch(newContact(values))
+           .catch(err => {
+                bag.setSubmitting(false);
+                this.setState({ error: true });
+            });
     };
 
     render() {
         return (
-            <div className="form-container">
+            <div className="add-contact account-form-container">
                 <Formik
-                    // validationSchema={Yup.object().shape({
-                    //     password: Yup.string()
-                    //         .min(6)
-                    //         .required("Don't forget to enter a valid password"),
-                    //     confirmPassword: Yup.string()
-                    //         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                    //         .required("Don't forget to confirm your password"),
-                    // })}
                     initialValues={{
                         name: '',
-                        phone: '',
+                        email: '',
                     }}
                     onSubmit={this._handleSubmit}
                     render={({
@@ -44,10 +32,10 @@ export class SignupForm extends React.Component {
                         errors,
                         touched,
                         handleBlur,
-                        isValid,
+                        isValid
                     }) => (
                             <div className="input-container">
-                                <h2>Add Contact</h2>
+                                <h3 className="contact-section-title">Add Contact</h3>
                                 <form onSubmit={handleSubmit}>
                                     <input
                                         className="single-input"
@@ -63,12 +51,12 @@ export class SignupForm extends React.Component {
                                             <div className="error-messages">{errors.password}</div>
                                         )}
                                     <input
-                                        type="password"
+                                        type="email"
                                         className="single-input"
                                         onChange={handleChange}
-                                        name="phone"
-                                        label="Phone"
-                                        placeholder="Phone Number of Contact"
+                                        name="email"
+                                        label="Email"
+                                        placeholder="Email for Contact"
                                         onBlur={handleBlur}
                                     />
                                     {errors.confirmPassword &&

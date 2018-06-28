@@ -2,17 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import './styles/App.css'
 import OnboardingPage from './Pages/OnboardingPage'
-import HeaderBar from '../commons/HeaderBar';
-import Footer from '../commons/Footer'
+import Navbar from './Navbar/Navbar';
+import SideDrawer from './Navbar/SideDrawer';
+import Backdrop from './Navbar/Backdrop';
+import Footer from '../commons/Footer';
 import LoginPage from './Pages/LoginPage';
 import ConcertSearchPage from './Pages/ConcertSearchPage';
 import ConcertAboutPage from './Pages/ConcertAboutPage'
-import DashboardPage from './Pages/DashboardPage';
 import Account from './Pages/Account'
 import RegistrationPage from './Pages/RegistrationPage';
 import { refreshAuthToken } from '../actions/auth';
+import Meta from './meta'
+
+import './styles/App.css'
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -45,27 +48,57 @@ export class App extends React.Component {
     }
 
     render() {
-        return (
-            <div className="app">
-                <HeaderBar />
-                <div className="content">
-                    <Route exact path="/" component={OnboardingPage} />
-                    <Route exact path="/concert-about" component={ConcertAboutPage} />
-                    <Route exact path="/concerts" component={ConcertSearchPage} />
-                    <Route exact path="/account" component={Account} />
-                    <Route exact path="/dashboard" component={DashboardPage} />
-                    <Route exact path="/login" component={LoginPage} />
-                    <Route exact path="/register" component={RegistrationPage} />
+
+        if (this.props.sideDrawerOpen) {
+            return (
+                <div class="wrapper">
+                    <Meta />
+                    <div className="app">
+                    
+                        <Navbar />
+                        <SideDrawer show={this.props.sideDrawerOpen} />
+                        <Backdrop />
+                        <main className="content">
+                            <Route exact path="/" component={OnboardingPage} />
+                            <Route exact path="/concert-about" component={ConcertAboutPage} />
+                            <Route exact path="/concerts" component={ConcertSearchPage} />
+                            <Route exact path="/account" component={Account} />
+                            <Route exact path="/login" component={LoginPage} />
+                            <Route exact path="/register" component={RegistrationPage} />
+                        </main>
+                        <Footer />
+                    </div>
                 </div>
-                <Footer />
-            </div>
-        );
+                )
+            } else {
+                return (
+                    <div className="wrapper">
+                        <Meta />
+                        <div className="app">
+                            <Navbar />
+                            <SideDrawer show={this.props.sideDrawerOpen} />
+                            <main className="content">
+                                <Route exact path="/" component={OnboardingPage} />
+                                <Route exact path="/concert-about" component={ConcertAboutPage} />
+                                <Route exact path="/concerts" component={ConcertSearchPage} />
+                                <Route exact path="/account" component={Account} />
+                                <Route exact path="/login" component={LoginPage} />
+                                <Route exact path="/register" component={RegistrationPage} />
+                            </main>
+                            <Footer />
+                        </div>
+                    </div>
+            );
+        }
+
+
     }
 }
 
 const mapStateToProps = state => ({
     hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    sideDrawerOpen: state.sideDrawerOpen.sideDrawerOpen
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking

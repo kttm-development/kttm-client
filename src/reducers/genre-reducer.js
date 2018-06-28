@@ -5,9 +5,7 @@ import {
 
 const initialState = {
     error:null,
-    genres: 
-    //set to null after no need for dummy data...dummy data below:
-    [{genre: 'Alt'}, {genre: 'Pop'}, {genre: 'Rock'}]
+    genres: [{genre:''}]
 };
 
 export default function reducer(state=initialState, action) {
@@ -19,7 +17,8 @@ export default function reducer(state=initialState, action) {
     }
     else if (action.type === FETCH_GENRE_ERROR) {
         return Object.assign({}, state, {
-            error: action.error
+            error: action.error,
+            genres: [{genre:''}]
         });
     }
     
