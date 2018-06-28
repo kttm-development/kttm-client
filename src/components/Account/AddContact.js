@@ -8,7 +8,6 @@ import { newContact } from '../../actions/contacts-actions';
 
 export class SignupForm extends React.Component {
     _handleSubmit = (values, {bag, resetForm}) => {
-        console.log(values)
        return this.props.dispatch(newContact(values))
            .catch(err => {
                 bag.setSubmitting(false);
