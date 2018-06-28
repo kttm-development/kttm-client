@@ -61,7 +61,6 @@ const ConcertSearchMap = compose(
                         attraction,
                         description
                       } = props.concerts[event];
-                      console.log(name,'here');
                       return (
                         <Link key={idx} to='/concert-about' onClick={() => {
                             const currentConcertObj = {
