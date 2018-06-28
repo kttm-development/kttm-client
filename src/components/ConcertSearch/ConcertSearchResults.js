@@ -85,9 +85,9 @@ export class ConcertSearchResults extends React.Component {
             />
           ))}
           <div className="pagination">
-            {this.props.currentPage === 0 ? '' : <a href='#concert-results-title'><a onClick={() => this.onPrevClick(this.props)} className="previous-button blue push_button"><i className="fas fa-arrow-left"></i> Previous</a></a>}
+            {this.props.currentPage === 0 ? '' :<a href='#concert-results-title' onClick={() => this.onPrevClick(this.props)} className="previous-button blue push_button"><i className="fas fa-arrow-left"></i> Previous</a>}
             <h3 className="page-number">Page {this.props.currentPage + 1}</h3>
-            {this.props.isLastPage ? '' : <a href='#concert-results-title'><a onClick={() => this.onNextClick(this.props)} className="next-button blue push_button">Next <i className="fas fa-arrow-right"></i></a></a>}
+            {this.props.isLastPage ? '' : <a href='#concert-results-title' onClick={() => this.onNextClick(this.props)} className="next-button blue push_button">Next <i className="fas fa-arrow-right"></i></a>}
           </div>
           <ToastContainer position="bottom-left" hideProgressBar />
         </section>
