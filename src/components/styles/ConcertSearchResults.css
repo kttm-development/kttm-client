@@ -18,9 +18,11 @@
     margin-top: 110px;
 }
 
-.concert-container {
-    /* padding-bottom: 50px; */
-    /* height: 300px; */
+.search-results-title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    text-decoration: underline;
 }
 
 .concert-search-image {
@@ -36,7 +38,7 @@
 .info-label {
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 900;
-    /* margin: 5px; */
+    text-decoration: underline;
 }
 
 .concert-label {
@@ -64,15 +66,14 @@
 .map {
     border:1px solid #3a3f44;
     width: 85%;
-    /* height: 375px; */
     margin: auto;
     margin-top: 110px;
 
 }
 
-/* .gm-style-pbc {
-    height: 375px;
-} */
+.sweet-loading {
+    margin: auto;
+}
 
 .pagination {
     display: flex;

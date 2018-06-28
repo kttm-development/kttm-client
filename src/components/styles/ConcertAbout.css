@@ -72,15 +72,26 @@
     /* width: 85%; */
     text-align: center;
     margin: auto;
+    color: #48A6F5;
+}
+
+.youtube-video-title-prequel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* width: 85%; */
+    text-align: center;
+    margin: auto;
+    color: black;
 }
 
 .youtube-channel-link {
     text-decoration: none;
     margin-top: 10px;
-    color: #48A6F5;
+    color: #1f4e74;
 }
 
-.youtube-channel-link:hover {
+.youtube-channel-link:hover, .youtube-video-title:hover {
     text-decoration: underline;
 }
 
