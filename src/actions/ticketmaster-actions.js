@@ -1,7 +1,7 @@
 import {API_BASE_URL} from '../config';
 
 export const SENDING_TICKETMASTER_INFO = 'SENDING_TICKETMASTER_INFO';
-export const sendingTicketmasterInfo = user => ({
+export const sendingTicketmasterInfo = () => ({
     type: SENDING_TICKETMASTER_INFO
 });
 
@@ -56,7 +56,7 @@ export const setMarkers = (markers) => ({
 
 
 export const fetchTicketmasterConcerts = (location, genre, page) => dispatch => {
-    dispatch(sendingTicketmasterInfo)
+    dispatch(sendingTicketmasterInfo())
     return fetch(`${API_BASE_URL}/concerts/${location}/${genre}/${page}`, {
         method: 'GET',
         headers: {
