@@ -1,11 +1,11 @@
 .concert-search-form-container {
-    position: fixed;
+    /* position: fixed; */
     background-color: #F1F9FF;
     border: 1px solid #3a3f44;
     border-radius: 8px;
     padding: 25px;
-    width: 400px;
-    /* margin: auto; */
+    width: 85%;
+    margin: auto;
     margin-top: 110px;
     margin-bottom: 110px;
     margin-left: 50px;

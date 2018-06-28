@@ -43,7 +43,7 @@ export function Favorites({
                   }
                   dispatch(storeCurrentConcert(currentConcertObj))
                 }}
-              >More Details</Link>
+              ><i className="fas fa-info-circle"></i></Link>
               <a
                 className="un-favorite-button blue push_button"
                 onClick={() => {
