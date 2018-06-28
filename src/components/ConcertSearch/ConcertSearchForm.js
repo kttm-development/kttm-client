@@ -6,6 +6,8 @@ import 'react-select/dist/react-select.css';
 import { fetchTicketmasterConcerts, setPageNumber, setSearchResults } from '../../actions/ticketmaster-actions';
 import { fetchGenres } from '../../actions/genre-actions';
 import { fetchLocations } from '../../actions/location-actions';
+import { getContacts } from '../../actions/contacts-actions';
+
 
 import '../styles/ConcertSearchForm.css';
 
@@ -14,6 +16,7 @@ export class ConcertSearchForm extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchGenres())
         this.props.dispatch(fetchLocations())
+        this.props.dispatch(getContacts())
     }
 
     
