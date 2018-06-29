@@ -1,4 +1,3 @@
-import { YOUTUBE_API_KEY } from '../config';
 import { normalizeResponseErrors } from './utils';
 
 export const SHOW_VIDEO_SUCCESS = 'SHOW_VIDEO_SUCCESS';

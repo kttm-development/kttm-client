@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { RiseLoader } from 'react-spinners';
 
 import '../styles/Account.css';
-import ChangePassword from '../Account/ChangePassword';
 import AddContact from '../Account/AddContact';
 import Contacts from '../Account/Contacts';
 import Favorites from '../Account/Favorites';
@@ -56,7 +55,7 @@ export class Account extends React.Component {
                                 </div>
                             </div>
                             <div className="col-6">
-                                <div className="contacts account-form-container">
+                                <div className="contacts contact-form-container">
                                     <h3 className="contact-section-title">Contacts:</h3>
                                     {contacts}
                                 </div>

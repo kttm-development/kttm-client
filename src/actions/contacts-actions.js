@@ -47,7 +47,6 @@ export const getContacts = () => (dispatch, getState) => {
     return res.json();
   })
     .then(contacts => {
-      console.log('get contacts', contacts)
       dispatch(clearContacts())
       return dispatch(getContactsSuccess(contacts));
     })

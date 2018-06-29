@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import {storeCurrentConcert} from '../../actions/ticketmaster-actions'
 
+import redMarker from '../../images/red-dot.png';
+import blueMarker from '../../images/blue-dot.png';
+
 import '../styles/ConcertSearchResults.css';
 
 
@@ -30,8 +33,18 @@ const ConcertSearchMap = compose(
             center={props.mapCenter}
         >
             {props.markers.map((item, index) => {
+                let iconObj = {url: blueMarker};
+                if (item.name.length === 1) {
+                  iconObj = {
+                      url: redMarker
+                  }
+                }
                 return (
-                <Marker key={index} position={{ lat: item.lat, lng: item.lng }} onClick={() => props.onOpen(index)}>
+                <Marker key={index} 
+                        position={{ lat: item.lat, lng: item.lng }} 
+                        onClick={() => props.onOpen(index)}
+                        icon={iconObj}
+                        >
                 {props.isOpen.includes(index) && <InfoWindow onCloseClick={() => props.onClose(index)}>
                 <span>
                   {item.name.map((event,idx) => {
@@ -48,7 +61,6 @@ const ConcertSearchMap = compose(
                         attraction,
                         description
                       } = props.concerts[event];
-                      console.log(name,'here');
                       return (
                         <Link key={idx} to='/concert-about' onClick={() => {
                             const currentConcertObj = {
