@@ -91,7 +91,7 @@
     color: #1f4e74;
 }
 
-.youtube-channel-link:hover, .youtube-video-title:hover {
+.youtube-channel-link:hover {
     text-decoration: underline;
 }
 
