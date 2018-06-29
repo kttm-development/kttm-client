@@ -53,7 +53,7 @@ export class ConcertAboutPage extends React.Component {
                             progressClassName: 'fancy-progress-bar'
                         })
                     }}
-                >Email Contacts<i className="fas fa-address-book icon"></i></a>
+                >Email<i className="fas fa-address-book icon"></i></a>
             }
             else if (this.props.loggedIn && this.props.contacts[0] && this.props.contacts[0].email !== null) {
                 let emails = this.props.contacts.map(obj => obj.email)
