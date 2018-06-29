@@ -125,7 +125,7 @@ export class ConcertAboutPage extends React.Component {
                             <a href={this.props.url} target="_blank" className="button blue push_button">Buy Tickets<i className="fas fa-ticket-alt icon"></i></a>
                         </div>
                         <div className="col-4">
-                            <a href={airBNBLink} target="_blank" className="button blue push_button">Find Hotels<i className="fas fa-building icon"></i></a>
+                            <a href={airBNBLink} target="_blank" className="button blue push_button">Find AirBNB<i className="fas fa-building icon"></i></a>
 
                         </div>
                         <div className="col-4">
