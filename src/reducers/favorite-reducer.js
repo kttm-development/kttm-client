@@ -4,7 +4,19 @@ import {
 
 const initialState = {
     error:null,
-    favorites: [],
+    favorites: [{
+        name: null, 
+        image: null, 
+        city: null, 
+        state: null, 
+        id: null, 
+        date:null,
+        time: null,
+        venue: null,
+        url: null,
+        attraction: null,
+        description:null 
+    }],
 };
 
 export default function reducer(state=initialState, action) {
