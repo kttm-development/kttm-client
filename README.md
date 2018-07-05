@@ -33,7 +33,6 @@ CC is a password-protected site with certain protected endpoints so that user is
 
 ![cc-contact](https://user-images.githubusercontent.com/35779012/42348736-25d4c6c8-8070-11e8-802c-7669069bf516.png)
 
-
 ### Features:
   -Lookup concerts based on genre and location
   -Specific Concerts:

@@ -57,6 +57,10 @@ svg {
     color: #48A6F5;
 }
 
+#st-el-2 .st-btn {
+    color: #3d3d3d!important;
+}
+
 .spacer {
     flex: 1;
 }

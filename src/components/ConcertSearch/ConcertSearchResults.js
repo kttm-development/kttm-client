@@ -51,7 +51,7 @@ export class ConcertSearchResults extends React.Component {
       );
     }
 
-    if (this.props.empty === true) {
+    if (this.props.empty === true || this.props.concerts.length === 0) {
       return (
         <div className="col-8">
           <img alt="google map" className="google-map-img" src={googleMap}></img>
