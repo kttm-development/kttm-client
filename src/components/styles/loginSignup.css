@@ -66,6 +66,18 @@ input#password, input#username, input#firstName, input#lastName, input#passwordC
     font-size: 18px;
 }
 
+.demo-account {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid #3A3F44;
+  border-radius: 8px;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+}
+
 /* ===RESPONSIVE LAYOUT */
 
 @media only screen and (max-width: 850px) {
